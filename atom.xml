@@ -2,14 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2019-12-26T11:52:30.282Z</updated>
+    <updated>2020-01-01T06:06:44.451Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io//atom.xml"/>
     <subtitle>不积小流，无以成江海</subtitle>
     <logo>https://jokerzhang98.github.io//images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io//favicon.ico</icon>
-    <rights>All rights reserved 2019, Jerryのblog</rights>
+    <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[写在2020年初的话]]></title>
+        <id>https://jokerzhang98.github.io//post/MBTH2K9UZ</id>
+        <link href="https://jokerzhang98.github.io//post/MBTH2K9UZ">
+        </link>
+        <updated>2020-01-01T04:22:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>对2019年的总结及2020年的目标。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>对2019年的总结及2020年的目标。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[关于]]></title>
         <id>https://jokerzhang98.github.io//post/about</id>
