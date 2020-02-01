@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-01-01T06:06:44.451Z</updated>
+    <updated>2020-02-01T07:13:21.507Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io//atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://jokerzhang98.github.io//images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io//favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[蓝桥杯刷题系列：3N+1问题（相当坑🙃）]]></title>
+        <id>https://jokerzhang98.github.io//post/QD7nWTzkN</id>
+        <link href="https://jokerzhang98.github.io//post/QD7nWTzkN">
+        </link>
+        <updated>2020-02-01T04:02:52.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[写在2020年初的话]]></title>
         <id>https://jokerzhang98.github.io//post/MBTH2K9UZ</id>
