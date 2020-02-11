@@ -174,7 +174,7 @@
             <h2 class="fh5co-article-title animate-box">sort排序中出现的问题</h2>
             <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
                 <li>2020-02-06</li>
-                <li>81字</li>
+                <li>87字</li>
                 <li>1 min read</li>
             </ol>
 
@@ -183,11 +183,11 @@
                     <div class="col-md-12 animate-box post-content">
                         <p> <!-- more -->
 <p>最近在写一个程序的时候使用到了C++中的sort排序，编译时爆出了两个错误<br>
-[Error] 'greater' was not declared in this scope<br>
-[Error] expected primary-expression before 'int'<br>
+<code>[Error] 'greater' was not declared in this scope</code><br>
+<code>[Error] expected primary-expression before 'int'</code><br>
 反复观看了我的排序代码是正确的<br>
-sort(score,score + N, greater<int>());<br>
-解决方案，需要调用#include<functional>头文件即可解决</p>
+<code>sort(score,score + N, greater&lt;int&gt;());</code><br>
+解决方案，需要调用<code>#include&lt;functional&gt;</code>头文件即可解决</p>
  </p>
                     </div>
                 </div>
