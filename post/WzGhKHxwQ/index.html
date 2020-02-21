@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -149,146 +149,165 @@
 </header>
 
 
-<div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0 animate-box">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 text-center content-article">
+    <!-- 等gridea出自定义页面功能再优化一下 -->
+    
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/" class="tag">C语言, </a>
+                        
+                            <a href="https://jokerzhang98.github.io/tag/BftZwlALz/" class="tag">蓝桥杯, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">[蓝桥杯刷题]： 蛇行矩阵</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2020-02-21</li>
+                <li>332字</li>
+                <li>2 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <h1 id="题目">题目</h1>
+<h2 id="题目描述">题目描述</h2>
+<hr>
+<p>蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。</p>
+<hr>
+<h2 id="输入">输入</h2>
+<hr>
+<p>本题有多组数据，每组数据由一个正整数N组成。（N不大于100）</p>
+<hr>
+<h2 id="输出">输出</h2>
+<hr>
+<p>对于每一组数据，输出一个N行的蛇形矩阵。两组输出之间不要额外的空行。矩阵三角中同一行的数字用一个空格分开。行尾不要多余的空格。</p>
+<hr>
+<h2 id="样例输入">样例输入</h2>
+<hr>
+<p>5</p>
+<hr>
+<h2 id="样例输出">样例输出</h2>
+<hr>
+<p>1 3 6 10 15<br>
+2 5 9 14<br>
+4 8 13<br>
+7 12<br>
+11</p>
+<hr>
+<h1 id="解题">解题</h1>
+<h2 id="思路">思路</h2>
+<hr>
+<p>1、行递增规律：1---&gt; 3(1+2)---&gt;6(1+2+3)---&gt;10(1+2+3+4)<br>
+2、列递增规律：1---&gt;2(1+1)---&gt;4(1+1+2)---&gt;7(1+1+2+3)---&gt;(1+1+2+3+4)</p>
+<hr>
+<h2 id="参考代码">参考代码</h2>
+<hr>
+<pre><code>#include&lt;cstdio&gt;
+int main(){
+ int i,j,n,sum=0,s1=0,s;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i=1;i&lt;=n;i++){//确定输出行数
+            sum=s1;//正解中第一列的序列
+        //先使用sum，可以去掉第一个不和谐数字的计算
+      for(j=i;j&lt;=n;j++){//确定该行的输出个数
+            sum+=j;   //行递增规律
+            printf(&quot;%d&quot;,sum);
+            if(j!=n)
+                printf(&quot; &quot;);
+      }
+      s=i-1;//差值序列的递增序列
+      s1+=s; //与正确序列的差值序列
+      if(i!=n)
+        printf(&quot;\n&quot;);
+    }
+    return 0;
+} 
+</code></pre>
+ </p>
+                    </div>
+                </div>
 
                 <div class="row">
-
-                    
-                    <h2 class="text-center archives-title">
-                        <i class="fa fa-archive"></i> 文章归档
-                    </h2>
-
-                    
-                    <div class="row post-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-center post-year tag-title">
-                            <h3>2020</h3>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-left">
-                            <ul class="post-list">
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/5kfvP6be7/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：分糖果</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/h2rTjN_kt/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：IP判断</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/WzGhKHxwQ/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]： 蛇行矩阵</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/3UbfmS0Fs/" target="_blank">
-                                        <span class="post-title">sort排序中出现的问题</span>
-                                        <span class="post-day">2020-02-06</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/QD7nWTzkN/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：3N+1问题（相当坑🙃）</span>
-                                        <span class="post-day">2020-02-01</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/MBTH2K9UZ/" target="_blank">
-                                        <span class="post-title">写在2020年初的话</span>
-                                        <span class="post-day">2020-01-01</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                            
-                                
-                            
-                            </ul>
-                        </div>
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://jokerzhang98.github.io/post/3UbfmS0Fs/">
+                                    <h3 class="post-title">
+                                        sort排序中出现的问题
+                                    </h3>
+                                </a>
+                            </div>
+                        
                     </div>
-                    
-                    <div class="row post-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-center post-year tag-title">
-                            <h3>2019</h3>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-left">
-                            <ul class="post-list">
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/about/" target="_blank">
-                                        <span class="post-title">关于</span>
-                                        <span class="post-day">2019-12-26</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/hello-gridea/" target="_blank">
-                                        <span class="post-title">Hello World!</span>
-                                        <span class="post-day">2019-12-26</span>
-                                    </a>
-                                </li>
-                                
-                            
-                            </ul>
-                        </div>
-                    </div>
-                    
-
                 </div>
-            </div>
-        </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
     </div>
 </div>
 
+            </div>
 
+        </article>
+    </div>
+</div>
+
+    
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+    
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E9%A2%98%E7%9B%AE">题目</a>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5">输入</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA">输出</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5">样例输入</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA">样例输出</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A7%A3%E9%A2%98">解题</a>
+<ul>
+<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81">参考代码</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+    
 <footer id="fh5co-footer">
   <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://jokerzhang98.github.io//media/scripts/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://jokerzhang98.github.io//media/scripts/jquery.lazyload.min.js"></script>

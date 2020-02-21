@@ -35,7 +35,7 @@
 
 </head>
 <body>
-<div id="fh5co-offcanvas">
+    <div id="fh5co-offcanvas">
     <a href="#!" class="fh5co-close-offcanvas js-fh5co-close-offcanvas">
         <span><i class="icon-cross3"></i> <span>Close</span></span>
     </a>
@@ -149,146 +149,194 @@
 </header>
 
 
-<div class="container-fluid">
-    <div class="row fh5co-post-entry single-entry">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0 animate-box">
+    <!--  <a href="#" class="fh5co-post-prev"><span>👈 Prev</span></a>-->
+    <!--  <a href="#" class="fh5co-post-next"><span>Next 👉</span></a>-->
 
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-12 col-xs-offset-0 text-center content-article">
+    <!-- 等gridea出自定义页面功能再优化一下 -->
+    
+        <div class="container-fluid">
+    <div class="row fh5co-post-entry single-entry">
+        <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+            <figure class="animate-box">
+                
+            </figure>
+            <span class="fh5co-meta animate-box">
+                
+                    <div class="tag-container">
+                        
+                            <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/" class="tag">C语言, </a>
+                        
+                            <a href="https://jokerzhang98.github.io/tag/BftZwlALz/" class="tag">蓝桥杯, </a>
+                        
+                    </div>
+                
+            </span>
+            <h2 class="fh5co-article-title animate-box">[蓝桥杯刷题]：分糖果</h2>
+            <ol class="breadcrumb fh5co-meta fh5co-date animate-box" style="margin-bottom:0; background-color:#f8f9fa">
+                <li>2020-02-21</li>
+                <li>461字</li>
+                <li>2 min read</li>
+            </ol>
+
+            <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
+                <div class="row">
+                    <div class="col-md-12 animate-box post-content">
+                        <p> <h1 id="题目描述">题目描述</h1>
+<hr>
+<h2 id="问题描述">问题描述</h2>
+<p>有n个小朋友围坐成一圈。老师给每个小朋友随机发偶数个糖果，然后进行下面的游戏：</p>
+<p>每个小朋友都把自己的糖果分一半给左手边的孩子。</p>
+<p>一轮分糖后，拥有奇数颗糖的孩子由老师补给1个糖果，从而变成偶数。</p>
+<p>反复进行这个游戏，直到所有小朋友的糖果数都相同为止。</p>
+<p>你的任务是预测在已知的初始糖果情形下，老师一共需要补发多少个糖果。</p>
+<hr>
+<h2 id="输入">输入</h2>
+<p>程序首先读入一个整数N(2&lt; N&lt; 100)，表示小朋友的人数。<br>
+接着是一行用空格分开的N个偶数（每个偶数不大于1000，不小于2）</p>
+<hr>
+<h2 id="输出">输出</h2>
+<p>要求程序输出一个整数，表示老师需要补发的糖果数。</p>
+<hr>
+<h2 id="样例输入">样例输入</h2>
+<p>3<br>
+2  2  4</p>
+<hr>
+<h2 id="样例输出">样例输出</h2>
+<p>4</p>
+<h1 id="解题">解题</h1>
+<hr>
+<h2 id="解题思路">解题思路</h2>
+<p>1、首先先判断是否全部相等，相等就退出<br>
+2、因为刚开始每个人都拥有偶数个糖果，所以整体除2<br>
+3、利用一个临时的变量将全体数组加上前面的哪一位数<br>
+4、对开始的小朋友加上最后的<br>
+5、判断是否是偶数，如果是+1，计数器+1</p>
+<hr>
+<h2 id="参考代码">参考代码</h2>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std; 
+int kids[105];
+int cnt;
+int main(){
+	
+	int n;
+	cin &gt;&gt; n;
+	for(int i = 0; i &lt; n; i++){
+		cin &gt;&gt; kids[i];
+	}
+	
+	while(1){
+		bool flag = true;
+		for(int i = 0; i &lt; n; i++){
+			if(kids[0] != kids[i]){
+				flag = false;
+			}
+		} 
+		if(flag){
+			break;
+		}
+		
+		for(int i = 0; i &lt; n; i++){
+			kids[i] = kids[i] / 2;
+	
+		} 
+		
+		int temp = kids[n-1];
+		for(int i = n - 1; i &gt; 0; i--){
+			kids[i] += kids[i - 1];
+		} 
+		
+		kids[0] += temp;
+		
+		for(int i = 0; i &lt; n; i++){
+			if(kids[i] % 2 != 0){
+				kids[i]++;
+				cnt++; 
+			}
+		}
+		
+		
+	}
+	
+	
+	cout &lt;&lt; cnt &lt;&lt;endl;
+	
+	return 0;
+} 
+</code></pre>
+ </p>
+                    </div>
+                </div>
 
                 <div class="row">
-
-                    
-                    <h2 class="text-center archives-title">
-                        <i class="fa fa-archive"></i> 文章归档
-                    </h2>
-
-                    
-                    <div class="row post-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-center post-year tag-title">
-                            <h3>2020</h3>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-left">
-                            <ul class="post-list">
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/5kfvP6be7/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：分糖果</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/h2rTjN_kt/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：IP判断</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/WzGhKHxwQ/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]： 蛇行矩阵</span>
-                                        <span class="post-day">2020-02-21</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/3UbfmS0Fs/" target="_blank">
-                                        <span class="post-title">sort排序中出现的问题</span>
-                                        <span class="post-day">2020-02-06</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/QD7nWTzkN/" target="_blank">
-                                        <span class="post-title">[蓝桥杯刷题]：3N+1问题（相当坑🙃）</span>
-                                        <span class="post-day">2020-02-01</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/MBTH2K9UZ/" target="_blank">
-                                        <span class="post-title">写在2020年初的话</span>
-                                        <span class="post-day">2020-01-01</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                            
-                                
-                            
-                            </ul>
-                        </div>
+                    <div class="col-md-12 animate-box">
+                        
+                            <div class="next-post">
+                                <div class="next">下一篇</div>
+                                <a href="https://jokerzhang98.github.io/post/h2rTjN_kt/">
+                                    <h3 class="post-title">
+                                        [蓝桥杯刷题]：IP判断
+                                    </h3>
+                                </a>
+                            </div>
+                        
                     </div>
-                    
-                    <div class="row post-group">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-center post-year tag-title">
-                            <h3>2019</h3>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-0 text-left">
-                            <ul class="post-list">
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/about/" target="_blank">
-                                        <span class="post-title">关于</span>
-                                        <span class="post-day">2019-12-26</span>
-                                    </a>
-                                </li>
-                                
-                            
-                                
-                                <li class="post-item">
-                                    <a href="https://jokerzhang98.github.io/post/hello-gridea/" target="_blank">
-                                        <span class="post-title">Hello World!</span>
-                                        <span class="post-day">2019-12-26</span>
-                                    </a>
-                                </li>
-                                
-                            
-                            </ul>
-                        </div>
-                    </div>
-                    
-
                 </div>
-            </div>
-        </div>
+
+                <div class="row">
+    <div class="col-md-12 animate-box">
+        
     </div>
 </div>
 
+            </div>
 
+        </article>
+    </div>
+</div>
+
+    
+
+    <!-- 返回顶部 -->
+    <div class="back-to-top">
+    
+        <a href="#!" id="tool-toc" class="hidden-xs hidden-sm">
+            <i class="fa fa-map"></i>
+        </a>
+        <br>
+    
+    <a href="#top" class="hidden-xs hidden-sm"><i class="fa fa-paper-plane"></i></a>
+</div>
+
+<div class="post-toc animated fadeInRight hidden-xs hidden-sm" style="display: none;">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a>
+<ul>
+<li><a href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0">问题描述</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5">输入</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA">输出</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5">样例输入</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA">样例输出</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A7%A3%E9%A2%98">解题</a>
+<ul>
+<li><a href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF">解题思路</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81">参考代码</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+    
 <footer id="fh5co-footer">
   <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a></p>
 </footer>
 
 
-<!-- jQuery -->
+    <!-- jQuery -->
 <script src="https://jokerzhang98.github.io//media/scripts/jquery.min.js"></script>
 <!-- img lazy load -->
 <script src="https://jokerzhang98.github.io//media/scripts/jquery.lazyload.min.js"></script>
