@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerry</title>
-    <updated>2020-05-28T15:20:21.853Z</updated>
+    <updated>2020-05-28T15:22:09.583Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -53,14 +53,7 @@
         <updated>2020-02-21T08:59:02.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[sort排序中出现的问题]]></title>
-        <id>https://jokerzhang98.github.io/post/3UbfmS0Fs/</id>
-        <link href="https://jokerzhang98.github.io/post/3UbfmS0Fs/">
-        </link>
-        <updated>2020-02-06T09:15:52.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[蓝桥杯刷题]：3N+1问题（相当坑🙃）]]></title>
+        <title type="html"><![CDATA[[蓝桥杯刷题]：3N+1问题]]></title>
         <id>https://jokerzhang98.github.io/post/QD7nWTzkN/</id>
         <link href="https://jokerzhang98.github.io/post/QD7nWTzkN/">
         </link>
@@ -83,5 +76,12 @@
         <link href="https://jokerzhang98.github.io/post/about/">
         </link>
         <updated>2019-12-26T05:09:12.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello World!]]></title>
+        <id>https://jokerzhang98.github.io/post/hello-gridea/</id>
+        <link href="https://jokerzhang98.github.io/post/hello-gridea/">
+        </link>
+        <updated>2019-12-26T01:13:48.000Z</updated>
     </entry>
 </feed>
