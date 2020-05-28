@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
-    <title>Jerryのblog</title>
-    <updated>2020-05-28T10:34:59.201Z</updated>
+    <title>Jerry</title>
+    <updated>2020-05-28T15:14:17.557Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
     <subtitle>不积小流，无以成江海</subtitle>
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Jerryのblog</rights>
+    <rights>All rights reserved 2020, Jerry</rights>
     <entry>
         <title type="html"><![CDATA[Mysql数据库的异常]]></title>
         <id>https://jokerzhang98.github.io/post/PdW_gnNhk/</id>

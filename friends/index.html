@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Jerryのblog">
+<meta name="description" content="不积小流，无以成江海">
+<meta name="theme-color" content="#000">
+<title>Jerry</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1590678833273">
+<link rel="stylesheet" href="/media/css/pisces.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/github.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ["\\(", "\\)"]],
+      displayMath: [['$$', '$$'], ["\\[", "\\]"]]
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'a', 'annotation', 'annotation-xml'],
+      ignoreHtmlClass: 'tex2jax_ignore|crayon-.*', // 'crayon-' 开头的类，属于Wordpress代码高亮库，这部分不需要处理，否则会导致显示不正确,这部分是正则式，多条之间用'|'分割
+      processHtmlClass: 'tex2jax_process'
+    },
+    //禁用右键菜单	
+    renderActions: {
+      addMenu: [0, '', '']
+    }
+  };
+</script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="pisces">
+  <header class="header  ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="brand">
+              <span>Jerry</span>
+            </a>  
+          
+        </div>
+        
+          <p class="subtitle">不积小流，无以成江海</p>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-home"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives/" target="_self">
+                  <i class="fa fa-archive"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags/" target="_self">
+                  <i class="fa fa-tags"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about/" target="_self">
+                  <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+            
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/gallery/" target="_self">
+                  <i class="fa fa-globe"></i> 图廊
+                </a>
+              
+            </li>
+          
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout pisces ">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">Jerry</p>
+    
+    <div class="site-description right-motion">
+      
+      
+      
+        <p>一只憨憨程序猿</p>
+      
+      
+    </div>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">11</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-name language" data-lan="category">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">5</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+  
+  
+
+  
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'pisces';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box pisces box-shadow-wrapper">
+          <section class="friends-section bg-color slide-down-in">
+            <div class="firends-box">
+              <h1 class="firends-title" itemprop="name headline">友情链接</h1>
+              
+              
+              
+            </div>
+            <hr>
+            <div style="text-align:center">
+              <span class="with-love">
+                <i class="fa fa-heart"></i>
+              </span>
+              <span class="language" data-lan="leave-message">留言添加友链</span>
+              <span class="with-love">
+                <i class="fa fa-heart"></i>
+              </span>
+            </div>
+            <hr>
+            <div class="friends-note">
+              <p><strong class="language" data-lan="format">友链格式：</strong></p>
+              <ul>
+                <li><span class="language" data-lan="site-name">网站名称：</span>Jerry</li>
+                <li><span class="language" data-lan="site-link">网站地址：</span><a href="https://jokerzhang98.github.io/" data-pjax-state="">https://jokerzhang98.github.io/</a></li>
+                <li><span class="language" data-lan="site-desc">网站描述：</span>不积小流，无以成江海</li>
+                <li><span class="language" data-lan="site-img">网站头像：</span>
+                  <a href="https://jokerzhang98.github.io//images/avatar.png">https://jokerzhang98.github.io//images/avatar.png</a>
+                </li>
+              </ul>
+            </div>
+            
+  
+
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By <a
+        href="https://github.com/hsxyhao/gridea-theme-next" target="_blank">HsxyHao</a>
+    </div>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+  
+  <div class="pisces back-to-top" id="back_to_top">
+    <i class="fa fa-arrow-up"></i>
+    
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
+  </div>
+  
+  
+  
+  <div class="bg-img">
+    <img src="/media/images/1.jpg" />
+  </div>
+  
+  
+  
+  
+</div>
+<script>
+
+  let sideBarOpen = 'sidebar-open';
+  let body = document.body;
+  let back2Top = document.querySelector('#back_to_top'),
+    back2TopText = document.querySelector('#back_to_top_text'),
+    drawerBox = document.querySelector('#drawer_box'),
+    rightSideBar = document.querySelector('.sidebar'),
+    viewport = document.querySelector('body');
+
+  function scrollAnimation(currentY, targetY) {
+
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener('scroll', function (e) {
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+
+  let hasCacu = false;
+  window.onresize = function () {
+    calcuHeight();
+  }
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
+      let sideBar = document.querySelector('.sidebar');
+      let navUl = document.querySelector('#site_nav');
+      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      window.Velocity(rightSideBar, 'stop');
+      window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
+      if (open) {
+        window.Velocity(rightSideBar, {
+          width: RIGHT_MOVE_DIS
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, transitionDir, {});
+          }
+        })
+        window.Velocity(viewport, openProp, {
+          duration: MOTION_TIME
+        });
+      } else {
+        window.Velocity(rightSideBar, {
+          width: '0px'
+        }, {
+          duration: MOTION_TIME,
+          begin: function () {
+            window.Velocity(rightMotions, {
+              opacity: 0
+            });
+          }
+        })
+        window.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle('muse-line');
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    }
+  }
+
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target", "_blank");
+      }
+    })
+  }
+
+  let faSearch = document.querySelector('#fa_search');
+  faSearch.addEventListener('click', function () {
+    document.querySelector('#search_mask').style = ''
+  })
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+  
+  // 离开当前页title变化
+  var leaveTitle = '';
+  if (leaveTitle) {
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+
+</script>
+  </div>
+</body>
+
+  <div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/PdW_gnNhk/"" data-c="
+          &lt;p&gt;好久没有用数据库了，今天因为学习上需要使用，登录发现服务未打开，去服务中找了一下，我的数据库服务呢？？？丢了？？？&lt;br&gt;
+在百度后发现需要把服务安装一下。&lt;br&gt;
+1、cmd进入dos窗口找到自己的mysql装入的位置，进入到bin文件夹下面。我的路径：C:\Program Files (x86)\MySQL\MySQL Server 5.5\bin。&lt;br&gt;
+2、输入mysqld -instatll命令，如果显示Service successfully installed就安装成功，（注：需要以管理员身份运行）。&lt;br&gt;
+3、net start mysql 启动服务。&lt;br&gt;
+成功解决。&lt;/p&gt;
+">Mysql数据库的异常</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/MP0NovL9c/"" data-c="
+          &lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;如下的10行数据，每行有10个整数，请你求出它们的乘积的末尾有多少个零？&lt;br&gt;
+5650 4542 3554 473 946 4114 3871 9073 90 4329&lt;br&gt;
+2758 7949 6113 5659 5245 7432 3051 4434 6704 3594&lt;br&gt;
+9937 1173 6866 3397 4759 7557 3070 2287 1453 9899&lt;br&gt;
+1486 5722 3135 1170 4014 5510 5120 729 2880 9019&lt;br&gt;
+2049 698 4582 4346 4427 646 9742 7340 1230 7683&lt;br&gt;
+5693 7015 6887 7381 4172 4341 2909 2027 7355 5649&lt;br&gt;
+6701 6645 1671 5978 2704 9926 295 3125 3878 6785&lt;br&gt;
+2066 4247 4800 1578 6652 4616 1113 6205 3264 2915&lt;br&gt;
+3966 5291 2904 1285 2193 1428 2265 8730 9436 7074&lt;br&gt;
+689 5510 8243 6114 337 4096 8199 7313 3685 211&lt;/p&gt;
+&lt;p&gt;注意：需要提交的是一个整数，表示末尾零的个数。不要填写任何多余内容。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;解题思路&#34;&gt;解题思路&lt;/h1&gt;
+&lt;p&gt;1、就是把这些数相乘，每次的乘积去掉末尾的0并记住，这样有一个问题，乘积太大long long 放不下，解决很简单，每次只留乘积后四位并不影响后面的计算&lt;br&gt;
+2、正解：每个10必定是2*5得来的，所以对100个数进行遍历，找出有多少个2和多少个5，然后输出小的那个就可以了。&lt;/p&gt;
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+&lt;h2 id=&#34;解法一代码&#34;&gt;解法一代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-C++&#34;&gt;#include&amp;lt;iostream&amp;gt;
+using namespace std;
+int main(){
+	
+	long long  sum = 1, n, cnt = 0;
+	
+	for(int i = 0; i &amp;lt; 100; i++){
+		cin &amp;gt;&amp;gt; n;
+		sum *= n;
+		while(sum % 10 == 0){
+			sum /= 10;
+			cnt++; 
+		}
+		
+		sum %= 10000;
+		
+	}
+	
+	cout &amp;lt;&amp;lt; cnt &amp;lt;&amp;lt; endl;
+	
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;解法二代码&#34;&gt;解法二代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;algorithm&amp;gt;
+using namespace std;
+int main(){
+	
+	int c2 = 0, c5 = 0, n;
+	
+	for(int i = 0; i &amp;lt; 100; i++){
+		cin &amp;gt;&amp;gt; n;
+		
+		while(n % 5 == 0){
+			n /= 5;
+			c5++;
+		}
+		while(n % 2 == 0){
+			n /= 2;
+			c2++;
+		}
+	}
+	
+	cout &amp;lt;&amp;lt; min(c2, c5) &amp;lt;&amp;lt; endl;
+	
+	
+	
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;答案：31&lt;/p&gt;
+&lt;/blockquote&gt;
+">[蓝桥杯刷题]：乘积尾零</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/SDdU2ASoH/"" data-c="
+          &lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;字的字形存在于字库中，即便在今天，16点阵的字库也仍然使用广泛。&lt;br&gt;
+16点阵的字库把每个汉字看成是16x16个像素信息。并把这些信息记录在字节中。&lt;br&gt;
+一个字节可以存储8位信息，用32个字节就可以存一个汉字的字形了。&lt;br&gt;
+把每个字节转为2进制表示，1表示墨迹，0表示底色。每行2个字节，&lt;br&gt;
+一共16行，布局是：&lt;/p&gt;
+&lt;p&gt;第1字节，第2字节&lt;br&gt;
+第3字节，第4字节&lt;br&gt;
+....&lt;br&gt;
+第31字节, 第32字节&lt;br&gt;
+1&lt;br&gt;
+2&lt;br&gt;
+3&lt;br&gt;
+4&lt;br&gt;
+这道题目是给你一段多个汉字组成的信息，每个汉字用32个字节表示，这里给出了字节作为有符号整数的值。&lt;br&gt;
+题目的要求隐藏在这些信息中。你的任务是复原这些汉字的字形，从中看出题目的要求，并根据要求填写答案。&lt;br&gt;
+这段信息是（一共10个汉字）：&lt;br&gt;
+4 0 4 0 4 0 4 32 -1 -16 4 32 4 32 4 32 4 32 4 32 8 32 8 32 16 34 16 34 32 30 -64 0&lt;br&gt;
+16 64 16 64 34 68 127 126 66 -124 67 4 66 4 66 -124 126 100 66 36 66 4 66 4 66 4 126 4 66 40 0 16&lt;br&gt;
+4 0 4 0 4 0 4 32 -1 -16 4 32 4 32 4 32 4 32 4 32 8 32 8 32 16 34 16 34 32 30 -64 0&lt;br&gt;
+0 -128 64 -128 48 -128 17 8 1 -4 2 8 8 80 16 64 32 64 -32 64 32 -96 32 -96 33 16 34 8 36 14 40 4&lt;br&gt;
+4 0 3 0 1 0 0 4 -1 -2 4 0 4 16 7 -8 4 16 4 16 4 16 8 16 8 16 16 16 32 -96 64 64&lt;br&gt;
+16 64 20 72 62 -4 73 32 5 16 1 0 63 -8 1 0 -1 -2 0 64 0 80 63 -8 8 64 4 64 1 64 0 -128&lt;br&gt;
+0 16 63 -8 1 0 1 0 1 0 1 4 -1 -2 1 0 1 0 1 0 1 0 1 0 1 0 1 0 5 0 2 0&lt;br&gt;
+2 0 2 0 7 -16 8 32 24 64 37 -128 2 -128 12 -128 113 -4 2 8 12 16 18 32 33 -64 1 0 14 0 112 0&lt;br&gt;
+1 0 1 0 1 0 9 32 9 16 17 12 17 4 33 16 65 16 1 32 1 64 0 -128 1 0 2 0 12 0 112 0&lt;br&gt;
+0 0 0 0 7 -16 24 24 48 12 56 12 0 56 0 -32 0 -64 0 -128 0 0 0 0 1 -128 3 -64 1 -128 0 0&lt;/p&gt;
+&lt;p&gt;注意：需要提交的是一个整数，不要填写任何多余内容。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;解题思路&#34;&gt;解题思路&lt;/h1&gt;
+&lt;p&gt;这个是第九届蓝桥杯的第二题，题目大概意思就是把这些数字转化为二进制然后每行显示2个字节，问题就在这时0和1里面&lt;br&gt;
+这道题使用了bitset&amp;lt;&amp;gt;函数，这个函数简单理解就是输入一个数转化成他的二进制形式&lt;/p&gt;
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;iostream&amp;gt;
+#include&amp;lt;bitset&amp;gt;
+using namespace std;
+int main(){
+	
+	int n, m;
+	while(cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; m){
+		bitset&amp;lt;8&amp;gt; t;
+		t = n;
+		cout &amp;lt;&amp;lt; t ;
+		t = m;
+		cout &amp;lt;&amp;lt; t &amp;lt;&amp;lt; endl; 
+	}
+	
+	return 0;
+} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;题目显示出来是九的九次方是多少&lt;br&gt;
+答案: 387420489&lt;/p&gt;
+&lt;/blockquote&gt;
+">[蓝桥杯刷题]：明码</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/5kfvP6be7/"" data-c="
+          &lt;h1 id=&#34;题目描述&#34;&gt;题目描述&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
+&lt;p&gt;有n个小朋友围坐成一圈。老师给每个小朋友随机发偶数个糖果，然后进行下面的游戏：&lt;/p&gt;
+&lt;p&gt;每个小朋友都把自己的糖果分一半给左手边的孩子。&lt;/p&gt;
+&lt;p&gt;一轮分糖后，拥有奇数颗糖的孩子由老师补给1个糖果，从而变成偶数。&lt;/p&gt;
+&lt;p&gt;反复进行这个游戏，直到所有小朋友的糖果数都相同为止。&lt;/p&gt;
+&lt;p&gt;你的任务是预测在已知的初始糖果情形下，老师一共需要补发多少个糖果。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输入&#34;&gt;输入&lt;/h2&gt;
+&lt;p&gt;程序首先读入一个整数N(2&amp;lt; N&amp;lt; 100)，表示小朋友的人数。&lt;br&gt;
+接着是一行用空格分开的N个偶数（每个偶数不大于1000，不小于2）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输出&#34;&gt;输出&lt;/h2&gt;
+&lt;p&gt;要求程序输出一个整数，表示老师需要补发的糖果数。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输入&#34;&gt;样例输入&lt;/h2&gt;
+&lt;p&gt;3&lt;br&gt;
+2  2  4&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输出&#34;&gt;样例输出&lt;/h2&gt;
+&lt;p&gt;4&lt;/p&gt;
+&lt;h1 id=&#34;解题&#34;&gt;解题&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;解题思路&#34;&gt;解题思路&lt;/h2&gt;
+&lt;p&gt;1、首先先判断是否全部相等，相等就退出&lt;br&gt;
+2、因为刚开始每个人都拥有偶数个糖果，所以整体除2&lt;br&gt;
+3、利用一个临时的变量将全体数组加上前面的哪一位数&lt;br&gt;
+4、对开始的小朋友加上最后的&lt;br&gt;
+5、判断是否是偶数，如果是+1，计数器+1&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;参考代码&#34;&gt;参考代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;bits/stdc++.h&amp;gt;
+using namespace std; 
+int kids[105];
+int cnt;
+int main(){
+	
+	int n;
+	cin &amp;gt;&amp;gt; n;
+	for(int i = 0; i &amp;lt; n; i++){
+		cin &amp;gt;&amp;gt; kids[i];
+	}
+	
+	while(1){
+		bool flag = true;
+		for(int i = 0; i &amp;lt; n; i++){
+			if(kids[0] != kids[i]){
+				flag = false;
+			}
+		} 
+		if(flag){
+			break;
+		}
+		
+		for(int i = 0; i &amp;lt; n; i++){
+			kids[i] = kids[i] / 2;
+	
+		} 
+		
+		int temp = kids[n-1];
+		for(int i = n - 1; i &amp;gt; 0; i--){
+			kids[i] += kids[i - 1];
+		} 
+		
+		kids[0] += temp;
+		
+		for(int i = 0; i &amp;lt; n; i++){
+			if(kids[i] % 2 != 0){
+				kids[i]++;
+				cnt++; 
+			}
+		}
+		
+		
+	}
+	
+	
+	cout &amp;lt;&amp;lt; cnt &amp;lt;&amp;lt;endl;
+	
+	return 0;
+} 
+&lt;/code&gt;&lt;/pre&gt;
+">[蓝桥杯刷题]：分糖果</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/h2rTjN_kt/"" data-c="
+          &lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;在基于Internet的程序中，我们常常需要判断一个IP字符串的合法性。&lt;br&gt;
+合法的IP是这样的形式：&lt;br&gt;
+A.B.C.D&lt;br&gt;
+其中A、B、C、D均为位于[0, 255]中的整数。为了简单起见，我们规定这四个整数中不允许有前导零存在，如001这种情况。&lt;br&gt;
+现在，请你来完成这个判断程序吧&lt;sup&gt;_&lt;/sup&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输入&#34;&gt;输入&lt;/h2&gt;
+&lt;p&gt;输入由多行组成，每行是一个字符串，输入由“End of file”结束。&lt;br&gt;
+字符串长度最大为30，且不含空格和不可见字符&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输出&#34;&gt;输出&lt;/h2&gt;
+&lt;p&gt;对于每一个输入，单独输出一行&lt;br&gt;
+如果该字符串是合法的IP，输出Y，否则，输出N&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输入&#34;&gt;样例输入&lt;/h2&gt;
+&lt;p&gt;1.2.3.4&lt;br&gt;
+a.b.c.d&lt;br&gt;
+267.43.64.12&lt;br&gt;
+12.34.56.bb&lt;br&gt;
+210.43.64.129&lt;br&gt;
+-123.4.5.6&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输出&#34;&gt;样例输出&lt;/h2&gt;
+&lt;p&gt;Y&lt;br&gt;
+N&lt;br&gt;
+N&lt;br&gt;
+N&lt;br&gt;
+Y&lt;br&gt;
+N&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;解题&#34;&gt;解题&lt;/h1&gt;
+&lt;h2 id=&#34;思路&#34;&gt;思路：&lt;/h2&gt;
+&lt;p&gt;这道题难点在如何以点把一串ip地址分隔成四段，如果用char类型判断时需要在转换为int，很麻烦，所以引入了sscanf()。&lt;br&gt;
+关于&lt;a href=&#34;fhttps://blog.csdn.net/qq_695538007/article/details/11999471?depth_1.utm_source=distribute.pc_relevant.none-task&amp;amp;utm_source=distribute.pc_relevant.none-task&#34;&gt;sscanf()&lt;/a&gt;可以看这篇文章。&lt;/p&gt;
+&lt;h2 id=&#34;参考代码&#34;&gt;参考代码&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;cstring&amp;gt;
+#include&amp;lt;stdlib.h&amp;gt;
+bool judge(int a){
+	if(a &amp;gt;= 0 &amp;amp;&amp;amp; a &amp;lt;= 255){
+		return true;
+	}
+	return false;
+} 
+int main(){
+	
+	char st[16];
+	int a, b, c, d;
+	
+	while(scanf(&amp;quot;%s&amp;quot;, &amp;amp;st) != EOF){
+		if(sscanf(st,&amp;quot;%d.%d.%d.%d&amp;quot;,&amp;amp;a, &amp;amp;b, &amp;amp;c, &amp;amp;d) == 4){
+			if(judge(a) &amp;amp;&amp;amp; judge(b) &amp;amp;&amp;amp; judge(c) &amp;amp;&amp;amp; judge(d)){
+				printf(&amp;quot;Y\n&amp;quot;);
+			}else{
+				printf(&amp;quot;N\n&amp;quot;);
+			}
+			
+		}else{
+			printf(&amp;quot;N\n&amp;quot;);
+		}
+	}
+	
+	
+	
+	return 0;
+} 
+&lt;/code&gt;&lt;/pre&gt;
+">[蓝桥杯刷题]：IP判断</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/WzGhKHxwQ/"" data-c="
+          &lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输入&#34;&gt;输入&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;本题有多组数据，每组数据由一个正整数N组成。（N不大于100）&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;输出&#34;&gt;输出&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;对于每一组数据，输出一个N行的蛇形矩阵。两组输出之间不要额外的空行。矩阵三角中同一行的数字用一个空格分开。行尾不要多余的空格。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输入&#34;&gt;样例输入&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;5&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;样例输出&#34;&gt;样例输出&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;1 3 6 10 15&lt;br&gt;
+2 5 9 14&lt;br&gt;
+4 8 13&lt;br&gt;
+7 12&lt;br&gt;
+11&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;解题&#34;&gt;解题&lt;/h1&gt;
+&lt;h2 id=&#34;思路&#34;&gt;思路&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;1、行递增规律：1---&amp;gt; 3(1+2)---&amp;gt;6(1+2+3)---&amp;gt;10(1+2+3+4)&lt;br&gt;
+2、列递增规律：1---&amp;gt;2(1+1)---&amp;gt;4(1+1+2)---&amp;gt;7(1+1+2+3)---&amp;gt;(1+1+2+3+4)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;参考代码&#34;&gt;参考代码&lt;/h2&gt;
+&lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;cstdio&amp;gt;
+int main(){
+ int i,j,n,sum=0,s1=0,s;
+    scanf(&amp;quot;%d&amp;quot;,&amp;amp;n);
+    for(i=1;i&amp;lt;=n;i++){//确定输出行数
+            sum=s1;//正解中第一列的序列
+        //先使用sum，可以去掉第一个不和谐数字的计算
+      for(j=i;j&amp;lt;=n;j++){//确定该行的输出个数
+            sum+=j;   //行递增规律
+            printf(&amp;quot;%d&amp;quot;,sum);
+            if(j!=n)
+                printf(&amp;quot; &amp;quot;);
+      }
+      s=i-1;//差值序列的递增序列
+      s1+=s; //与正确序列的差值序列
+      if(i!=n)
+        printf(&amp;quot;\n&amp;quot;);
+    }
+    return 0;
+} 
+&lt;/code&gt;&lt;/pre&gt;
+">[蓝桥杯刷题]： 蛇行矩阵</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/3UbfmS0Fs/"" data-c="
+          &lt;!-- more --&gt;
+&lt;p&gt;最近在写一个程序的时候使用到了C++中的sort排序，编译时爆出了两个错误&lt;br&gt;
+&lt;code&gt;[Error] &#39;greater&#39; was not declared in this scope&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;[Error] expected primary-expression before &#39;int&#39;&lt;/code&gt;&lt;br&gt;
+反复观看了我的排序代码是正确的&lt;br&gt;
+&lt;code&gt;sort(score,score + N, greater&amp;lt;int&amp;gt;());&lt;/code&gt;&lt;br&gt;
+解决方案，需要调用&lt;code&gt;#include&amp;lt;functional&amp;gt;&lt;/code&gt;头文件即可解决&lt;/p&gt;
+">sort排序中出现的问题</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/QD7nWTzkN/"" data-c="
+          &lt;h1 id=&#34;起因&#34;&gt;起因&lt;/h1&gt;
+&lt;p&gt;因为在学校的选拔赛上成功上岸，所以白嫖了学校300块的报名费，为了不辜负这300块，决定在假期里提升一下，好好刷题，之所以拖到现在是因为之前是在是懒啊😏。在家是在蹲不住了，开始刷题把！&lt;/p&gt;
+&lt;h1 id=&#34;题目&#34;&gt;题目&lt;/h1&gt;
+&lt;h2 id=&#34;题目描述&#34;&gt;题目描述：&lt;/h2&gt;
+&lt;p&gt;Consider the following algorithm to generate a sequence of numbers. Start with an integer n. If n is even, divide by 2. If n is odd, multiply by 3 and add 1. Repeat this process with the new value of n, terminating when n = 1. For example, the following sequence of numbers will be generated for n = 22: 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1 It is conjectured (but not yet proven) that this algorithm will terminate at n = 1 for every integer n. Still, the conjecture holds for all integers up to at least 1, 000, 000. For an input n, the cycle-length of n is the number of numbers generated up to and including the 1. In the example above, the cycle length of 22 is 16. Given any two numbers i and j, you are to determine the maximum cycle length over all numbers between i and j, including both endpoints.&lt;/p&gt;
+&lt;h2 id=&#34;输入&#34;&gt;输入：&lt;/h2&gt;
+&lt;p&gt;The input will consist of a series of pairs of integers i and j, one pair of integers per line. All integers will be less than 1,000,000 and greater than 0.&lt;/p&gt;
+&lt;h2 id=&#34;输出&#34;&gt;输出&lt;/h2&gt;
+&lt;p&gt;For each pair of input integers i and j, output i, j in the same order in which they appeared in the input and then the maximum cycle length for integers between and including i and j. These three numbers should be separated by one space, with all three numbers on one line and with one line of output for each line of input.&lt;/p&gt;
+&lt;h2 id=&#34;样例输入&#34;&gt;样例输入&lt;/h2&gt;
+&lt;p&gt;1 10&lt;br&gt;
+100 200&lt;br&gt;
+201 210&lt;br&gt;
+900 1000&lt;/p&gt;
+&lt;h2 id=&#34;样例输出&#34;&gt;样例输出&lt;/h2&gt;
+&lt;p&gt;1 10 20&lt;br&gt;
+100 200 125&lt;br&gt;
+201 210 89&lt;br&gt;
+900 1000 174&lt;/p&gt;
+&lt;h1 id=&#34;解题思路&#34;&gt;解题思路&lt;/h1&gt;
+&lt;p&gt;只要能看懂英文，这个题目一看很简单，就是输入一个范围内的数，如果是偶数，就让他除2，是奇数就让他乘3减1，直到变为1为止，然后要求你输入两个数，输出这两个数及在他们中间变换次数最多的次数。&lt;br&gt;
+没多少技巧，直接暴力，循环遍历区间，记录下每个数需要多少次，找出最大的。&lt;br&gt;
+坑在两个地方：&lt;br&gt;
+1、他没有说输入的顺序是按照大小输入的，所以输入后还需要判断。&lt;br&gt;
+2、在奇数哪里，乘以3要考虑到是否超过int类型的最大值。&lt;br&gt;
+就因为这两点，我卡了2小时，我吐了。&lt;/p&gt;
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+&lt;pre&gt;&lt;code&gt;#include&amp;lt;cstdio&amp;gt;
+#include&amp;lt;iostream&amp;gt;
+using namespace std;
+int length(int m){
+    long long num=m; 
+    int count=1;
+    while(num != 1){
+        if(num % 2 == 0){
+            num /= 2;
+        }else{
+            num = num * 3 + 1;
+        }
+        count++;
+    }
+    return count;
+}
+
+
+int main(){
+    int start,end,max;
+    
+    while(cin &amp;gt;&amp;gt; start &amp;gt;&amp;gt; end){
+    cout &amp;lt;&amp;lt; start &amp;lt;&amp;lt; &amp;quot; &amp;quot; &amp;lt;&amp;lt; end &amp;lt;&amp;lt; &amp;quot; &amp;quot;; 
+    //比较，交换 
+    int temp;
+    if(start &amp;gt; end){
+        temp = start;
+        start = end;
+        end = temp;
+    }		
+    max=0; 
+    for(int i = start; i &amp;lt;= end; i++){
+        if(length(i) &amp;gt; max)
+        max = length(i);
+    }	
+        cout &amp;lt;&amp;lt; max &amp;lt;&amp;lt; endl;
+
+        
+    }
+    
+    
+    return 0;
+} 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+&lt;p&gt;对于算法题目还是应该在多一分认真和细心，考虑的应该在周全一点。&lt;/p&gt;
+">[蓝桥杯刷题]：3N+1问题（相当坑🙃）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/MBTH2K9UZ/"" data-c="
+          &lt;p&gt;对2019年的总结及2020年的目标。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;对2019年的总结&#34;&gt;对2019年的总结&lt;/h1&gt;
+&lt;p&gt;1、1~3月份复习考专升本，那段时间很孤独，也很累，早上起来要坐一个多小时的车去上课，而且早上和下午的公交好挤啊（所幸所有的努力都是看的到的，最后结果出来也是不负所期）。&lt;br&gt;
+2、4~9月份，去了一个公司实习，遇到了一群有趣的四川人，人生中第一次吃火锅是纯红锅（吃完拉肚子拉了2天，也明白了四川的肛肠医院怎么那么多😂）。&lt;br&gt;
+3、9~12月份，到了新的学校报到，认识了一群的人，感受到了专科和本科的的学习差距，思想得到了升华。&lt;br&gt;
+4、总结：2019年，有喜悦，有成功，有感动，有惋惜。2019，再见。&lt;/p&gt;
+&lt;h1 id=&#34;2020年心愿清单&#34;&gt;2020年心愿清单&lt;/h1&gt;
+&lt;p&gt;1、希望爷爷身体好起来，家里人都身体健康。&lt;br&gt;
+2、蓝桥杯争取省二，冲击省一。&lt;br&gt;
+3、深度学习java。&lt;br&gt;
+4、学习完python。&lt;br&gt;
+5、秋招可以找一个好的工作。&lt;br&gt;
+6、想要去海边走一走，&lt;br&gt;
+7、换手机（暂时还不知道换什么）。&lt;br&gt;
+总结：2020年。冲！。&lt;/p&gt;
+">写在2020年初的话</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/gallery/"" data-c="
+          &lt;h3&gt;关于图廊&lt;/h3&gt;
+我在平时会收集一些好看的画作和一些个人拍摄的作品&lt;br/&gt;
+图片资源都来源于网络，仅供欣赏交流，如有侵权，可连写博主About界面邮箱，立即删除&lt;br/&gt;
+&lt;!-- more --&gt;
+">Gallery</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🙃&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;奋斗不是让你上刀山下火海闻鸡起舞头悬梁锥刺股。奋斗只是每天踏踏实实的过日子，做好手里的每件小事，不拖拉不抱怨不推卸不偷懒。每一天一点一滴的努力，引领你到你想要到的地方去，带着你去完成你的梦想。相信自己终究会走向成功，闪现光芒！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于我&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;末流本科在读大三狗&lt;/li&gt;
+&lt;li&gt;喜欢打游戏，看书&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;联系我&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;邮箱：jokerzhang98@163.com&lt;/li&gt;
+&lt;li&gt;QQ:2507363909&lt;/li&gt;
+&lt;/ul&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/hello-gridea/"" data-c="
+          &lt;p&gt;不积小流，无以成江海。&lt;/p&gt;
+">Hello World!</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+  //拿来主义(真香)^_^，Clipboard 实现摘自掘金 https://juejin.im/post/5aefeb6e6fb9a07aa43c20af
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        console.log('复制操作频率过高');
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script>
+  var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 200
+  });
+</script>
+
+
+
+
+</html>
