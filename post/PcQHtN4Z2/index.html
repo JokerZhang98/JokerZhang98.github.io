@@ -8,7 +8,7 @@
 <meta name="keywords" content="Jerryのblog">
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
-<title>[蓝桥杯刷题]：乘积尾零 | Jerryのblog</title>
+<title>java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required | Jerryのblog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1606207021192">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -52,8 +52,8 @@
 
 
 
-  <meta name="description" content="[蓝桥杯刷题]：乘积尾零" />
-  <meta name="keywords" content="C语言,蓝桥杯" />
+  <meta name="description" content="java.lang.IllegalArgumentException: Property 'dataSource' is required" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -186,8 +186,7 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -233,198 +232,6 @@
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#%E9%A2%98%E7%9B%AE">题目</a></li>
-<li><a href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF">解题思路</a></li>
-<li><a href="#%E4%BB%A3%E7%A0%81">代码</a>
-<ul>
-<li><a href="#%E8%A7%A3%E6%B3%95%E4%B8%80%E4%BB%A3%E7%A0%81">解法一代码</a></li>
-<li><a href="#%E8%A7%A3%E6%B3%95%E4%BA%8C%E4%BB%A3%E7%A0%81">解法二代码</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -512,8 +319,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://jokerzhang98.github.io/post/MP0NovL9c/">
-      [蓝桥杯刷题]：乘积尾零
+    <a class="post-title-link" href="https://jokerzhang98.github.io/post/PcQHtN4Z2/">
+      java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required
     </a>
   </h1>
   <div class="post-meta">
@@ -521,116 +328,35 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-02-23</span>
+      <span>2020-09-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/">
-        <span>C语言</span>
-      </a>、
-      
-      
-      
-      <a href="https://jokerzhang98.github.io/tag/BftZwlALz/">
-        <span>蓝桥杯</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>1<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>394<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>121<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h1 id="题目">题目</h1>
-<hr>
-<p>如下的10行数据，每行有10个整数，请你求出它们的乘积的末尾有多少个零？<br>
-5650 4542 3554 473 946 4114 3871 9073 90 4329<br>
-2758 7949 6113 5659 5245 7432 3051 4434 6704 3594<br>
-9937 1173 6866 3397 4759 7557 3070 2287 1453 9899<br>
-1486 5722 3135 1170 4014 5510 5120 729 2880 9019<br>
-2049 698 4582 4346 4427 646 9742 7340 1230 7683<br>
-5693 7015 6887 7381 4172 4341 2909 2027 7355 5649<br>
-6701 6645 1671 5978 2704 9926 295 3125 3878 6785<br>
-2066 4247 4800 1578 6652 4616 1113 6205 3264 2915<br>
-3966 5291 2904 1285 2193 1428 2265 8730 9436 7074<br>
-689 5510 8243 6114 337 4096 8199 7313 3685 211</p>
-<p>注意：需要提交的是一个整数，表示末尾零的个数。不要填写任何多余内容。</p>
-<hr>
-<h1 id="解题思路">解题思路</h1>
-<p>1、就是把这些数相乘，每次的乘积去掉末尾的0并记住，这样有一个问题，乘积太大long long 放不下，解决很简单，每次只留乘积后四位并不影响后面的计算<br>
-2、正解：每个10必定是2*5得来的，所以对100个数进行遍历，找出有多少个2和多少个5，然后输出小的那个就可以了。</p>
-<h1 id="代码">代码</h1>
-<h2 id="解法一代码">解法一代码</h2>
-<pre><code class="language-C++">#include&lt;iostream&gt;
-using namespace std;
-int main(){
-	
-	long long  sum = 1, n, cnt = 0;
-	
-	for(int i = 0; i &lt; 100; i++){
-		cin &gt;&gt; n;
-		sum *= n;
-		while(sum % 10 == 0){
-			sum /= 10;
-			cnt++; 
-		}
-		
-		sum %= 10000;
-		
-	}
-	
-	cout &lt;&lt; cnt &lt;&lt; endl;
-	
-	return 0;
-}
-</code></pre>
-<h2 id="解法二代码">解法二代码</h2>
-<pre><code>#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-int main(){
-	
-	int c2 = 0, c5 = 0, n;
-	
-	for(int i = 0; i &lt; 100; i++){
-		cin &gt;&gt; n;
-		
-		while(n % 5 == 0){
-			n /= 5;
-			c5++;
-		}
-		while(n % 2 == 0){
-			n /= 2;
-			c2++;
-		}
-	}
-	
-	cout &lt;&lt; min(c2, c5) &lt;&lt; endl;
-	
-	
-	
-	return 0;
-}
-</code></pre>
-<blockquote>
-<p>答案：31</p>
-</blockquote>
+              <p>问题：<br>
+数据库连接案例<br>
+用户登录案例需求：<br>
+1.编写login.html登录页面<br>
+username &amp; password 两个输入框<br>
+2.使用Druid数据库连接池技术,操作mysql，day14数据库中user表<br>
+前两个步骤<br>
+使用测试方法测试时报<br>
+java.lang.IllegalArgumentException: Property ‘dataSource’ is required<br>
+翻译了下：大概意思是Property的数据源是必须的</p>
+<p>解决：<br>
+在JDBC工具类中 初始化连接池对象时又一次定义了一个DataSource。</p>
 
             </div>
             
@@ -643,7 +369,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://jokerzhang98.github.io/post/MP0NovL9c/" title="[蓝桥杯刷题]：乘积尾零">https://jokerzhang98.github.io/post/MP0NovL9c/</a>
+      <a href="https://jokerzhang98.github.io/post/PcQHtN4Z2/" title="java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required">https://jokerzhang98.github.io/post/PcQHtN4Z2/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -652,23 +378,15 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/"># C语言</a>
-    
-      <a href="https://jokerzhang98.github.io/tag/BftZwlALz/"># 蓝桥杯</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Mysql数据库的异常" href="https://jokerzhang98.github.io/post/PdW_gnNhk/">Mysql数据库的异常</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Mysql数据库的异常" href="https://jokerzhang98.github.io/post/PdW_gnNhk/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[蓝桥杯刷题]：明码" href="https://jokerzhang98.github.io/post/SDdU2ASoH/">[蓝桥杯刷题]：明码</a>
-        <a class="nav-mobile-next" title="[蓝桥杯刷题]：明码" href="https://jokerzhang98.github.io/post/SDdU2ASoH/">下一篇</a>
+        <a class="nav-pc-next" title="解决80端口被占用问题" href="https://jokerzhang98.github.io/post/9q-3HGZWd/">解决80端口被占用问题</a>
+        <a class="nav-mobile-next" title="解决80端口被占用问题" href="https://jokerzhang98.github.io/post/9q-3HGZWd/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
