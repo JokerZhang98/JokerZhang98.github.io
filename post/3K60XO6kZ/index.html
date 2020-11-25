@@ -8,7 +8,7 @@
 <meta name="keywords" content="Jerryのblog">
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
-<title>微信小程序中关于&lt;button&gt;标签修改大小 | Jerryのblog</title>
+<title>关于SpringBoot的小彩蛋 | Jerryのblog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1606299448601">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -52,8 +52,8 @@
 
 
 
-  <meta name="description" content="微信小程序中关于<button>标签修改大小" />
-  <meta name="keywords" content="微信小程序" />
+  <meta name="description" content="关于SpringBoot的小彩蛋" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -204,7 +204,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -248,6 +249,191 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%85%B3%E4%BA%8Espringboot%E7%9A%84%E5%B0%8F%E5%BD%A9%E8%9B%8B">关于SpringBoot的小彩蛋</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -335,8 +521,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://jokerzhang98.github.io/post/XcY25M6zz/">
-      微信小程序中关于&lt;button&gt;标签修改大小
+    <a class="post-title-link" href="https://jokerzhang98.github.io/post/3K60XO6kZ/">
+      关于SpringBoot的小彩蛋
     </a>
   </h1>
   <div class="post-meta">
@@ -344,22 +530,9 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-07-28</span>
+      <span>2020-11-25</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="https://jokerzhang98.github.io/tag/-8nn24J-l/">
-        <span>微信小程序</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
@@ -368,17 +541,16 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>161<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>80<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>在微信小程序开发中，button按钮有两个属性。<br>
-一个是size属性，是按钮的大小，默认大小是default，还有一个可选属性是min。<br>
-一个是type属性，默认值是default，可选值是primary（绿色），default（白色），warn（红色）<br>
-在实际的页面适配中，有时候两个size的值并不能满足实际大小，在.wxss文件中修改宽高会发现在实际的页面中并没有用，需要在标签处写style属性，在style属性中修改实际的宽高，例如：<br>
-<code>&lt;button class=&quot;btn1&quot; style=&quot;height:90rpx; width:150rpx&quot;&gt;查询&lt;/button&gt;</code></p>
+              <h1 id="关于springboot的小彩蛋">关于SpringBoot的小彩蛋</h1>
+<p>SpringBoot项目下启动项目，会出现个Spring的logo，而这个logo是可以被修改的。</p>
+<p>在src\main\resources目录下创建banner.txt文件。在网络上搜索“springbootbanner在线生产”，会有很多网站，挑一个，下载下来粘贴到banner.txt文件中就可以了。</p>
+<figure data-type="image" tabindex="1"><img src="https://jokerzhang98.github.io//post-images/1606299446555.jpg" alt="" loading="lazy"></figure>
 
             </div>
             
@@ -391,7 +563,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://jokerzhang98.github.io/post/XcY25M6zz/" title="微信小程序中关于&lt;button&gt;标签修改大小">https://jokerzhang98.github.io/post/XcY25M6zz/</a>
+      <a href="https://jokerzhang98.github.io/post/3K60XO6kZ/" title="关于SpringBoot的小彩蛋">https://jokerzhang98.github.io/post/3K60XO6kZ/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -400,21 +572,15 @@
   </ul>
   <div class="tags">
     
-      <a href="https://jokerzhang98.github.io/tag/-8nn24J-l/"># 微信小程序</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="解决80端口被占用问题" href="https://jokerzhang98.github.io/post/9q-3HGZWd/">解决80端口被占用问题</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="解决80端口被占用问题" href="https://jokerzhang98.github.io/post/9q-3HGZWd/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Mysql数据库的异常" href="https://jokerzhang98.github.io/post/PdW_gnNhk/">Mysql数据库的异常</a>
-        <a class="nav-mobile-next" title="Mysql数据库的异常" href="https://jokerzhang98.github.io/post/PdW_gnNhk/">下一篇</a>
+        <a class="nav-pc-next" title="maven添加阿里云镜像" href="https://jokerzhang98.github.io/post/MldJz-3Au/">maven添加阿里云镜像</a>
+        <a class="nav-mobile-next" title="maven添加阿里云镜像" href="https://jokerzhang98.github.io/post/MldJz-3Au/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

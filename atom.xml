@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-11-25T09:39:42.774Z</updated>
+    <updated>2020-11-25T10:17:31.114Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[关于SpringBoot的小彩蛋]]></title>
+        <id>https://jokerzhang98.github.io/post/3K60XO6kZ/</id>
+        <link href="https://jokerzhang98.github.io/post/3K60XO6kZ/">
+        </link>
+        <updated>2020-11-25T10:10:38.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[maven添加阿里云镜像]]></title>
         <id>https://jokerzhang98.github.io/post/MldJz-3Au/</id>
@@ -72,12 +79,5 @@
         <link href="https://jokerzhang98.github.io/post/h2rTjN_kt/">
         </link>
         <updated>2020-02-21T09:17:04.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[蓝桥杯刷题]： 蛇行矩阵]]></title>
-        <id>https://jokerzhang98.github.io/post/WzGhKHxwQ/</id>
-        <link href="https://jokerzhang98.github.io/post/WzGhKHxwQ/">
-        </link>
-        <updated>2020-02-21T08:59:02.000Z</updated>
     </entry>
 </feed>
