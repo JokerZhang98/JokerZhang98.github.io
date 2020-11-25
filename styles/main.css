@@ -2113,7 +2113,7 @@ pre > span.copy-code:hover {
   font-weight: bold;
 }
 body {
-      background-color: #f1f3f5;
+      background-color: #ced4da;
     }.header {
         width: 960px;
         margin: 0 auto;
@@ -2133,7 +2133,7 @@ body {
       border-bottom-color: #555;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #eeeeeefe;
+      background: #868e96fe;
     }h1, h2, h3, h4, h5, h6 {
       color: #555;
     }
@@ -2222,6 +2222,12 @@ body {
     }.bg-color {
       background-color: #f1f3f5fe;
     }
+    .gemini .blog-header, .gemini .sidebar-wrapper, .gemini .article-wrapper, .gemini .post, .gemini .page, .gemini .section, .gemini .section-box, .gemini .sidebar-box, .gemini .friends-section {
+      border-radius: 5px;
+    }
+    .pisces .blog-header, .pisces .sidebar-wrapper, .pisces .article-wrapper, .pisces .section, .pisces .sidebar-box, .pisces .friends-section {
+      border-radius: 5px;
+    }
     .site-meta {
       background: #000 !important;
     }
@@ -2231,11 +2237,17 @@ body {
     .brand {
       background: #000000fe;
     }
-    .main-title, .brand {
+    
+      .brand {
+        font-weight: bold;
+        transform: scale(2);
+      }.main-title, .brand {
       color: #FFF !important;
     }
     .mist .site-title i {
       background: #FFFFFFfe;
+    }.box-shadow-wrapper {
+      padding: 10px;
     }body {
       cursor: default;
     }a {
