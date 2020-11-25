@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-11-24T08:37:22.926Z</updated>
+    <updated>2020-11-25T09:34:01.425Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[maven添加阿里云镜像]]></title>
+        <id>https://jokerzhang98.github.io/post/MldJz-3Au/</id>
+        <link href="https://jokerzhang98.github.io/post/MldJz-3Au/">
+        </link>
+        <updated>2020-11-25T09:22:50.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[java.lang.IllegalArgumentException: Property 'dataSource' is required]]></title>
         <id>https://jokerzhang98.github.io/post/PcQHtN4Z2/</id>
@@ -72,12 +79,5 @@
         <link href="https://jokerzhang98.github.io/post/WzGhKHxwQ/">
         </link>
         <updated>2020-02-21T08:59:02.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[蓝桥杯刷题]：3N+1问题]]></title>
-        <id>https://jokerzhang98.github.io/post/QD7nWTzkN/</id>
-        <link href="https://jokerzhang98.github.io/post/QD7nWTzkN/">
-        </link>
-        <updated>2020-02-01T04:02:52.000Z</updated>
     </entry>
 </feed>
