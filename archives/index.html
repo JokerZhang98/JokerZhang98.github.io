@@ -9,7 +9,7 @@
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
 <title>Jerryのblog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1606303650037">
+<link rel="shortcut icon" href="/favicon.ico?v=1608194323065">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -191,19 +191,19 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name language" data-lan="category">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">7</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name language" data-lan="tag">标签</span>
       </a>
     </div>
@@ -245,7 +245,7 @@
   <div class="archive-timeline-box">
     <div class="archive-timeline-title">
       
-        <h2 class="language" data-lan="archives" data-count="15">非常好！目前共计15篇日志，继续努力！</h2>
+        <h2 class="language" data-lan="archives" data-count="16">非常好！目前共计16篇日志，继续努力！</h2>
       
     </div>
     
@@ -255,6 +255,19 @@
           <h2 class="tag-year">2020</h2>
         </div>    
         
+      
+      <a href="https://jokerzhang98.github.io/post/ge17GYPqq/">
+        <div class="motion-warpper tag-archive-node">
+          <div class="tag-node">
+            <h1>
+              12-17
+              <small>Git学习笔记（上）</small>
+            </h1>
+          </div>  
+      </div>
+      </a>
+    
+      
       
       <a href="https://jokerzhang98.github.io/post/3K60XO6kZ/">
         <div class="motion-warpper tag-archive-node">
@@ -684,6 +697,200 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/ge17GYPqq/"" data-c="
+          &lt;h2 id=&#34;1-安装与创建版本库&#34;&gt;1、安装与创建版本库&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;	--查看当前目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;cd e&lt;/code&gt;: 	--打开e盘目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mkdir git_repository	--创建目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git init	--将这个目录变成可git可以管理的仓库（当前目录下多了一个&lt;code&gt;.git&lt;/code&gt;的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ls -ah 	-- 查看隐藏的.git目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ls -al      --查看出所有文件，包括隐藏文件，其中包括.git&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git add readme.txt 	--将文件添加到git仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;git commit -m&amp;quot;wrote a readme file&amp;quot; 	--将文件提交到仓库 ，-m是本次提交的说明&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2-时光穿梭&#34;&gt;2、时光穿梭&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;git status	--时刻掌握仓库当前状态&lt;/li&gt;
+&lt;li&gt;git diff readme.txt    --查看修改内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;21版本回退&#34;&gt;2.1版本回退&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;git log    --显示从最近到最远的提交日志（在Git中，用&lt;code&gt;HEAD&lt;/code&gt;表示当前版本，也就是最新的提交，上一个版本就是&lt;code&gt;HEAD^&lt;/code&gt;，上上一个版本就是&lt;code&gt;HEAD^^&lt;/code&gt;，当然往上100个版本写100个&lt;code&gt;^&lt;/code&gt;比较容易数不过来，所以写成&lt;code&gt;HEAD~100&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;git log &lt;code&gt;--pretty=oneline&lt;/code&gt;  --嫌输出信息太多，看得眼花缭乱的，可以试试加上&lt;code&gt;--pretty=oneline&lt;/code&gt;参数。&lt;/li&gt;
+&lt;li&gt;git reset --hard head^    --回退到上一个版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;从21世纪回到了19世纪，在想回去怎么办&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git reflog    -用来记录你的每一次命令，找到那一次的 commit id&lt;/li&gt;
+&lt;li&gt;get reset --hard&lt;commit id&gt;    --回到指定的那个版本&lt;/li&gt;
+&lt;li&gt;cat &amp;lt;readme .txt&amp;gt;    --查看文件内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;总结&#34;&gt;&lt;strong&gt;总结&lt;/strong&gt;：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;HEAD&lt;/code&gt;指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令&lt;code&gt;git reset --hard commit_id&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;穿梭前，用&lt;code&gt;git log&lt;/code&gt;可以查看提交历史，以便确定要回退到哪个版本。&lt;/li&gt;
+&lt;li&gt;要重返未来，用&lt;code&gt;git reflog&lt;/code&gt;查看命令历史，以便确定要回到未来的哪个版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;22工作区和暂存区&#34;&gt;2.2工作区和暂存区&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;图中左侧为工作区，右侧为版本库。在版本库中标记为 &amp;quot;index&amp;quot; 的区域是暂存区（stage/index），标记为 &amp;quot;master&amp;quot; 的是 master 分支所代表的目录树。&lt;/li&gt;
+&lt;li&gt;图中我们可以看出此时 &amp;quot;HEAD&amp;quot; 实际是指向 master 分支的一个&amp;quot;游标&amp;quot;。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。&lt;/li&gt;
+&lt;li&gt;图中的 objects 标识的区域为 Git 的对象库，实际位于 &amp;quot;.git/objects&amp;quot; 目录下，里面包含了创建的各种对象及内容。&lt;/li&gt;
+&lt;li&gt;当对工作区修改（或新增）的文件执行 &lt;strong&gt;git add&lt;/strong&gt; 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。&lt;/li&gt;
+&lt;li&gt;当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。&lt;/li&gt;
+&lt;li&gt;当执行 &lt;strong&gt;git reset HEAD&lt;/strong&gt; 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。&lt;/li&gt;
+&lt;li&gt;当执行 &lt;strong&gt;git rm --cached &lt;file&gt;&lt;/strong&gt; 命令时，会直接从暂存区删除文件，工作区则不做出改变。&lt;/li&gt;
+&lt;li&gt;当执行 &lt;strong&gt;git checkout .&lt;/strong&gt; 或者 &lt;strong&gt;git checkout -- &lt;file&gt;&lt;/strong&gt; 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。&lt;/li&gt;
+&lt;li&gt;当执行 &lt;strong&gt;git checkout HEAD .&lt;/strong&gt; 或者 &lt;strong&gt;git checkout HEAD &lt;file&gt;&lt;/strong&gt; 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;23管理修改&#34;&gt;2.3管理修改&lt;/h3&gt;
+&lt;p&gt;第一次修改 -&amp;gt; &lt;code&gt;git add&lt;/code&gt; -&amp;gt; 第二次修改 -&amp;gt; &lt;code&gt;git commit&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;你看，我们前面讲了，Git管理的是修改，当你用&lt;code&gt;git add&lt;/code&gt;命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，&lt;code&gt;git commit&lt;/code&gt;只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;diff HEAD -- readme.txt     --查看工作区和版本库里面最新版本的区别&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;总结-2&#34;&gt;&lt;strong&gt;总结&lt;/strong&gt;&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Git是如何跟踪修改的，每次修改，如果不用&lt;code&gt;git add&lt;/code&gt;到暂存区，那就不会加入到&lt;code&gt;commit&lt;/code&gt;中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;24撤销修改&#34;&gt;2.4撤销修改&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令&lt;code&gt;git checkout -- file&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令&lt;code&gt;git reset HEAD &amp;lt;file&amp;gt;&lt;/code&gt;，就回到了场景1，第二步按场景1操作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192&#34;&gt;版本回退&lt;/a&gt;一节，不过前提是没有推送到远程库。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;25删除文件&#34;&gt;2.5删除文件&lt;/h3&gt;
+&lt;p&gt;一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用&lt;code&gt;rm&lt;/code&gt;命令删了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;$ rm test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个时候，Git知道你删除了文件，因此，工作区和版本&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;$ git status
+On branch master
+Changes not staged for commit:
+  (use &amp;quot;git add/rm &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+  (use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+
+	deleted:    test.txt
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;两个选择，一是确实要从版本库中删除该文件，那就用命令&lt;code&gt;git rm&lt;/code&gt;删掉，并且&lt;code&gt;git commit&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git rm test.txt
+rm &#39;test.txt&#39;
+
+$ git commit -m &amp;quot;remove test.txt&amp;quot;
+[master d46f35e] remove test.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout -- test.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git checkout&lt;/code&gt;其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 从来没有被添加到版本库就被删除的文件，是无法恢复的！&lt;/p&gt;
+&lt;p&gt;命令&lt;code&gt;git rm&lt;/code&gt;用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失&lt;strong&gt;最近一次提交后你修改的内容&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先手动删除文件，然后使用git rm &lt;file&gt;和git add&lt;file&gt;效果是一样的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;3-远程仓库&#34;&gt;3、远程仓库&lt;/h2&gt;
+&lt;h3 id=&#34;31添加远程仓库&#34;&gt;3.1添加远程仓库&lt;/h3&gt;
+&lt;p&gt;情景：你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;登录github，在右上角，找到“Create a new repo”按钮，创建一个新的仓库&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在Repository name填入&lt;code&gt;learngit&lt;/code&gt;，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在GitHub上的这个&lt;code&gt;learngit&lt;/code&gt;仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。现在，我们根据GitHub的提示，在本地的&lt;code&gt;learngit&lt;/code&gt;仓库下运行命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote add origin git@github.com:jokerzhang98@163/learngit.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;远程库的名字就是&lt;code&gt;origin&lt;/code&gt;，这是Git默认的叫法，也可以改成别的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把本地仓库的内容推送到远程库上&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;把本地库的内容推送到远程，用&lt;code&gt;git push&lt;/code&gt;命令，实际上是把当前分支&lt;code&gt;master&lt;/code&gt;推送到远程。&lt;/p&gt;
+&lt;p&gt;由于远程库是空的，我们第一次推送&lt;code&gt;master&lt;/code&gt;分支时，加上了&lt;code&gt;-u&lt;/code&gt;参数，Git不但会把本地的&lt;code&gt;master&lt;/code&gt;分支内容推送的远程新的&lt;code&gt;master&lt;/code&gt;分支，还会把本地的&lt;code&gt;master&lt;/code&gt;分支和远程的&lt;code&gt;master&lt;/code&gt;分支关联起来，在以后的推送或者拉取时就可以简化命令。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从现在起，只要本地作了提交，就可以通过命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;把本地&lt;code&gt;master&lt;/code&gt;分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;注意&#34;&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;要关联一个远程库，使用命令&lt;code&gt;git remote add origin git@server-name:path/repo-name.git&lt;/code&gt;；&lt;/p&gt;
+&lt;p&gt;关联后，使用命令&lt;code&gt;git push -u origin master&lt;/code&gt;第一次推送master分支的所有内容；&lt;/p&gt;
+&lt;p&gt;此后，每次本地提交后，只要有必要，就可以使用命令&lt;code&gt;git push origin master&lt;/code&gt;推送最新修改；&lt;/p&gt;
+&lt;h3 id=&#34;32从远程仓库克隆&#34;&gt;3.2从远程仓库克隆&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;github上创建一个新的仓库，这里仓库的名字叫gitskills(注意在仓库创建时勾选上Initialize this repository with a README，这样github会给我们自动创建一个名叫README.md的文件)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;远程仓库准备好了，用命令&lt;code&gt;git clone&lt;/code&gt;克隆一个本地库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:JokerZhang98/gitskills.git
+Cloning into &#39;gitskills&#39;...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;现在已经克隆下来了，进入目录查看，已经可以看到文件了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;GitHub给出的地址不止一个，还可以用&lt;code&gt;https://github.com/michaelliao/gitskills.git&lt;/code&gt;这样的地址。实际上，Git支持多种协议，默认的&lt;code&gt;git://&lt;/code&gt;使用ssh，但也可以使用&lt;code&gt;https&lt;/code&gt;等其他协议。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;https&lt;/code&gt;除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用&lt;code&gt;ssh&lt;/code&gt;协议而只能用&lt;code&gt;https&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//我这里以码云为例,拉取同一仓库
+
+//ssh
+git clone git@gitee.com:ge_minglin/gitskill.git 
+
+//https
+git clone https://gitee.com/ge_minglin/gitski~ll.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;小结&#34;&gt;&lt;strong&gt;小结：&lt;/strong&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;要克隆一个仓库，首先必须知道仓库的地址，然后使用&lt;code&gt;git clone&lt;/code&gt;命令克隆。&lt;/li&gt;
+&lt;li&gt;Git支持多种协议，包括&lt;code&gt;https&lt;/code&gt;，但&lt;code&gt;ssh&lt;/code&gt;协议速度最快。&lt;/li&gt;
+&lt;/ol&gt;
+">Git学习笔记（上）</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/3K60XO6kZ/"" data-c="

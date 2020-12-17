@@ -8,7 +8,7 @@
 <meta name="keywords" content="Jerryのblog">
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
-<title>maven添加阿里云镜像 | Jerryのblog</title>
+<title>Git学习笔记（上） | Jerryのblog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1608194323065">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="maven添加阿里云镜像" />
-  <meta name="keywords" content="JAVA" />
+  <meta name="description" content="Git学习笔记（上）" />
+  <meta name="keywords" content="git" />
 </head>
 
 <body>
@@ -190,7 +190,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -238,6 +239,226 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93">1、安装与创建版本库</a></li>
+<li><a href="#2-%E6%97%B6%E5%85%89%E7%A9%BF%E6%A2%AD">2、时光穿梭</a>
+<ul>
+<li><a href="#21%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80">2.1版本回退</a>
+<ul>
+<li><a href="#%E6%80%BB%E7%BB%93"><strong>总结</strong>：</a></li>
+</ul>
+</li>
+<li><a href="#22%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA">2.2工作区和暂存区</a></li>
+<li><a href="#23%E7%AE%A1%E7%90%86%E4%BF%AE%E6%94%B9">2.3管理修改</a>
+<ul>
+<li><a href="#%E6%80%BB%E7%BB%93-2"><strong>总结</strong></a></li>
+</ul>
+</li>
+<li><a href="#24%E6%92%A4%E9%94%80%E4%BF%AE%E6%94%B9">2.4撤销修改</a></li>
+<li><a href="#25%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6">2.5删除文件</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93">3、远程仓库</a>
+<ul>
+<li><a href="#31%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93">3.1添加远程仓库</a>
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F"><strong>注意：</strong></a></li>
+</ul>
+</li>
+<li><a href="#32%E4%BB%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%85%8B%E9%9A%86">3.2从远程仓库克隆</a>
+<ul>
+<li><a href="#%E5%B0%8F%E7%BB%93"><strong>小结：</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -325,8 +546,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://jokerzhang98.github.io/post/MldJz-3Au/">
-      maven添加阿里云镜像
+    <a class="post-title-link" href="https://jokerzhang98.github.io/post/ge17GYPqq/">
+      Git学习笔记（上）
     </a>
   </h1>
   <div class="post-meta">
@@ -334,7 +555,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-11-25</span>
+      <span>2020-12-17</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -343,8 +564,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://jokerzhang98.github.io/tag/u7qJd1cGB/">
-        <span>JAVA</span>
+      <a href="https://jokerzhang98.github.io/tag/_8taT9F2c/">
+        <span>git</span>
       </a>
       
       
@@ -353,17 +574,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>10<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>149<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>2579<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/MldJz-3Au/" data-flag-title="maven添加阿里云镜像" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/ge17GYPqq/" data-flag-title="Git学习笔记（上）" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -372,17 +593,195 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>问题：使用springBoot创建了一个maven项目，在项目中pom.xml文件一直报错。查看后是maven依赖一直报错，后台看了下一直在下载包。因为大天朝网络的原因，所以下载极慢。</p>
-<figure data-type="image" tabindex="1"><img src="https://jokerzhang98.github.io//post-images/1606296487286.jpg" alt="" loading="lazy"></figure>
-<p>解决方案：修改settings文件，加入添加阿里云镜像。通过阿里云镜像下载代码。在<mirrors>&lt;/<mirrors>标签中添加如下代码：</p>
-<pre><code>&lt;mirror&gt;
-    &lt;id&gt;nexus-aliyun&lt;/id&gt;
-    &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-    &lt;name&gt;Nexus aliyun&lt;/name&gt;
-    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
-&lt;/mirror&gt;
+              <h2 id="1-安装与创建版本库">1、安装与创建版本库</h2>
+<ul>
+<li>
+<p><code>pwd</code>	--查看当前目录</p>
+</li>
+<li>
+<p><code>cd e</code>: 	--打开e盘目录</p>
+</li>
+<li>
+<p>mkdir git_repository	--创建目录</p>
+</li>
+<li>
+<p>git init	--将这个目录变成可git可以管理的仓库（当前目录下多了一个<code>.git</code>的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。）</p>
+</li>
+<li>
+<p>ls -ah 	-- 查看隐藏的.git目录</p>
+</li>
+<li>
+<p>ls -al      --查看出所有文件，包括隐藏文件，其中包括.git</p>
+</li>
+<li>
+<p>git add readme.txt 	--将文件添加到git仓库</p>
+</li>
+<li>
+<p>git commit -m&quot;wrote a readme file&quot; 	--将文件提交到仓库 ，-m是本次提交的说明</p>
+</li>
+</ul>
+<h2 id="2-时光穿梭">2、时光穿梭</h2>
+<ul>
+<li>git status	--时刻掌握仓库当前状态</li>
+<li>git diff readme.txt    --查看修改内容</li>
+</ul>
+<h3 id="21版本回退">2.1版本回退</h3>
+<ul>
+<li>git log    --显示从最近到最远的提交日志（在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>）。</li>
+<li>git log <code>--pretty=oneline</code>  --嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数。</li>
+<li>git reset --hard head^    --回退到上一个版本</li>
+</ul>
+<p><strong>从21世纪回到了19世纪，在想回去怎么办</strong></p>
+<ul>
+<li>git reflog    -用来记录你的每一次命令，找到那一次的 commit id</li>
+<li>get reset --hard<commit id>    --回到指定的那个版本</li>
+<li>cat &lt;readme .txt&gt;    --查看文件内容</li>
+</ul>
+<h4 id="总结"><strong>总结</strong>：</h4>
+<ul>
+<li><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</li>
+<li>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</li>
+<li>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</li>
+</ul>
+<h3 id="22工作区和暂存区">2.2工作区和暂存区</h3>
+<figure data-type="image" tabindex="1"><img src="https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg" alt="img" loading="lazy"></figure>
+<ul>
+<li>图中左侧为工作区，右侧为版本库。在版本库中标记为 &quot;index&quot; 的区域是暂存区（stage/index），标记为 &quot;master&quot; 的是 master 分支所代表的目录树。</li>
+<li>图中我们可以看出此时 &quot;HEAD&quot; 实际是指向 master 分支的一个&quot;游标&quot;。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。</li>
+<li>图中的 objects 标识的区域为 Git 的对象库，实际位于 &quot;.git/objects&quot; 目录下，里面包含了创建的各种对象及内容。</li>
+<li>当对工作区修改（或新增）的文件执行 <strong>git add</strong> 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。</li>
+<li>当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。</li>
+<li>当执行 <strong>git reset HEAD</strong> 命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。</li>
+<li>当执行 <strong>git rm --cached <file></strong> 命令时，会直接从暂存区删除文件，工作区则不做出改变。</li>
+<li>当执行 <strong>git checkout .</strong> 或者 <strong>git checkout -- <file></strong> 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。</li>
+<li>当执行 <strong>git checkout HEAD .</strong> 或者 <strong>git checkout HEAD <file></strong> 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。</li>
+</ul>
+<h3 id="23管理修改">2.3管理修改</h3>
+<p>第一次修改 -&gt; <code>git add</code> -&gt; 第二次修改 -&gt; <code>git commit</code></p>
+<p>你看，我们前面讲了，Git管理的是修改，当你用<code>git add</code>命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，<code>git commit</code>只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。</p>
+<ul>
+<li>diff HEAD -- readme.txt     --查看工作区和版本库里面最新版本的区别</li>
+</ul>
+<h4 id="总结-2"><strong>总结</strong></h4>
+<blockquote>
+<p>Git是如何跟踪修改的，每次修改，如果不用<code>git add</code>到暂存区，那就不会加入到<code>commit</code>中。</p>
+</blockquote>
+<h3 id="24撤销修改">2.4撤销修改</h3>
+<ul>
+<li>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+</li>
+<li>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD &lt;file&gt;</code>，就回到了场景1，第二步按场景1操作。</p>
+</li>
+<li>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考<a href="https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192">版本回退</a>一节，不过前提是没有推送到远程库。</p>
+</li>
+</ul>
+<h3 id="25删除文件">2.5删除文件</h3>
+<p>一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用<code>rm</code>命令删了：</p>
+<pre><code class="language-git">$ rm test.txt
 </code></pre>
-<p>问题解决。</p>
+<p>这个时候，Git知道你删除了文件，因此，工作区和版本</p>
+<pre><code class="language-git">$ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add/rm &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	deleted:    test.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<p>两个选择，一是确实要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code>：</p>
+<pre><code>$ git rm test.txt
+rm 'test.txt'
+
+$ git commit -m &quot;remove test.txt&quot;
+[master d46f35e] remove test.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 test.txt
+</code></pre>
+<p>另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：</p>
+<pre><code>$ git checkout -- test.txt
+</code></pre>
+<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<p><strong>注意：</strong> 从来没有被添加到版本库就被删除的文件，是无法恢复的！</p>
+<p>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong>。</p>
+<blockquote>
+<p>先手动删除文件，然后使用git rm <file>和git add<file>效果是一样的。</p>
+</blockquote>
+<h2 id="3-远程仓库">3、远程仓库</h2>
+<h3 id="31添加远程仓库">3.1添加远程仓库</h3>
+<p>情景：你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作。</p>
+<ol>
+<li>
+<p>登录github，在右上角，找到“Create a new repo”按钮，创建一个新的仓库</p>
+</li>
+<li>
+<p>在Repository name填入<code>learngit</code>，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库：</p>
+</li>
+<li>
+<p>在GitHub上的这个<code>learngit</code>仓库还是空的，GitHub告诉我们，可以从这个仓库克隆出新的仓库，也可以把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库。现在，我们根据GitHub的提示，在本地的<code>learngit</code>仓库下运行命令：</p>
+<pre><code>$ git remote add origin git@github.com:jokerzhang98@163/learngit.git
+</code></pre>
+<p>远程库的名字就是<code>origin</code>，这是Git默认的叫法，也可以改成别的。</p>
+</li>
+<li>
+<p>把本地仓库的内容推送到远程库上</p>
+<pre><code>$ git push -u origin master
+</code></pre>
+<p>把本地库的内容推送到远程，用<code>git push</code>命令，实际上是把当前分支<code>master</code>推送到远程。</p>
+<p>由于远程库是空的，我们第一次推送<code>master</code>分支时，加上了<code>-u</code>参数，Git不但会把本地的<code>master</code>分支内容推送的远程新的<code>master</code>分支，还会把本地的<code>master</code>分支和远程的<code>master</code>分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+</li>
+<li>
+<p>从现在起，只要本地作了提交，就可以通过命令：</p>
+<pre><code>$ git push origin master
+</code></pre>
+<p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
+</li>
+</ol>
+<h4 id="注意"><strong>注意：</strong></h4>
+<p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
+<p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+<h3 id="32从远程仓库克隆">3.2从远程仓库克隆</h3>
+<ol>
+<li>
+<p>github上创建一个新的仓库，这里仓库的名字叫gitskills(注意在仓库创建时勾选上Initialize this repository with a README，这样github会给我们自动创建一个名叫README.md的文件)</p>
+</li>
+<li>
+<p>远程仓库准备好了，用命令<code>git clone</code>克隆一个本地库</p>
+<pre><code>$ git clone git@github.com:JokerZhang98/gitskills.git
+Cloning into 'gitskills'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+</code></pre>
+</li>
+<li>
+<p>现在已经克隆下来了，进入目录查看，已经可以看到文件了。</p>
+</li>
+<li>
+<p>GitHub给出的地址不止一个，还可以用<code>https://github.com/michaelliao/gitskills.git</code>这样的地址。实际上，Git支持多种协议，默认的<code>git://</code>使用ssh，但也可以使用<code>https</code>等其他协议。</p>
+<p>使用<code>https</code>除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用<code>ssh</code>协议而只能用<code>https</code>。</p>
+<pre><code>//我这里以码云为例,拉取同一仓库
+
+//ssh
+git clone git@gitee.com:ge_minglin/gitskill.git 
+
+//https
+git clone https://gitee.com/ge_minglin/gitski~ll.git
+</code></pre>
+</li>
+</ol>
+<h4 id="小结"><strong>小结：</strong></h4>
+<ol>
+<li>要克隆一个仓库，首先必须知道仓库的地址，然后使用<code>git clone</code>命令克隆。</li>
+<li>Git支持多种协议，包括<code>https</code>，但<code>ssh</code>协议速度最快。</li>
+</ol>
 
             </div>
             
@@ -399,7 +798,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://jokerzhang98.github.io/post/MldJz-3Au/" title="maven添加阿里云镜像">https://jokerzhang98.github.io/post/MldJz-3Au/</a>
+      <a href="https://jokerzhang98.github.io/post/ge17GYPqq/" title="Git学习笔记（上）">https://jokerzhang98.github.io/post/ge17GYPqq/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -408,21 +807,17 @@
   </ul>
   <div class="tags">
     
-      <a href="https://jokerzhang98.github.io/tag/u7qJd1cGB/"># JAVA</a>
+      <a href="https://jokerzhang98.github.io/tag/_8taT9F2c/"># git</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="关于SpringBoot的小彩蛋" href="https://jokerzhang98.github.io/post/3K60XO6kZ/">关于SpringBoot的小彩蛋</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="关于SpringBoot的小彩蛋" href="https://jokerzhang98.github.io/post/3K60XO6kZ/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required" href="https://jokerzhang98.github.io/post/PcQHtN4Z2/">java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required</a>
-        <a class="nav-mobile-next" title="java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required" href="https://jokerzhang98.github.io/post/PcQHtN4Z2/">下一篇</a>
+        <a class="nav-pc-next" title="关于SpringBoot的小彩蛋" href="https://jokerzhang98.github.io/post/3K60XO6kZ/">关于SpringBoot的小彩蛋</a>
+        <a class="nav-mobile-next" title="关于SpringBoot的小彩蛋" href="https://jokerzhang98.github.io/post/3K60XO6kZ/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
