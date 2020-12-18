@@ -9,7 +9,7 @@
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
 <title>[蓝桥杯刷题]：3N+1问题 | Jerryのblog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1608263034170">
+<link rel="shortcut icon" href="/favicon.ico?v=1608275318852">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -208,7 +208,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1159,8 +1159,614 @@ int main(){
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/b-mpNTsOz/"" data-c="
+          &lt;h2 id=&#34;分支管理&#34;&gt;分支管理&lt;/h2&gt;
+&lt;p&gt;​	分支概念简化版理解：有两个平行宇宙，一个宇宙的你在学Java，另一个你在学习Python。有一天，两个宇宙合并了，于是你回了Java又会了Python。&lt;/p&gt;
+&lt;p&gt;关于git分支的使用，可以参考这篇文章：&lt;a href=&#34;https://blog.csdn.net/ShuSheng0007/article/details/80791849&#34;&gt;实际项目中如何使用Git做分支管理&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;创建与合并分支&#34;&gt;创建与合并分支&lt;/h3&gt;
+&lt;p&gt;​	版本回退的时候，每次提交，git会将他们串成一条时间线，这个时间线就是master分支。对于HEAD来说指向的就是当前分支。&lt;/p&gt;
+&lt;p&gt;​	每次创建一个新的分支相当于创建了一个新的指针，然后改了HEAD指针的指向。所以工作区内容不变，该指针就可以了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建dev分支并且切换到dev分支。（git  checkout命令加上-b参数表示创建并切换）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch dev
+$ git checkout dev
+Switched to branch &#39;dev&#39;
+
+//以上的命令可以精简为
+$ git checkout -b dev
+Switched to a new branch &#39;dev&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git branch&lt;/code&gt;会列出所有的分支，当前分支前面会标记一个*号&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch
+* dev
+  master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;对readme.txt文件做一个改动并且提交&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code&gt;$ git add readme.txt
+$ git commit -m&amp;quot;branch test&amp;quot;
+[dev d370436] branch test
+ 1 file changed, 1 insertion(+)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dev分支工作完成，切回到master分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 1 commit.
+  (use &amp;quot;git push&amp;quot; to publish your local commits)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查看readme.txt文件后发现，刚才的内容不见了，那是因为那个提交在dev分支上，而master分支此刻的提交点并没有变。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将dev分支的工作成果添加到master分支上。&lt;code&gt;git merge&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git merge dev
+Updating 887eaca..d370436
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意到上面的&lt;code&gt;Fast-forward&lt;/code&gt;信息，Git告诉我们，这次合并是“快进模式”，也就是直接把&lt;code&gt;master&lt;/code&gt;指向&lt;code&gt;dev&lt;/code&gt;的当前提交，所以合并速度非常快。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;合并完成后，就可以放心地删除&lt;code&gt;dev&lt;/code&gt;分支了：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch -d dev
+Deleted branch dev (was d370436).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在&lt;code&gt;master&lt;/code&gt;分支上工作效果是一样的，但过程更安全。&lt;/p&gt;
+&lt;h4 id=&#34;switch&#34;&gt;switch&lt;/h4&gt;
+&lt;p&gt;​	切换分支使用&lt;code&gt;git checkout &amp;lt;branch&amp;gt;&lt;/code&gt;，而前面讲过的撤销修改则是&lt;code&gt;git checkout -- &amp;lt;file&amp;gt;&lt;/code&gt;，同一个命令，有两种作用，确实有点令人迷惑。&lt;/p&gt;
+&lt;p&gt;实际上，切换分支这个动作，用&lt;code&gt;switch&lt;/code&gt;更科学。因此，最新版本的Git提供了新的&lt;code&gt;git switch&lt;/code&gt;命令来切换分支：&lt;/p&gt;
+&lt;p&gt;创建并切换到新的&lt;code&gt;dev&lt;/code&gt;分支，可以使用：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git switch -c dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;小结&#34;&gt;小结：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Git鼓励大量使用分支：&lt;/li&gt;
+&lt;li&gt;查看分支：&lt;code&gt;git branch&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;创建分支：&lt;code&gt;git branch &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;切换分支：&lt;code&gt;git checkout &amp;lt;name&amp;gt;&lt;/code&gt;或者&lt;code&gt;git switch &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;创建+切换分支：&lt;code&gt;git checkout -b &amp;lt;name&amp;gt;&lt;/code&gt;或者&lt;code&gt;git switch -c &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;合并某分支到当前分支：&lt;code&gt;git merge &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;删除分支：&lt;code&gt;git branch -d &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;42解决冲突&#34;&gt;4.2解决冲突&lt;/h3&gt;
+&lt;p&gt;​	冲突：假如你创建了一个新的feature1分支，在feature1分支上修改了readme文件的最后一行并且进行了提交，切换到master分支，进行了同样的操作。这种情况下，git无法执行快速合并，只能试图把各自的修改的合并，但这种就会发生冲突。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;创建一个feature1分支，并且修改文件的最后一行。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch -c  feature1
+Switched to a new branch &#39;feature1&#39;
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git branch
+* feature1
+  master
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+creating a new branch is quick
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git status
+On branch feature1
+Changes not staged for commit:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+  (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+creating a new branch is quick &amp;amp; simple
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在feature1分支上提交&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git commit -m&amp;quot;readme.txt&amp;quot;
+[feature1 c016331] readme.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;切换到master分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git switch master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 2 commits.
+  (use &amp;quot;git push&amp;quot; to publish your local commits)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Git还会自动提示我们当前&lt;code&gt;master&lt;/code&gt;分支比远程的&lt;code&gt;master&lt;/code&gt;分支要超前2个提交。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在master上也进行修改文件并且提交。这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git merge feature1
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Git告诉我们，&lt;code&gt;readme.txt&lt;/code&gt;文件存在冲突，必须手动解决冲突后再提交。&lt;code&gt;git status&lt;/code&gt;也可以告诉我们冲突的文件：Git用&lt;code&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/code&gt;，&lt;code&gt;=======&lt;/code&gt;，&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;标记出不同分支的内容，我们修改如下后保存：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git status
+On branch master
+Your branch is ahead of &#39;origin/master&#39; by 3 commits.
+  (use &amp;quot;git push&amp;quot; to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run &amp;quot;git commit&amp;quot;)
+  (use &amp;quot;git merge --abort&amp;quot; to abort the merge)
+
+Unmerged paths:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to mark resolution)
+        both modified:   readme.txt
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master|MERGING)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+creating a new branch is quick and simple
+=======
+creating a new branch is quick &amp;amp; simple
+&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; feature1
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用带参数的&lt;code&gt;git log&lt;/code&gt;也可以看到分支的合并情况：&lt;code&gt;$ git log --graph --pretty=oneline --abbrev-commit&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;小结-2&#34;&gt;&lt;strong&gt;小结&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。&lt;/li&gt;
+&lt;li&gt;解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+&lt;ul&gt;
+&lt;li&gt;用&lt;code&gt;git log --graph&lt;/code&gt;命令可以看到分支合并图。（退出按Q即可）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;43分支管理策略&#34;&gt;4.3分支管理策略&lt;/h3&gt;
+&lt;p&gt;​	通常，合并分支时，如果可能，Git会用&lt;code&gt;Fast forward&lt;/code&gt;模式，但这种模式下，删除分支后，会丢掉分支信息。&lt;/p&gt;
+&lt;p&gt;​	如果要强制禁用&lt;code&gt;Fast forward&lt;/code&gt;模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。&lt;/p&gt;
+&lt;p&gt;准备合并&lt;code&gt;dev&lt;/code&gt;分支，请注意&lt;code&gt;--no-ff&lt;/code&gt;参数，表示禁用&lt;code&gt;Fast forward&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git merge --no-ff -m &amp;quot;merge with no-ff&amp;quot; dev
+Merge made by the &#39;recursive&#39; strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;//查看历史分支
+$ git log --graph --pretty=oneline --abbrev-commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;分支策略&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在实际开发中，我们应该按照几个基本原则进行分支管理：&lt;/p&gt;
+&lt;p&gt;首先，&lt;code&gt;master&lt;/code&gt;分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；&lt;/p&gt;
+&lt;p&gt;那在哪干活呢？干活都在&lt;code&gt;dev&lt;/code&gt;分支上，也就是说，&lt;code&gt;dev&lt;/code&gt;分支是不稳定的，到某个时候，比如1.0版本发布时，再把&lt;code&gt;dev&lt;/code&gt;分支合并到&lt;code&gt;master&lt;/code&gt;上，在&lt;code&gt;master&lt;/code&gt;分支发布1.0版本；&lt;/p&gt;
+&lt;p&gt;你和你的小伙伴们每个人都在&lt;code&gt;dev&lt;/code&gt;分支上干活，每个人都有自己的分支，时不时地往&lt;code&gt;dev&lt;/code&gt;分支上合并就可以了。&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;C:%5CUsers%5CJoker%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201217161245339.png&#34; alt=&#34;image-20201217161245339&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;小结-3&#34;&gt;小结：&lt;/h4&gt;
+&lt;p&gt;​	合并分支时，加上&lt;code&gt;--no-ff&lt;/code&gt;参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而&lt;code&gt;fast forward&lt;/code&gt;合并就看不出来曾经做过合并。&lt;/p&gt;
+&lt;h3 id=&#34;44bug分支&#34;&gt;4.4Bug分支&lt;/h3&gt;
+&lt;p&gt;​	开发当中，bug就像家常便饭一样。有了bug就需要修复，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。&lt;/p&gt;
+&lt;p&gt;当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支&lt;code&gt;issue-101&lt;/code&gt;来修复它，但是你在dev上进行的工作还没有提交，由于工作还没做完，所以没法提交。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git status
+On branch dev
+Changes not staged for commit:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+  (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因此git提供了&lt;code&gt;stash&lt;/code&gt;功能以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-$&#34;&gt;Saved working directory and index state WIP on dev: 3a8bb23 add merge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;首先确定要在哪个分支上修复bug，假定需要在&lt;code&gt;master&lt;/code&gt;分支上修复，就从&lt;code&gt;master&lt;/code&gt;创建临时分支：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-Joker@DESKTOP-CTFOVRN&#34;&gt;$ git switch master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 7 commits.
+  (use &amp;quot;git push&amp;quot; to publish your local commits)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch -c issue-101
+Switched to a new branch &#39;issue-101
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;修复bug并且提交，切换到&lt;code&gt;master&lt;/code&gt;分支，并完成合并，最后删除&lt;code&gt;issue-101&lt;/code&gt;分支：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git commit -m&amp;quot;第三次测试&amp;quot;
+[issue-101 ed3519a] 第三次测试
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git switch master
+Switched to branch &#39;master&#39;
+Your branch is ahead of &#39;origin/master&#39; by 7 commits.
+  (use &amp;quot;git push&amp;quot; to publish your local commits)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git merge --no-ff -m&amp;quot;merge bug fix 101&amp;quot; issue-101
+Merge made by the &#39;recursive&#39; strategy.
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git branch -d issue-101
+Deleted branch issue-101 (was ed3519a).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;回到dev分支继续干活&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch dev
+Switched to branch &#39;dev&#39;
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (dev)
+$ git status
+On branch dev
+nothing to commit, working tree clean
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;工作区是干净的，用&lt;code&gt;git stash list&lt;/code&gt;查看一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git stash list
+stash@{0}: WIP on dev: 3a8bb23 add merge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：&lt;/p&gt;
+&lt;p&gt;一是用&lt;code&gt;git stash apply&lt;/code&gt;恢复，但是恢复后，stash内容并不删除，你需要用&lt;code&gt;git stash drop&lt;/code&gt;来删除；&lt;/p&gt;
+&lt;p&gt;另一种方式是用&lt;code&gt;git stash pop&lt;/code&gt;，恢复的同时把stash内容也删了：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git stash pop
+On branch dev
+Changes not staged for commit:
+  (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+  (use &amp;quot;git restore &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)
+Dropped refs/stash@{0} (37cfa22630b4d3acfbdae3bc2fd2376225520582)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后使用&lt;code&gt;git stash list&lt;/code&gt;查看，就看不到任何stash内容了：&lt;/p&gt;
+&lt;p&gt;你可以多次stash，恢复的时候，先用&lt;code&gt;git stash list&lt;/code&gt;查看，然后恢复指定的stash，用命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-$&#34;&gt;$ git stash apply stash@{0}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在master分支上修复了bug后，我们要想一想，dev分支是早期从master分支分出来的，所以，这个bug其实在当前dev分支上也存在。同样的bug，要在dev上修复，我们只需要把&lt;code&gt;4c805e2 fix bug 101&lt;/code&gt;这个提交所做的修改“复制”到dev分支。注意：我们只想复制&lt;code&gt;4c805e2 fix bug 101&lt;/code&gt;这个提交所做的修改，并不是把整个master分支merge过来。&lt;/p&gt;
+&lt;p&gt;为了方便操作，Git专门提供了一个&lt;code&gt;cherry-pick&lt;/code&gt;命令，让我们能复制一个特定的提交到当前分支：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch
+* dev
+  master
+$ git cherry-pick 4c805e2
+[master 1d4b803] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Git自动给dev分支做了一次提交，注意这次提交的commit是&lt;code&gt;1d4b803&lt;/code&gt;，它并不同于master的&lt;code&gt;4c805e2&lt;/code&gt;，因为这两个commit只是改动相同，但确实是两个不同的commit。用&lt;code&gt;git cherry-pick&lt;/code&gt;，我们就不需要在dev分支上手动再把修bug的过程重复一遍。&lt;/p&gt;
+&lt;h4 id=&#34;小结-4&#34;&gt;小结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；&lt;/li&gt;
+&lt;li&gt;当手头工作没有完成时，先把工作现场&lt;code&gt;git stash&lt;/code&gt;一下，然后去修复bug，修复后，再&lt;code&gt;git stash pop&lt;/code&gt;，回到工作现场；&lt;/li&gt;
+&lt;li&gt;在master分支上修复的bug，想要合并到当前dev分支，可以用&lt;code&gt;git cherry-pick &amp;lt;commit&amp;gt;&lt;/code&gt;命令，把bug提交的修改“复制”到当前分支，避免重复劳动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;45feature分支&#34;&gt;4.5Feature分支&lt;/h3&gt;
+&lt;p&gt;​	添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。&lt;/p&gt;
+&lt;p&gt;​	于是你去创建了这个分支并且开发完毕提交了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (dev)
+$ git switch -c feature-vulcan
+Switched to a new branch &#39;feature-vulcan&#39;
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git branch
+  dev
+* feature-vulcan
+  master
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ cat readme.txt
+feature测试
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git commit -m&amp;quot;未来功能开发完毕&amp;quot;
+[feature-vulcan 4172242] 未来功能开发完毕
+ 1 file changed, 1 insertion(+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这时，你切回dev，准备合并，但是产品经理告诉你，甲方不要了，必须取消。&lt;/p&gt;
+&lt;p&gt;于是你要删除这个分支。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch -d feature-vulcan
+error: The branch &#39;feature-vulcan&#39; is not fully merged.
+If you are sure you want to delete it, run &#39;git branch -D feature-vulcan&#39;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;x销毁失败。Git友情提醒，&lt;code&gt;feature-vulcan&lt;/code&gt;分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的&lt;code&gt;-D&lt;/code&gt;参数。。&lt;/p&gt;
+&lt;p&gt;现在我们强行删除：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-]&#34;&gt;Deleted branch feature-vulcan (was 4172242).
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除成功。&lt;/p&gt;
+&lt;h4 id=&#34;总结&#34;&gt;总结：&lt;/h4&gt;
+&lt;p&gt;开发一个新feature，最好新建一个分支；&lt;/p&gt;
+&lt;p&gt;如果要丢弃一个没有被合并过的分支，可以通过&lt;code&gt;git branch -D &amp;lt;name&amp;gt;&lt;/code&gt;强行删除。&lt;/p&gt;
+&lt;h3 id=&#34;多人协作&#34;&gt;多人协作&lt;/h3&gt;
+&lt;p&gt;当你从远程仓库克隆时，实际上Git自动把本地的&lt;code&gt;master&lt;/code&gt;分支和远程的&lt;code&gt;master&lt;/code&gt;分支对应起来了，并且，远程仓库的默认名称是&lt;code&gt;origin&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;要查看远程库的信息，用&lt;code&gt;git remote&lt;/code&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote
+origin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或者可以使用 &lt;code&gt;git remote -v&lt;/code&gt;查看详细信息，显示了可以抓取和推送的&lt;code&gt;origin&lt;/code&gt;的地址。如果没有推送权限，就看不到push的地址。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote -v
+origin  git@github.com:JokerZhang98/learngit.git (fetch)
+origin  git@github.com:JokerZhang98/learngit.git (push)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;推送分支&#34;&gt;推送分支&lt;/h4&gt;
+&lt;p&gt;推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-$&#34;&gt;$ git push origin master
+Warning: Permanently added the RSA host key for IP address &#39;13.250.177.223&#39; to the list of known hosts.
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (23/23), 1.84 KiB | 472.00 KiB/s, done.
+Total 23 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), done.
+To github.com:JokerZhang98/learngit.git
+   e8f8802..8d3017c  master -&amp;gt; master
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;master&lt;/code&gt;分支是主分支，因此要时刻与远程同步；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dev&lt;/code&gt;分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；&lt;/li&gt;
+&lt;li&gt;bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；&lt;/li&gt;
+&lt;li&gt;feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！&lt;/p&gt;
+&lt;h4 id=&#34;抓取分支&#34;&gt;抓取分支&lt;/h4&gt;
+&lt;p&gt;多人协作时，大家都会往&lt;code&gt;master&lt;/code&gt;和&lt;code&gt;dev&lt;/code&gt;分支上推送各自的修改。&lt;/p&gt;
+&lt;p&gt;多人协作时，大家都会往&lt;code&gt;master&lt;/code&gt;和&lt;code&gt;dev&lt;/code&gt;分支上推送各自的修改。&lt;/p&gt;
+&lt;p&gt;现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:michaelliao/learngit.git
+Cloning into &#39;learngit&#39;...
+remote: Counting objects: 40, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 40 (delta 14), reused 40 (delta 14), pack-reused 0
+Receiving objects: 100% (40/40), done.
+Resolving deltas: 100% (14/14), done.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的&lt;code&gt;master&lt;/code&gt;分支。不信可以用&lt;code&gt;git branch&lt;/code&gt;命令看看：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch
+* master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;现在，你的小伙伴要在&lt;code&gt;dev&lt;/code&gt;分支上开发，就必须创建远程&lt;code&gt;origin&lt;/code&gt;的&lt;code&gt;dev&lt;/code&gt;分支到本地，于是他用这个命令创建本地&lt;code&gt;dev&lt;/code&gt;分支：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout -b dev origin/dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;现在，他就可以在&lt;code&gt;dev&lt;/code&gt;上继续修改，然后，时不时地把&lt;code&gt;dev&lt;/code&gt;分支&lt;code&gt;push&lt;/code&gt;到远程：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git add env.txt
+
+$ git commit -m &amp;quot;add env&amp;quot;
+[dev 7a5e5dd] add env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   f52c633..7a5e5dd  dev -&amp;gt; dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;你的小伙伴已经向&lt;code&gt;origin/dev&lt;/code&gt;分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cat env.txt
+env
+
+$ git add env.txt
+
+$ git commit -m &amp;quot;add new env&amp;quot;
+[dev 7bd91f1] add new env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+To github.com:michaelliao/learngit.git
+ ! [rejected]        dev -&amp;gt; dev (non-fast-forward)
+error: failed to push some refs to &#39;git@github.com:michaelliao/learngit.git&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用&lt;code&gt;git pull&lt;/code&gt;把最新的提交从&lt;code&gt;origin/dev&lt;/code&gt;抓下来，然后，在本地合并，解决冲突，再推送：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/&amp;lt;branch&amp;gt; dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;git pull&lt;/code&gt;也失败了，原因是没有指定本地&lt;code&gt;dev&lt;/code&gt;分支与远程&lt;code&gt;origin/dev&lt;/code&gt;分支的链接，根据提示，设置&lt;code&gt;dev&lt;/code&gt;和&lt;code&gt;origin/dev&lt;/code&gt;的链接：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch --set-upstream-to=origin/dev dev
+Branch &#39;dev&#39; set up to track remote branch &#39;dev&#39; from &#39;origin&#39;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再pull：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull
+Auto-merging env.txt
+CONFLICT (add/add): Merge conflict in env.txt
+Automatic merge failed; fix conflicts and then commit the result.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这回&lt;code&gt;git pull&lt;/code&gt;成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的&lt;a href=&#34;http://www.liaoxuefeng.com/wiki/896043488029600/900004111093344&#34;&gt;解决冲突&lt;/a&gt;完全一样。解决后，提交，再push：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git commit -m &amp;quot;fix env conflict&amp;quot;
+[dev 57c53ab] fix env conflict
+
+$ git push origin dev
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 621 bytes | 621.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   7a5e5dd..57c53ab  dev -&amp;gt; dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;因此，多人协作的工作模式通常是这样：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先，可以试图用&lt;code&gt;git push origin &amp;lt;branch-name&amp;gt;&lt;/code&gt;推送自己的修改；&lt;/li&gt;
+&lt;li&gt;如果推送失败，则因为远程分支比你的本地更新，需要先用&lt;code&gt;git pull&lt;/code&gt;试图合并；&lt;/li&gt;
+&lt;li&gt;如果合并有冲突，则解决冲突，并在本地提交；&lt;/li&gt;
+&lt;li&gt;没有冲突或者解决掉冲突后，再用&lt;code&gt;git push origin &amp;lt;branch-name&amp;gt;&lt;/code&gt;推送就能成功！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果&lt;code&gt;git pull&lt;/code&gt;提示&lt;code&gt;no tracking information&lt;/code&gt;，则说明本地分支和远程分支的链接关系没有创建，用命令&lt;code&gt;git branch --set-upstream-to &amp;lt;branch-name&amp;gt; origin/&amp;lt;branch-name&amp;gt;&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这就是多人协作的工作模式，一旦熟悉了，就非常简单。&lt;/p&gt;
+&lt;h4 id=&#34;小结-5&#34;&gt;小结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;查看远程库信息，使用&lt;code&gt;git remote -v&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;本地新建的分支如果不推送到远程，对其他人就是不可见的；&lt;/li&gt;
+&lt;li&gt;从本地推送分支，使用&lt;code&gt;git push origin branch-name&lt;/code&gt;，如果推送失败，先用&lt;code&gt;git pull&lt;/code&gt;抓取远程的新提交；&lt;/li&gt;
+&lt;li&gt;在本地创建和远程分支对应的分支，使用&lt;code&gt;git checkout -b branch-name origin/branch-name&lt;/code&gt;，本地和远程分支的名称最好一致；&lt;/li&gt;
+&lt;li&gt;建立本地分支和远程分支的关联，使用&lt;code&gt;git branch --set-upstream branch-name origin/branch-name&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;从远程抓取分支，使用&lt;code&gt;git pull&lt;/code&gt;，如果有冲突，要先处理冲突。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;5-标签管理&#34;&gt;5、标签管理&lt;/h2&gt;
+&lt;h3 id=&#34;51创建标签&#34;&gt;5.1创建标签&lt;/h3&gt;
+&lt;p&gt;切换到需要打标签的分支上，然后敲命令&lt;code&gt;git tag &amp;lt;name&amp;gt;&lt;/code&gt;就可以打一个新标签：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag v1.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以用命令&lt;code&gt;git tag&lt;/code&gt;查看所有标签：&lt;/p&gt;
+&lt;p&gt;默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？&lt;/p&gt;
+&lt;p&gt;方法是找到历史提交的commit id，然后打上就可以了：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git log --pretty=oneline --abbrev-commit
+12a631b (HEAD -&amp;gt; master, tag: v1.0, origin/master) merged bug fix 101
+4c805e2 fix bug 101
+e1e9c68 merge with no-ff
+f52c633 add merge
+cf810e4 conflict fixed
+5dc6824 &amp;amp; simple
+14096d0 AND simple
+b17d20e branch test
+d46f35e remove test.txt
+b84166e add test.txt
+519219b git tracks changes
+e43a48b understand how stage works
+1094adb append GPL
+e475afc add distributed
+eaadf4e wrote a readme file
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;比方说要对&lt;code&gt;add merge&lt;/code&gt;这次提交打标签，它对应的commit id是&lt;code&gt;f52c633&lt;/code&gt;，敲入命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag v0.9 f52c633
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;再用命令&lt;code&gt;git tag&lt;/code&gt;查看标签：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag
+v0.9
+v1.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意，标签不是按时间顺序列出，而是按字母排序的。可以用&lt;code&gt;git show &amp;lt;tagname&amp;gt;&lt;/code&gt;查看标签信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git show v0.9
+commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)
+Author: Michael Liao &amp;lt;askxuefeng@gmail.com&amp;gt;
+Date:   Fri May 18 21:56:54 2018 +0800
+
+    add merge
+
+diff --git a/readme.txt b/readme.txt
+...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到，&lt;code&gt;v0.9&lt;/code&gt;确实打在&lt;code&gt;add merge&lt;/code&gt;这次提交上。&lt;/p&gt;
+&lt;p&gt;还可以创建带有说明的标签，用&lt;code&gt;-a&lt;/code&gt;指定标签名，&lt;code&gt;-m&lt;/code&gt;指定说明文字：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag -a v0.1 -m &amp;quot;version 0.1 released&amp;quot; 1094adb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用命令&lt;code&gt;git show &amp;lt;tagname&amp;gt;&lt;/code&gt;可以看到说明文字：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git show v0.1
+tag v0.1
+Tagger: Michael Liao &amp;lt;askxuefeng@gmail.com&amp;gt;
+Date:   Fri May 18 22:48:43 2018 +0800
+
+version 0.1 released
+
+commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (tag: v0.1)
+Author: Michael Liao &amp;lt;askxuefeng@gmail.com&amp;gt;
+Date:   Fri May 18 21:06:15 2018 +0800
+
+    append GPL
+
+diff --git a/readme.txt b/readme.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;注意：标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&#34;小结-6&#34;&gt;小结：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;命令&lt;code&gt;git tag &amp;lt;tagname&amp;gt;&lt;/code&gt;用于新建一个标签，默认为&lt;code&gt;HEAD&lt;/code&gt;，也可以指定一个commit id；&lt;/li&gt;
+&lt;li&gt;命令&lt;code&gt;git tag -a &amp;lt;tagname&amp;gt; -m &amp;quot;blablabla...&amp;quot;&lt;/code&gt;可以指定标签信息；&lt;/li&gt;
+&lt;li&gt;命令&lt;code&gt;git tag&lt;/code&gt;可以查看所有标签。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;52操作标签&#34;&gt;5.2操作标签&lt;/h3&gt;
+&lt;h4 id=&#34;删除标签&#34;&gt;删除标签&lt;/h4&gt;
+&lt;p&gt;如果标签打错了，也可以删除标签&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag
+v1.0
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag -d v1.0
+Deleted tag &#39;v1.0&#39; (was 8d3017c)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;标签的创建都存储在本地，所以不会自动推送到远程，所以，打错的标签可以在本地安全删除，如果要推送某个标签到远程，可以使用命令&lt;code&gt;git push origin &amp;lt;tagname&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin v0.2
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 176 bytes | 176.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To github.com:JokerZhang98/learngit.git
+ * [new tag]         v0.2 -&amp;gt; v0.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也可以一次性推送全部尚未推送到远程的本地标签：&lt;code&gt;$ git push origin --tags&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag -d v0.2
+Deleted tag &#39;v0.2&#39; (was 26ab669)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后，从远程删除。删除命令也是push，但是格式如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push origin :refs/tags/v0.2
+To github.com:JokerZhang98/learngit.git
+ - [deleted]         v0.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;总结-2&#34;&gt;总结&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;命令&lt;code&gt;git push origin &amp;lt;tagname&amp;gt;&lt;/code&gt;可以推送一个本地标签；&lt;/li&gt;
+&lt;li&gt;命令&lt;code&gt;git push origin --tags&lt;/code&gt;可以推送全部未推送过的本地标签；&lt;/li&gt;
+&lt;li&gt;命令&lt;code&gt;git tag -d &amp;lt;tagname&amp;gt;&lt;/code&gt;可以删除一个本地标签；&lt;/li&gt;
+&lt;li&gt;命令&lt;code&gt;git push origin :refs/tags/&amp;lt;tagname&amp;gt;&lt;/code&gt;可以删除一个远程标签。&lt;/li&gt;
+&lt;/ul&gt;
+">Git学习（下）</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/ge17GYPqq/"" data-c="
-          &lt;h2 id=&#34;1-安装与创建版本库&#34;&gt;1、安装与创建版本库&lt;/h2&gt;
+          &lt;h2 id=&#34;安装与创建版本库&#34;&gt;安装与创建版本库&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;	--查看当前目录&lt;/p&gt;
@@ -1187,12 +1793,12 @@ int main(){
 &lt;p&gt;git commit -m&amp;quot;wrote a readme file&amp;quot; 	--将文件提交到仓库 ，-m是本次提交的说明&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;2-时光穿梭&#34;&gt;2、时光穿梭&lt;/h2&gt;
+&lt;h2 id=&#34;时光穿梭&#34;&gt;时光穿梭&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;git status	--时刻掌握仓库当前状态&lt;/li&gt;
 &lt;li&gt;git diff readme.txt    --查看修改内容&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;21版本回退&#34;&gt;2.1版本回退&lt;/h3&gt;
+&lt;h3 id=&#34;版本回退&#34;&gt;版本回退&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;git log    --显示从最近到最远的提交日志（在Git中，用&lt;code&gt;HEAD&lt;/code&gt;表示当前版本，也就是最新的提交，上一个版本就是&lt;code&gt;HEAD^&lt;/code&gt;，上上一个版本就是&lt;code&gt;HEAD^^&lt;/code&gt;，当然往上100个版本写100个&lt;code&gt;^&lt;/code&gt;比较容易数不过来，所以写成&lt;code&gt;HEAD~100&lt;/code&gt;）。&lt;/li&gt;
 &lt;li&gt;git log &lt;code&gt;--pretty=oneline&lt;/code&gt;  --嫌输出信息太多，看得眼花缭乱的，可以试试加上&lt;code&gt;--pretty=oneline&lt;/code&gt;参数。&lt;/li&gt;
@@ -1210,7 +1816,7 @@ int main(){
 &lt;li&gt;穿梭前，用&lt;code&gt;git log&lt;/code&gt;可以查看提交历史，以便确定要回退到哪个版本。&lt;/li&gt;
 &lt;li&gt;要重返未来，用&lt;code&gt;git reflog&lt;/code&gt;查看命令历史，以便确定要回到未来的哪个版本。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;22工作区和暂存区&#34;&gt;2.2工作区和暂存区&lt;/h3&gt;
+&lt;h3 id=&#34;工作区和暂存区&#34;&gt;工作区和暂存区&lt;/h3&gt;
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg&#34; alt=&#34;img&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;图中左侧为工作区，右侧为版本库。在版本库中标记为 &amp;quot;index&amp;quot; 的区域是暂存区（stage/index），标记为 &amp;quot;master&amp;quot; 的是 master 分支所代表的目录树。&lt;/li&gt;
@@ -1223,7 +1829,7 @@ int main(){
 &lt;li&gt;当执行 &lt;strong&gt;git checkout .&lt;/strong&gt; 或者 &lt;strong&gt;git checkout -- &lt;file&gt;&lt;/strong&gt; 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。&lt;/li&gt;
 &lt;li&gt;当执行 &lt;strong&gt;git checkout HEAD .&lt;/strong&gt; 或者 &lt;strong&gt;git checkout HEAD &lt;file&gt;&lt;/strong&gt; 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;23管理修改&#34;&gt;2.3管理修改&lt;/h3&gt;
+&lt;h3 id=&#34;管理修改&#34;&gt;管理修改&lt;/h3&gt;
 &lt;p&gt;第一次修改 -&amp;gt; &lt;code&gt;git add&lt;/code&gt; -&amp;gt; 第二次修改 -&amp;gt; &lt;code&gt;git commit&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;你看，我们前面讲了，Git管理的是修改，当你用&lt;code&gt;git add&lt;/code&gt;命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，&lt;code&gt;git commit&lt;/code&gt;只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。&lt;/p&gt;
 &lt;ul&gt;
@@ -1233,7 +1839,7 @@ int main(){
 &lt;blockquote&gt;
 &lt;p&gt;Git是如何跟踪修改的，每次修改，如果不用&lt;code&gt;git add&lt;/code&gt;到暂存区，那就不会加入到&lt;code&gt;commit&lt;/code&gt;中。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;24撤销修改&#34;&gt;2.4撤销修改&lt;/h3&gt;
+&lt;h3 id=&#34;撤销修改&#34;&gt;撤销修改&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令&lt;code&gt;git checkout -- file&lt;/code&gt;。&lt;/p&gt;
@@ -1245,7 +1851,7 @@ int main(){
 &lt;p&gt;场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192&#34;&gt;版本回退&lt;/a&gt;一节，不过前提是没有推送到远程库。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;25删除文件&#34;&gt;2.5删除文件&lt;/h3&gt;
+&lt;h3 id=&#34;删除文件&#34;&gt;删除文件&lt;/h3&gt;
 &lt;p&gt;一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用&lt;code&gt;rm&lt;/code&gt;命令删了：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;$ rm test.txt
 &lt;/code&gt;&lt;/pre&gt;
@@ -1278,8 +1884,8 @@ $ git commit -m &amp;quot;remove test.txt&amp;quot;
 &lt;blockquote&gt;
 &lt;p&gt;先手动删除文件，然后使用git rm &lt;file&gt;和git add&lt;file&gt;效果是一样的。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;3-远程仓库&#34;&gt;3、远程仓库&lt;/h2&gt;
-&lt;h3 id=&#34;31添加远程仓库&#34;&gt;3.1添加远程仓库&lt;/h3&gt;
+&lt;h2 id=&#34;远程仓库&#34;&gt;远程仓库&lt;/h2&gt;
+&lt;h3 id=&#34;添加远程仓库&#34;&gt;添加远程仓库&lt;/h3&gt;
 &lt;p&gt;情景：你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -1312,7 +1918,7 @@ $ git commit -m &amp;quot;remove test.txt&amp;quot;
 &lt;p&gt;要关联一个远程库，使用命令&lt;code&gt;git remote add origin git@server-name:path/repo-name.git&lt;/code&gt;；&lt;/p&gt;
 &lt;p&gt;关联后，使用命令&lt;code&gt;git push -u origin master&lt;/code&gt;第一次推送master分支的所有内容；&lt;/p&gt;
 &lt;p&gt;此后，每次本地提交后，只要有必要，就可以使用命令&lt;code&gt;git push origin master&lt;/code&gt;推送最新修改；&lt;/p&gt;
-&lt;h3 id=&#34;32从远程仓库克隆&#34;&gt;3.2从远程仓库克隆&lt;/h3&gt;
+&lt;h3 id=&#34;从远程仓库克隆&#34;&gt;从远程仓库克隆&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;github上创建一个新的仓库，这里仓库的名字叫gitskills(注意在仓库创建时勾选上Initialize this repository with a README，这样github会给我们自动创建一个名叫README.md的文件)&lt;/p&gt;

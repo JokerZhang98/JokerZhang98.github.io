@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-12-18T03:46:32.488Z</updated>
+    <updated>2020-12-18T07:08:48.958Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[Git学习（下）]]></title>
+        <id>https://jokerzhang98.github.io/post/b-mpNTsOz/</id>
+        <link href="https://jokerzhang98.github.io/post/b-mpNTsOz/">
+        </link>
+        <updated>2020-12-18T07:07:10.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git学习笔记（上）]]></title>
         <id>https://jokerzhang98.github.io/post/ge17GYPqq/</id>
@@ -44,12 +51,5 @@
         <link href="https://jokerzhang98.github.io/post/9q-3HGZWd/">
         </link>
         <updated>2020-08-24T03:29:45.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[微信小程序中关于<button>标签修改大小]]></title>
-        <id>https://jokerzhang98.github.io/post/XcY25M6zz/</id>
-        <link href="https://jokerzhang98.github.io/post/XcY25M6zz/">
-        </link>
-        <updated>2020-07-28T00:10:35.000Z</updated>
     </entry>
 </feed>

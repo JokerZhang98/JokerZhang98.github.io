@@ -8,7 +8,7 @@
 <meta name="keywords" content="Jerryのblog">
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
-<title>[蓝桥杯刷题]： 蛇行矩阵 | Jerryのblog</title>
+<title>Git学习（下） | Jerryのblog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1608275318852">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,8 +38,8 @@
 
 
 
-  <meta name="description" content="[蓝桥杯刷题]： 蛇行矩阵" />
-  <meta name="keywords" content="C语言,蓝桥杯" />
+  <meta name="description" content="Git学习（下）" />
+  <meta name="keywords" content="git" />
 </head>
 
 <body>
@@ -245,19 +245,60 @@
   <div class="toc-wrapper auto-number auto"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E9%A2%98%E7%9B%AE">题目</a>
+<li>
 <ul>
-<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a></li>
-<li><a href="#%E8%BE%93%E5%85%A5">输入</a></li>
-<li><a href="#%E8%BE%93%E5%87%BA">输出</a></li>
-<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5">样例输入</a></li>
-<li><a href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA">样例输出</a></li>
+<li><a href="#%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86">分支管理</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF">创建与合并分支</a>
+<ul>
+<li><a href="#switch">switch</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93">小结：</a></li>
 </ul>
 </li>
-<li><a href="#%E8%A7%A3%E9%A2%98">解题</a>
+<li><a href="#42%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81">4.2解决冲突</a>
 <ul>
-<li><a href="#%E6%80%9D%E8%B7%AF">思路</a></li>
-<li><a href="#%E5%8F%82%E8%80%83%E4%BB%A3%E7%A0%81">参考代码</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93-2"><strong>小结</strong></a></li>
+</ul>
+</li>
+<li><a href="#43%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E7%AD%96%E7%95%A5">4.3分支管理策略</a>
+<ul>
+<li><a href="#%E5%B0%8F%E7%BB%93-3">小结：</a></li>
+</ul>
+</li>
+<li><a href="#44bug%E5%88%86%E6%94%AF">4.4Bug分支</a>
+<ul>
+<li><a href="#%E5%B0%8F%E7%BB%93-4">小结</a></li>
+</ul>
+</li>
+<li><a href="#45feature%E5%88%86%E6%94%AF">4.5Feature分支</a>
+<ul>
+<li><a href="#%E6%80%BB%E7%BB%93">总结：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C">多人协作</a>
+<ul>
+<li><a href="#%E6%8E%A8%E9%80%81%E5%88%86%E6%94%AF">推送分支</a></li>
+<li><a href="#%E6%8A%93%E5%8F%96%E5%88%86%E6%94%AF">抓取分支</a></li>
+<li><a href="#%E5%B0%8F%E7%BB%93-5">小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86">5、标签管理</a>
+<ul>
+<li><a href="#51%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE">5.1创建标签</a>
+<ul>
+<li><a href="#%E5%B0%8F%E7%BB%93-6">小结：</a></li>
+</ul>
+</li>
+<li><a href="#52%E6%93%8D%E4%BD%9C%E6%A0%87%E7%AD%BE">5.2操作标签</a>
+<ul>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE">删除标签</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93-2">总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -525,8 +566,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://jokerzhang98.github.io/post/WzGhKHxwQ/">
-      [蓝桥杯刷题]： 蛇行矩阵
+    <a class="post-title-link" href="https://jokerzhang98.github.io/post/b-mpNTsOz/">
+      Git学习（下）
     </a>
   </h1>
   <div class="post-meta">
@@ -534,7 +575,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-02-21</span>
+      <span>2020-12-18</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -543,14 +584,8 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/">
-        <span>C语言</span>
-      </a>、
-      
-      
-      
-      <a href="https://jokerzhang98.github.io/tag/BftZwlALz/">
-        <span>蓝桥杯</span>
+      <a href="https://jokerzhang98.github.io/tag/_8taT9F2c/">
+        <span>git</span>
       </a>
       
       
@@ -559,17 +594,17 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>27<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>332<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>5894<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/WzGhKHxwQ/" data-flag-title="[蓝桥杯刷题]： 蛇行矩阵" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/b-mpNTsOz/" data-flag-title="Git学习（下）" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -578,60 +613,607 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h1 id="题目">题目</h1>
-<h2 id="题目描述">题目描述</h2>
-<hr>
-<p>蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。</p>
-<hr>
-<h2 id="输入">输入</h2>
-<hr>
-<p>本题有多组数据，每组数据由一个正整数N组成。（N不大于100）</p>
-<hr>
-<h2 id="输出">输出</h2>
-<hr>
-<p>对于每一组数据，输出一个N行的蛇形矩阵。两组输出之间不要额外的空行。矩阵三角中同一行的数字用一个空格分开。行尾不要多余的空格。</p>
-<hr>
-<h2 id="样例输入">样例输入</h2>
-<hr>
-<p>5</p>
-<hr>
-<h2 id="样例输出">样例输出</h2>
-<hr>
-<p>1 3 6 10 15<br>
-2 5 9 14<br>
-4 8 13<br>
-7 12<br>
-11</p>
-<hr>
-<h1 id="解题">解题</h1>
-<h2 id="思路">思路</h2>
-<hr>
-<p>1、行递增规律：1---&gt; 3(1+2)---&gt;6(1+2+3)---&gt;10(1+2+3+4)<br>
-2、列递增规律：1---&gt;2(1+1)---&gt;4(1+1+2)---&gt;7(1+1+2+3)---&gt;(1+1+2+3+4)</p>
-<hr>
-<h2 id="参考代码">参考代码</h2>
-<hr>
-<pre><code>#include&lt;cstdio&gt;
-int main(){
- int i,j,n,sum=0,s1=0,s;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(i=1;i&lt;=n;i++){//确定输出行数
-            sum=s1;//正解中第一列的序列
-        //先使用sum，可以去掉第一个不和谐数字的计算
-      for(j=i;j&lt;=n;j++){//确定该行的输出个数
-            sum+=j;   //行递增规律
-            printf(&quot;%d&quot;,sum);
-            if(j!=n)
-                printf(&quot; &quot;);
-      }
-      s=i-1;//差值序列的递增序列
-      s1+=s; //与正确序列的差值序列
-      if(i!=n)
-        printf(&quot;\n&quot;);
-    }
-    return 0;
-} 
+              <h2 id="分支管理">分支管理</h2>
+<p>​	分支概念简化版理解：有两个平行宇宙，一个宇宙的你在学Java，另一个你在学习Python。有一天，两个宇宙合并了，于是你回了Java又会了Python。</p>
+<p>关于git分支的使用，可以参考这篇文章：<a href="https://blog.csdn.net/ShuSheng0007/article/details/80791849">实际项目中如何使用Git做分支管理</a></p>
+<h3 id="创建与合并分支">创建与合并分支</h3>
+<p>​	版本回退的时候，每次提交，git会将他们串成一条时间线，这个时间线就是master分支。对于HEAD来说指向的就是当前分支。</p>
+<p>​	每次创建一个新的分支相当于创建了一个新的指针，然后改了HEAD指针的指向。所以工作区内容不变，该指针就可以了。</p>
+<ol>
+<li>
+<p>创建dev分支并且切换到dev分支。（git  checkout命令加上-b参数表示创建并切换）</p>
+<pre><code>$ git branch dev
+$ git checkout dev
+Switched to branch 'dev'
+
+//以上的命令可以精简为
+$ git checkout -b dev
+Switched to a new branch 'dev'
 </code></pre>
+</li>
+<li>
+<p><code>git branch</code>会列出所有的分支，当前分支前面会标记一个*号</p>
+<pre><code>$ git branch
+* dev
+  master
+</code></pre>
+</li>
+<li>
+<p>对readme.txt文件做一个改动并且提交</p>
+</li>
+<li>
+<pre><code>$ git add readme.txt
+$ git commit -m&quot;branch test&quot;
+[dev d370436] branch test
+ 1 file changed, 1 insertion(+)
+
+</code></pre>
+</li>
+<li>
+<p>dev分支工作完成，切回到master分支</p>
+<pre><code>$ git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use &quot;git push&quot; to publish your local commits)
+</code></pre>
+</li>
+<li>
+<p>查看readme.txt文件后发现，刚才的内容不见了，那是因为那个提交在dev分支上，而master分支此刻的提交点并没有变。</p>
+</li>
+<li>
+<p>将dev分支的工作成果添加到master分支上。<code>git merge</code></p>
+<pre><code>$ git merge dev
+Updating 887eaca..d370436
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre>
+</li>
+<li>
+<p>注意到上面的<code>Fast-forward</code>信息，Git告诉我们，这次合并是“快进模式”，也就是直接把<code>master</code>指向<code>dev</code>的当前提交，所以合并速度非常快。</p>
+</li>
+<li>
+<p>合并完成后，就可以放心地删除<code>dev</code>分支了：</p>
+<pre><code>$ git branch -d dev
+Deleted branch dev (was d370436).
+</code></pre>
+</li>
+</ol>
+<p>因为创建、合并和删除分支非常快，所以Git鼓励你使用分支完成某个任务，合并后再删掉分支，这和直接在<code>master</code>分支上工作效果是一样的，但过程更安全。</p>
+<h4 id="switch">switch</h4>
+<p>​	切换分支使用<code>git checkout &lt;branch&gt;</code>，而前面讲过的撤销修改则是<code>git checkout -- &lt;file&gt;</code>，同一个命令，有两种作用，确实有点令人迷惑。</p>
+<p>实际上，切换分支这个动作，用<code>switch</code>更科学。因此，最新版本的Git提供了新的<code>git switch</code>命令来切换分支：</p>
+<p>创建并切换到新的<code>dev</code>分支，可以使用：</p>
+<pre><code>$ git switch -c dev
+</code></pre>
+<h4 id="小结">小结：</h4>
+<ul>
+<li>Git鼓励大量使用分支：</li>
+<li>查看分支：<code>git branch</code></li>
+<li>创建分支：<code>git branch &lt;name&gt;</code></li>
+<li>切换分支：<code>git checkout &lt;name&gt;</code>或者<code>git switch &lt;name&gt;</code></li>
+<li>创建+切换分支：<code>git checkout -b &lt;name&gt;</code>或者<code>git switch -c &lt;name&gt;</code></li>
+<li>合并某分支到当前分支：<code>git merge &lt;name&gt;</code></li>
+<li>删除分支：<code>git branch -d &lt;name&gt;</code></li>
+</ul>
+<h3 id="42解决冲突">4.2解决冲突</h3>
+<p>​	冲突：假如你创建了一个新的feature1分支，在feature1分支上修改了readme文件的最后一行并且进行了提交，切换到master分支，进行了同样的操作。这种情况下，git无法执行快速合并，只能试图把各自的修改的合并，但这种就会发生冲突。</p>
+<ol>
+<li>
+<p>创建一个feature1分支，并且修改文件的最后一行。</p>
+<pre><code>Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch -c  feature1
+Switched to a new branch 'feature1'
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git branch
+* feature1
+  master
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+creating a new branch is quick
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git status
+On branch feature1
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+creating a new branch is quick &amp; simple
+</code></pre>
+</li>
+<li>
+<p>在feature1分支上提交</p>
+<pre><code>Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature1)
+$ git commit -m&quot;readme.txt&quot;
+[feature1 c016331] readme.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+</li>
+<li>
+<p>切换到master分支</p>
+<pre><code>$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use &quot;git push&quot; to publish your local commits)
+</code></pre>
+<p>Git还会自动提示我们当前<code>master</code>分支比远程的<code>master</code>分支要超前2个提交。</p>
+</li>
+<li>
+<p>在master上也进行修改文件并且提交。这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。</p>
+<pre><code>$ git merge feature1
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+</li>
+<li>
+<p>Git告诉我们，<code>readme.txt</code>文件存在冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件：Git用<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>，<code>=======</code>，<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>标记出不同分支的内容，我们修改如下后保存：</p>
+<pre><code>$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+        both modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master|MERGING)
+$ cat readme.txt
+这是个一个测试库，用于练习git。
+这是第二次测试，用于进行github推送。
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+creating a new branch is quick and simple
+=======
+creating a new branch is quick &amp; simple
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature1
+
+</code></pre>
+</li>
+<li>
+<p>用带参数的<code>git log</code>也可以看到分支的合并情况：<code>$ git log --graph --pretty=oneline --abbrev-commit</code>。</p>
+</li>
+</ol>
+<h4 id="小结-2"><strong>小结</strong></h4>
+<ul>
+<li>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</li>
+<li>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。
+<ul>
+<li>用<code>git log --graph</code>命令可以看到分支合并图。（退出按Q即可）</li>
+</ul>
+</li>
+</ul>
+<h3 id="43分支管理策略">4.3分支管理策略</h3>
+<p>​	通常，合并分支时，如果可能，Git会用<code>Fast forward</code>模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>​	如果要强制禁用<code>Fast forward</code>模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>准备合并<code>dev</code>分支，请注意<code>--no-ff</code>参数，表示禁用<code>Fast forward</code>：</p>
+<pre><code>$ git merge --no-ff -m &quot;merge with no-ff&quot; dev
+Merge made by the 'recursive' strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<pre><code>//查看历史分支
+$ git log --graph --pretty=oneline --abbrev-commit
+</code></pre>
+<p><strong>分支策略</strong></p>
+<p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，<code>master</code>分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在<code>dev</code>分支上，也就是说，<code>dev</code>分支是不稳定的，到某个时候，比如1.0版本发布时，再把<code>dev</code>分支合并到<code>master</code>上，在<code>master</code>分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在<code>dev</code>分支上干活，每个人都有自己的分支，时不时地往<code>dev</code>分支上合并就可以了。</p>
+<figure data-type="image" tabindex="1"><img src="C:%5CUsers%5CJoker%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201217161245339.png" alt="image-20201217161245339" loading="lazy"></figure>
+<h4 id="小结-3">小结：</h4>
+<p>​	合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。</p>
+<h3 id="44bug分支">4.4Bug分支</h3>
+<p>​	开发当中，bug就像家常便饭一样。有了bug就需要修复，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支<code>issue-101</code>来修复它，但是你在dev上进行的工作还没有提交，由于工作还没做完，所以没法提交。</p>
+<pre><code>$ git status
+On branch dev
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+</code></pre>
+<p>因此git提供了<code>stash</code>功能以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。</p>
+<pre><code class="language-$">Saved working directory and index state WIP on dev: 3a8bb23 add merge
+</code></pre>
+<p>首先确定要在哪个分支上修复bug，假定需要在<code>master</code>分支上修复，就从<code>master</code>创建临时分支：</p>
+<pre><code class="language-Joker@DESKTOP-CTFOVRN">$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch -c issue-101
+Switched to a new branch 'issue-101
+</code></pre>
+<p>修复bug并且提交，切换到<code>master</code>分支，并完成合并，最后删除<code>issue-101</code>分支：</p>
+<pre><code>Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git commit -m&quot;第三次测试&quot;
+[issue-101 ed3519a] 第三次测试
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (issue-101)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 7 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git merge --no-ff -m&quot;merge bug fix 101&quot; issue-101
+Merge made by the 'recursive' strategy.
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git branch -d issue-101
+Deleted branch issue-101 (was ed3519a).
+</code></pre>
+<p>回到dev分支继续干活</p>
+<pre><code>Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git switch dev
+Switched to branch 'dev'
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (dev)
+$ git status
+On branch dev
+nothing to commit, working tree clean
+
+</code></pre>
+<p>工作区是干净的，用<code>git stash list</code>查看一下</p>
+<pre><code>$ git stash list
+stash@{0}: WIP on dev: 3a8bb23 add merge
+</code></pre>
+<p>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>一是用<code>git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>git stash drop</code>来删除；</p>
+<p>另一种方式是用<code>git stash pop</code>，恢复的同时把stash内容也删了：</p>
+<pre><code>$ git stash pop
+On branch dev
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   readme.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+Dropped refs/stash@{0} (37cfa22630b4d3acfbdae3bc2fd2376225520582)
+</code></pre>
+<p>然后使用<code>git stash list</code>查看，就看不到任何stash内容了：</p>
+<p>你可以多次stash，恢复的时候，先用<code>git stash list</code>查看，然后恢复指定的stash，用命令：</p>
+<pre><code class="language-$">$ git stash apply stash@{0}
+</code></pre>
+<p>在master分支上修复了bug后，我们要想一想，dev分支是早期从master分支分出来的，所以，这个bug其实在当前dev分支上也存在。同样的bug，要在dev上修复，我们只需要把<code>4c805e2 fix bug 101</code>这个提交所做的修改“复制”到dev分支。注意：我们只想复制<code>4c805e2 fix bug 101</code>这个提交所做的修改，并不是把整个master分支merge过来。</p>
+<p>为了方便操作，Git专门提供了一个<code>cherry-pick</code>命令，让我们能复制一个特定的提交到当前分支：</p>
+<pre><code>$ git branch
+* dev
+  master
+$ git cherry-pick 4c805e2
+[master 1d4b803] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p>Git自动给dev分支做了一次提交，注意这次提交的commit是<code>1d4b803</code>，它并不同于master的<code>4c805e2</code>，因为这两个commit只是改动相同，但确实是两个不同的commit。用<code>git cherry-pick</code>，我们就不需要在dev分支上手动再把修bug的过程重复一遍。</p>
+<h4 id="小结-4">小结</h4>
+<ul>
+<li>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</li>
+<li>当手头工作没有完成时，先把工作现场<code>git stash</code>一下，然后去修复bug，修复后，再<code>git stash pop</code>，回到工作现场；</li>
+<li>在master分支上修复的bug，想要合并到当前dev分支，可以用<code>git cherry-pick &lt;commit&gt;</code>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。</li>
+</ul>
+<h3 id="45feature分支">4.5Feature分支</h3>
+<p>​	添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>​	于是你去创建了这个分支并且开发完毕提交了。</p>
+<pre><code>Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (dev)
+$ git switch -c feature-vulcan
+Switched to a new branch 'feature-vulcan'
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git branch
+  dev
+* feature-vulcan
+  master
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ cat readme.txt
+feature测试
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git add readme.txt
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (feature-vulcan)
+$ git commit -m&quot;未来功能开发完毕&quot;
+[feature-vulcan 4172242] 未来功能开发完毕
+ 1 file changed, 1 insertion(+)
+</code></pre>
+<p>这时，你切回dev，准备合并，但是产品经理告诉你，甲方不要了，必须取消。</p>
+<p>于是你要删除这个分支。</p>
+<pre><code>$ git branch -d feature-vulcan
+error: The branch 'feature-vulcan' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature-vulcan'.
+</code></pre>
+<p>x销毁失败。Git友情提醒，<code>feature-vulcan</code>分支还没有被合并，如果删除，将丢失掉修改，如果要强行删除，需要使用大写的<code>-D</code>参数。。</p>
+<p>现在我们强行删除：</p>
+<pre><code class="language-]">Deleted branch feature-vulcan (was 4172242).
+</code></pre>
+<p>删除成功。</p>
+<h4 id="总结">总结：</h4>
+<p>开发一个新feature，最好新建一个分支；</p>
+<p>如果要丢弃一个没有被合并过的分支，可以通过<code>git branch -D &lt;name&gt;</code>强行删除。</p>
+<h3 id="多人协作">多人协作</h3>
+<p>当你从远程仓库克隆时，实际上Git自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。</p>
+<p>要查看远程库的信息，用<code>git remote</code>：</p>
+<pre><code>$ git remote
+origin
+</code></pre>
+<p>或者可以使用 <code>git remote -v</code>查看详细信息，显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址。</p>
+<pre><code>$ git remote -v
+origin  git@github.com:JokerZhang98/learngit.git (fetch)
+origin  git@github.com:JokerZhang98/learngit.git (push)
+</code></pre>
+<h4 id="推送分支">推送分支</h4>
+<p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</p>
+<pre><code class="language-$">$ git push origin master
+Warning: Permanently added the RSA host key for IP address '13.250.177.223' to the list of known hosts.
+Enumerating objects: 25, done.
+Counting objects: 100% (25/25), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (23/23), 1.84 KiB | 472.00 KiB/s, done.
+Total 23 (delta 9), reused 0 (delta 0)
+remote: Resolving deltas: 100% (9/9), done.
+To github.com:JokerZhang98/learngit.git
+   e8f8802..8d3017c  master -&gt; master
+
+</code></pre>
+<p>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<ul>
+<li><code>master</code>分支是主分支，因此要时刻与远程同步；</li>
+<li><code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</li>
+<li>bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</li>
+<li>feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</li>
+</ul>
+<p>总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！</p>
+<h4 id="抓取分支">抓取分支</h4>
+<p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</p>
+<p>多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</p>
+<p>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：</p>
+<pre><code>$ git clone git@github.com:michaelliao/learngit.git
+Cloning into 'learngit'...
+remote: Counting objects: 40, done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 40 (delta 14), reused 40 (delta 14), pack-reused 0
+Receiving objects: 100% (40/40), done.
+Resolving deltas: 100% (14/14), done.
+</code></pre>
+<p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的<code>master</code>分支。不信可以用<code>git branch</code>命令看看：</p>
+<pre><code>$ git branch
+* master
+</code></pre>
+<p>现在，你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地，于是他用这个命令创建本地<code>dev</code>分支：</p>
+<pre><code>$ git checkout -b dev origin/dev
+</code></pre>
+<p>现在，他就可以在<code>dev</code>上继续修改，然后，时不时地把<code>dev</code>分支<code>push</code>到远程：</p>
+<pre><code>$ git add env.txt
+
+$ git commit -m &quot;add env&quot;
+[dev 7a5e5dd] add env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   f52c633..7a5e5dd  dev -&gt; dev
+</code></pre>
+<p>你的小伙伴已经向<code>origin/dev</code>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：</p>
+<pre><code>$ cat env.txt
+env
+
+$ git add env.txt
+
+$ git commit -m &quot;add new env&quot;
+[dev 7bd91f1] add new env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+$ git push origin dev
+To github.com:michaelliao/learngit.git
+ ! [rejected]        dev -&gt; dev (non-fast-forward)
+error: failed to push some refs to 'git@github.com:michaelliao/learngit.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre>
+<p>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后，在本地合并，解决冲突，再推送：</p>
+<pre><code>$ git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull &lt;remote&gt; &lt;branch&gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/&lt;branch&gt; dev
+</code></pre>
+<p><code>git pull</code>也失败了，原因是没有指定本地<code>dev</code>分支与远程<code>origin/dev</code>分支的链接，根据提示，设置<code>dev</code>和<code>origin/dev</code>的链接：</p>
+<pre><code>$ git branch --set-upstream-to=origin/dev dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+</code></pre>
+<p>再pull：</p>
+<pre><code>$ git pull
+Auto-merging env.txt
+CONFLICT (add/add): Merge conflict in env.txt
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+<p>这回<code>git pull</code>成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的<a href="http://www.liaoxuefeng.com/wiki/896043488029600/900004111093344">解决冲突</a>完全一样。解决后，提交，再push：</p>
+<pre><code>$ git commit -m &quot;fix env conflict&quot;
+[dev 57c53ab] fix env conflict
+
+$ git push origin dev
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 621 bytes | 621.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:michaelliao/learngit.git
+   7a5e5dd..57c53ab  dev -&gt; dev
+</code></pre>
+<p>因此，多人协作的工作模式通常是这样：</p>
+<ol>
+<li>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</li>
+<li>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</li>
+<li>如果合并有冲突，则解决冲突，并在本地提交；</li>
+<li>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</li>
+</ol>
+<p>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<h4 id="小结-5">小结</h4>
+<ul>
+<li>查看远程库信息，使用<code>git remote -v</code>；</li>
+<li>本地新建的分支如果不推送到远程，对其他人就是不可见的；</li>
+<li>从本地推送分支，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交；</li>
+<li>在本地创建和远程分支对应的分支，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；</li>
+<li>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</li>
+<li>从远程抓取分支，使用<code>git pull</code>，如果有冲突，要先处理冲突。</li>
+</ul>
+<h2 id="5-标签管理">5、标签管理</h2>
+<h3 id="51创建标签">5.1创建标签</h3>
+<p>切换到需要打标签的分支上，然后敲命令<code>git tag &lt;name&gt;</code>就可以打一个新标签：</p>
+<pre><code>$ git tag v1.0
+</code></pre>
+<p>可以用命令<code>git tag</code>查看所有标签：</p>
+<p>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的commit id，然后打上就可以了：</p>
+<pre><code>$ git log --pretty=oneline --abbrev-commit
+12a631b (HEAD -&gt; master, tag: v1.0, origin/master) merged bug fix 101
+4c805e2 fix bug 101
+e1e9c68 merge with no-ff
+f52c633 add merge
+cf810e4 conflict fixed
+5dc6824 &amp; simple
+14096d0 AND simple
+b17d20e branch test
+d46f35e remove test.txt
+b84166e add test.txt
+519219b git tracks changes
+e43a48b understand how stage works
+1094adb append GPL
+e475afc add distributed
+eaadf4e wrote a readme file
+</code></pre>
+<p>比方说要对<code>add merge</code>这次提交打标签，它对应的commit id是<code>f52c633</code>，敲入命令：</p>
+<pre><code>$ git tag v0.9 f52c633
+</code></pre>
+<p>再用命令<code>git tag</code>查看标签：</p>
+<pre><code>$ git tag
+v0.9
+v1.0
+</code></pre>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用<code>git show &lt;tagname&gt;</code>查看标签信息：</p>
+<pre><code>$ git show v0.9
+commit f52c63349bc3c1593499807e5c8e972b82c8f286 (tag: v0.9)
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 21:56:54 2018 +0800
+
+    add merge
+
+diff --git a/readme.txt b/readme.txt
+...
+</code></pre>
+<p>可以看到，<code>v0.9</code>确实打在<code>add merge</code>这次提交上。</p>
+<p>还可以创建带有说明的标签，用<code>-a</code>指定标签名，<code>-m</code>指定说明文字：</p>
+<pre><code>$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb
+</code></pre>
+<p>用命令<code>git show &lt;tagname&gt;</code>可以看到说明文字：</p>
+<pre><code>$ git show v0.1
+tag v0.1
+Tagger: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 22:48:43 2018 +0800
+
+version 0.1 released
+
+commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (tag: v0.1)
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 21:06:15 2018 +0800
+
+    append GPL
+
+diff --git a/readme.txt b/readme.txt
+</code></pre>
+<p><strong>注意：标签总是和某个commit挂钩。如果这个commit既出现在master分支，又出现在dev分支，那么在这两个分支上都可以看到这个标签。</strong></p>
+<h4 id="小结-6">小结：</h4>
+<ul>
+<li>命令<code>git tag &lt;tagname&gt;</code>用于新建一个标签，默认为<code>HEAD</code>，也可以指定一个commit id；</li>
+<li>命令<code>git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;</code>可以指定标签信息；</li>
+<li>命令<code>git tag</code>可以查看所有标签。</li>
+</ul>
+<h3 id="52操作标签">5.2操作标签</h3>
+<h4 id="删除标签">删除标签</h4>
+<p>如果标签打错了，也可以删除标签</p>
+<pre><code class="language-git">Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag
+v1.0
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was 8d3017c)
+
+Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)
+$ git tag
+</code></pre>
+<p>标签的创建都存储在本地，所以不会自动推送到远程，所以，打错的标签可以在本地安全删除，如果要推送某个标签到远程，可以使用命令<code>git push origin &lt;tagname&gt;</code></p>
+<pre><code>$ git push origin v0.2
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 176 bytes | 176.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To github.com:JokerZhang98/learngit.git
+ * [new tag]         v0.2 -&gt; v0.2
+</code></pre>
+<p>也可以一次性推送全部尚未推送到远程的本地标签：<code>$ git push origin --tags</code></p>
+<p>如果标签已经推送到远程，要删除远程标签就麻烦一点，先从本地删除：</p>
+<pre><code>$ git tag -d v0.2
+Deleted tag 'v0.2' (was 26ab669)
+</code></pre>
+<p>然后，从远程删除。删除命令也是push，但是格式如下：</p>
+<pre><code>$ git push origin :refs/tags/v0.2
+To github.com:JokerZhang98/learngit.git
+ - [deleted]         v0.2
+</code></pre>
+<h4 id="总结-2">总结</h4>
+<ul>
+<li>命令<code>git push origin &lt;tagname&gt;</code>可以推送一个本地标签；</li>
+<li>命令<code>git push origin --tags</code>可以推送全部未推送过的本地标签；</li>
+<li>命令<code>git tag -d &lt;tagname&gt;</code>可以删除一个本地标签；</li>
+<li>命令<code>git push origin :refs/tags/&lt;tagname&gt;</code>可以删除一个远程标签。</li>
+</ul>
 
             </div>
             
@@ -648,7 +1230,7 @@ int main(){
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://jokerzhang98.github.io/post/WzGhKHxwQ/" title="[蓝桥杯刷题]： 蛇行矩阵">https://jokerzhang98.github.io/post/WzGhKHxwQ/</a>
+      <a href="https://jokerzhang98.github.io/post/b-mpNTsOz/" title="Git学习（下）">https://jokerzhang98.github.io/post/b-mpNTsOz/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -657,23 +1239,17 @@ int main(){
   </ul>
   <div class="tags">
     
-      <a href="https://jokerzhang98.github.io/tag/xvAmnvnly/"># C语言</a>
-    
-      <a href="https://jokerzhang98.github.io/tag/BftZwlALz/"># 蓝桥杯</a>
+      <a href="https://jokerzhang98.github.io/tag/_8taT9F2c/"># git</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="[蓝桥杯刷题]：IP判断" href="https://jokerzhang98.github.io/post/h2rTjN_kt/">[蓝桥杯刷题]：IP判断</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="[蓝桥杯刷题]：IP判断" href="https://jokerzhang98.github.io/post/h2rTjN_kt/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="[蓝桥杯刷题]：3N+1问题" href="https://jokerzhang98.github.io/post/QD7nWTzkN/">[蓝桥杯刷题]：3N+1问题</a>
-        <a class="nav-mobile-next" title="[蓝桥杯刷题]：3N+1问题" href="https://jokerzhang98.github.io/post/QD7nWTzkN/">下一篇</a>
+        <a class="nav-pc-next" title="Git学习笔记（上）" href="https://jokerzhang98.github.io/post/ge17GYPqq/">Git学习笔记（上）</a>
+        <a class="nav-mobile-next" title="Git学习笔记（上）" href="https://jokerzhang98.github.io/post/ge17GYPqq/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
