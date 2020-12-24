@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-12-18T07:08:48.958Z</updated>
+    <updated>2020-12-24T07:04:47.940Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[SpringBoot基础]]></title>
+        <id>https://jokerzhang98.github.io/post/MAZoZSKiX/</id>
+        <link href="https://jokerzhang98.github.io/post/MAZoZSKiX/">
+        </link>
+        <updated>2020-12-22T07:41:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Git常用命令]]></title>
+        <id>https://jokerzhang98.github.io/post/Yr2e4qfT2/</id>
+        <link href="https://jokerzhang98.github.io/post/Yr2e4qfT2/">
+        </link>
+        <updated>2020-12-18T07:08:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>这是翻译国外友人制作的Git Cheat Sheet</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这是翻译国外友人制作的Git Cheat Sheet</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git学习（下）]]></title>
         <id>https://jokerzhang98.github.io/post/b-mpNTsOz/</id>
@@ -37,19 +55,5 @@
         <link href="https://jokerzhang98.github.io/post/MldJz-3Au/">
         </link>
         <updated>2020-11-25T09:22:50.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[java.lang.IllegalArgumentException: Property 'dataSource' is required]]></title>
-        <id>https://jokerzhang98.github.io/post/PcQHtN4Z2/</id>
-        <link href="https://jokerzhang98.github.io/post/PcQHtN4Z2/">
-        </link>
-        <updated>2020-09-07T12:18:48.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[解决80端口被占用问题]]></title>
-        <id>https://jokerzhang98.github.io/post/9q-3HGZWd/</id>
-        <link href="https://jokerzhang98.github.io/post/9q-3HGZWd/">
-        </link>
-        <updated>2020-08-24T03:29:45.000Z</updated>
     </entry>
 </feed>

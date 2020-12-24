@@ -9,7 +9,7 @@
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
 <title>maven添加阿里云镜像 | Jerryのblog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1608275318852">
+<link rel="shortcut icon" href="/favicon.ico?v=1608782503318">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -207,7 +207,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">19</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -891,6 +891,1115 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/MAZoZSKiX/"" data-c="
+          &lt;h1 id=&#34;一-springboot简介&#34;&gt;一、SpringBoot简介&lt;/h1&gt;
+&lt;h2 id=&#34;11-原有spring优缺点分析&#34;&gt;1.1  原有Spring优缺点分析&lt;/h2&gt;
+&lt;h3 id=&#34;111-spring的优点分析&#34;&gt;1.1.1 Spring的优点分析&lt;/h3&gt;
+&lt;p&gt;Spring是Java企业版（Java Enterprise Edition，JEE，也称J2EE）的轻量级代替品。无需开发重量级的Enterprise JavaBean（EJB），Spring为企业级Java开发提供了一种相对简单的方法，通过依赖注入和面向切面编程，用简单的Java对象（Plain Old Java Object，POJO）实现了EJB的功能。&lt;/p&gt;
+&lt;h3 id=&#34;112-spring的缺点分析&#34;&gt;1.1.2 Spring的缺点分析&lt;/h3&gt;
+&lt;p&gt;虽然Spring的组件代码是轻量级的，但它的配置却是重量级的。一开始，Spring用XML配置，而且是很多XML配置。Spring 2.5引入了基于注解的组件扫描，这消除了大量针对应用程序自身组件的显式XML配置。Spring 3.0引入了基于Java的配置，这是一种类型安全的可重构配置方式，可以代替XML。&lt;/p&gt;
+&lt;p&gt;所有这些配置都代表了开发时的损耗。因为在思考Spring特性配置和解决业务问题之间需要进行思维切换，所以编写配置挤占了编写应用程序逻辑的时间。和所有框架一样，Spring实用，但与此同时它要求的回报也不少。&lt;/p&gt;
+&lt;p&gt;除此之外，项目的依赖管理也是一件耗时耗力的事情。在环境搭建时，需要分析要导入哪些库的坐标，而且还需要分析导入与之有依赖关系的其他库的坐标，一旦选错了依赖的版本，随之而来的不兼容问题就会严重阻碍项目的开发进度。&lt;/p&gt;
+&lt;h2 id=&#34;12-springboot的概述&#34;&gt;1.2 SpringBoot的概述&lt;/h2&gt;
+&lt;h3 id=&#34;121-springboot解决上述spring的缺点&#34;&gt;1.2.1 SpringBoot解决上述Spring的缺点&lt;/h3&gt;
+&lt;p&gt;SpringBoot对上述Spring的缺点进行的改善和优化，基于约定优于配置的思想，可以让开发人员不必在配置与逻辑业务之间进行思维的切换，全身心的投入到逻辑业务的代码编写中，从而大大提高了开发的效率，一定程度上缩短了项目周期。&lt;/p&gt;
+&lt;h3 id=&#34;122-springboot的特点&#34;&gt;1.2.2 SpringBoot的特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;为基于Spring的开发提供更快的入门体验&lt;/li&gt;
+&lt;li&gt;开箱即用，没有代码生成，也无需XML配置。同时也可以修改默认值来满足特定的需求&lt;/li&gt;
+&lt;li&gt;提供了一些大型项目中常见的非功能性特性，如嵌入式服务器、安全、指标，健康检测、外部配置等&lt;/li&gt;
+&lt;li&gt;SpringBoot不是对Spring功能上的增强，而是提供了一种快速使用Spring的方式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;123-springboot的核心功能&#34;&gt;1.2.3 SpringBoot的核心功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;起步依赖&lt;/p&gt;
+&lt;p&gt;起步依赖本质上是一个Maven项目对象模型（Project Object Model，POM），定义了对其他库的传递依赖，这些东西加在一起即支持某项功能。&lt;/p&gt;
+&lt;p&gt;简单的说，起步依赖就是将具备某种功能的坐标打包到一起，并提供一些默认的功能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自动配置&lt;/p&gt;
+&lt;p&gt;Spring Boot的自动配置是一个运行时（更准确地说，是应用程序启动时）的过程，考虑了众多因素，才决定Spring配置应该用哪个，不该用哪个。该过程是Spring自动完成的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​	注意：起步依赖和自动配置的原理剖析会在第三章《SpringBoot原理分析》进行详细讲解&lt;/p&gt;
+&lt;h1 id=&#34;二-springboot快速入门&#34;&gt;二、SpringBoot快速入门&lt;/h1&gt;
+&lt;h2 id=&#34;21-代码实现&#34;&gt;2.1 代码实现&lt;/h2&gt;
+&lt;h3 id=&#34;211-创建maven工程&#34;&gt;2.1.1 创建Maven工程&lt;/h3&gt;
+&lt;p&gt;使用idea工具创建一个maven工程，该工程为普通的java工程即可&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;img%5C1.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;img%5C2.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;img%5C3.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;img%5C4.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;212-添加springboot的起步依赖&#34;&gt;2.1.2 添加SpringBoot的起步依赖&lt;/h3&gt;
+&lt;p&gt;SpringBoot要求，项目要继承SpringBoot的起步依赖spring-boot-starter-parent&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;parent&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+&amp;lt;/parent&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SpringBoot要集成SpringMVC进行Controller的开发，所以项目要导入web的启动依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;dependencies&amp;gt;
+    &amp;lt;dependency&amp;gt;
+        &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt;
+    &amp;lt;/dependency&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;213-编写springboot引导类&#34;&gt;2.1.3 编写SpringBoot引导类&lt;/h3&gt;
+&lt;p&gt;要通过SpringBoot提供的引导类起步SpringBoot才可以进行访问&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.itheima;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MySpringBootApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class);
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;214-编写controller&#34;&gt;2.1.4 编写Controller&lt;/h3&gt;
+&lt;p&gt;在引导类MySpringBootApplication同级包或者子级包中创建QuickStartController&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.itheima.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class QuickStartController {
+    
+    @RequestMapping(&amp;quot;/quick&amp;quot;)
+    @ResponseBody
+    public String quick(){
+        return &amp;quot;springboot 访问成功!&amp;quot;;
+    }
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;215-测试&#34;&gt;2.1.5 测试&lt;/h3&gt;
+&lt;p&gt;执行SpringBoot起步类的主方法，控制台打印日志如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.   ____          _            __ _ _
+ /\\ / ___&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | &#39;_ | &#39;_| | &#39;_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  &#39;  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.1.RELEASE)
+
+2018-05-08 14:29:59.714  INFO 5672 --- [           main] com.itheima.MySpringBootApplication      : Starting MySpringBootApplication on DESKTOP-RRUNFUH with PID 5672 (C:\Users\muzimoo\IdeaProjects\IdeaTest\springboot_quick\target\classes started by muzimoo in C:\Users\muzimoo\IdeaProjects\IdeaTest)
+... ... ...
+o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-05-08 14:30:03.126  INFO 5672 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-05-08 14:30:03.196  INFO 5672 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#39;&#39;
+2018-05-08 14:30:03.206  INFO 5672 --- [           main] com.itheima.MySpringBootApplication      : Started MySpringBootApplication in 4.252 seconds (JVM running for 5.583)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过日志发现，Tomcat started on port(s): 8080 (http) with context path &#39;&#39;&lt;/p&gt;
+&lt;p&gt;tomcat已经起步，端口监听8080，web应用的虚拟工程名称为空&lt;/p&gt;
+&lt;p&gt;打开浏览器访问url地址为：http://localhost:8080/quick&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;img%5C5.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;22-快速入门解析&#34;&gt;2.2 快速入门解析&lt;/h2&gt;
+&lt;h3 id=&#34;222-springboot代码解析&#34;&gt;2.2.2 SpringBoot代码解析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;@SpringBootApplication：标注SpringBoot的启动类，该注解具备多种功能（后面详细剖析）&lt;/li&gt;
+&lt;li&gt;SpringApplication.run(MySpringBootApplication.class) 代表运行SpringBoot的启动类，参数为SpringBoot启动类的字节码对象&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;223-springboot工程热部署&#34;&gt;2.2.3 SpringBoot工程热部署&lt;/h3&gt;
+&lt;p&gt;我们在开发中反复修改类、页面等资源，每次修改后都是需要重新启动才生效，这样每次启动都很麻烦，浪费了大量的时间，我们可以在修改代码后不重启就能生效，在 pom.xml 中添加如下配置就可以实现这样的功能，我们称之为热部署。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!--热部署配置--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-devtools&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：IDEA进行SpringBoot热部署失败原因&lt;/p&gt;
+&lt;p&gt;出现这种情况，并不是热部署配置问题，其根本原因是因为Intellij IEDA默认情况下不会自动编译，需要对IDEA进行自动编译的设置，如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;img%5C19.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;然后 Shift+Ctrl+Alt+/，选择Registry&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;img%5C20.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;224-使用idea快速创建springboot项目&#34;&gt;2.2.4 使用idea快速创建SpringBoot项目&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;img%5C6.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;img%5C7.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;img%5C8.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;img%5C9.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;img%5C10.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;通过idea快速创建的SpringBoot项目的pom.xml中已经导入了我们选择的web的起步依赖的坐标&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;
+	xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt;
+	&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+
+	&amp;lt;groupId&amp;gt;com.itheima&amp;lt;/groupId&amp;gt;
+	&amp;lt;artifactId&amp;gt;springboot_quick2&amp;lt;/artifactId&amp;gt;
+	&amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt;
+	&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt;
+
+	&amp;lt;name&amp;gt;springboot_quick2&amp;lt;/name&amp;gt;
+	&amp;lt;description&amp;gt;Demo project for Spring Boot&amp;lt;/description&amp;gt;
+
+	&amp;lt;parent&amp;gt;
+		&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+		&amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt;
+		&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+		&amp;lt;relativePath/&amp;gt; &amp;lt;!-- lookup parent from repository --&amp;gt;
+	&amp;lt;/parent&amp;gt;
+
+	&amp;lt;properties&amp;gt;
+		&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+		&amp;lt;project.reporting.outputEncoding&amp;gt;UTF-8&amp;lt;/project.reporting.outputEncoding&amp;gt;
+		&amp;lt;java.version&amp;gt;9&amp;lt;/java.version&amp;gt;
+	&amp;lt;/properties&amp;gt;
+
+	&amp;lt;dependencies&amp;gt;
+		&amp;lt;dependency&amp;gt;
+			&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+			&amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt;
+		&amp;lt;/dependency&amp;gt;
+
+		&amp;lt;dependency&amp;gt;
+			&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+			&amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
+			&amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+		&amp;lt;/dependency&amp;gt;
+	&amp;lt;/dependencies&amp;gt;
+
+	&amp;lt;build&amp;gt;
+		&amp;lt;plugins&amp;gt;
+			&amp;lt;plugin&amp;gt;
+				&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+				&amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+			&amp;lt;/plugin&amp;gt;
+		&amp;lt;/plugins&amp;gt;
+	&amp;lt;/build&amp;gt;
+
+
+&amp;lt;/project&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以使用快速入门的方式创建Controller进行访问，此处不再赘述&lt;/p&gt;
+&lt;h1 id=&#34;三-springboot原理分析&#34;&gt;三、SpringBoot原理分析&lt;/h1&gt;
+&lt;h2 id=&#34;31-起步依赖原理分析&#34;&gt;3.1 起步依赖原理分析&lt;/h2&gt;
+&lt;h3 id=&#34;311-分析spring-boot-starter-parent&#34;&gt;3.1.1 分析spring-boot-starter-parent&lt;/h3&gt;
+&lt;p&gt;按住Ctrl点击pom.xml中的spring-boot-starter-parent，跳转到了spring-boot-starter-parent的pom.xml，xml配置如下（只摘抄了部分重点配置）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;parent&amp;gt;
+  &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;spring-boot-dependencies&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+  &amp;lt;relativePath&amp;gt;../../spring-boot-dependencies&amp;lt;/relativePath&amp;gt;
+&amp;lt;/parent&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;按住Ctrl点击pom.xml中的spring-boot-starter-dependencies，跳转到了spring-boot-starter-dependencies的pom.xml，xml配置如下（只摘抄了部分重点配置）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;properties&amp;gt;
+  	&amp;lt;activemq.version&amp;gt;5.15.3&amp;lt;/activemq.version&amp;gt;
+  	&amp;lt;antlr2.version&amp;gt;2.7.7&amp;lt;/antlr2.version&amp;gt;
+  	&amp;lt;appengine-sdk.version&amp;gt;1.9.63&amp;lt;/appengine-sdk.version&amp;gt;
+  	&amp;lt;artemis.version&amp;gt;2.4.0&amp;lt;/artemis.version&amp;gt;
+  	&amp;lt;aspectj.version&amp;gt;1.8.13&amp;lt;/aspectj.version&amp;gt;
+  	&amp;lt;assertj.version&amp;gt;3.9.1&amp;lt;/assertj.version&amp;gt;
+  	&amp;lt;atomikos.version&amp;gt;4.0.6&amp;lt;/atomikos.version&amp;gt;
+  	&amp;lt;bitronix.version&amp;gt;2.1.4&amp;lt;/bitronix.version&amp;gt;
+  	&amp;lt;build-helper-maven-plugin.version&amp;gt;3.0.0&amp;lt;/build-helper-maven-plugin.version&amp;gt;
+  	&amp;lt;byte-buddy.version&amp;gt;1.7.11&amp;lt;/byte-buddy.version&amp;gt;
+  	... ... ...
+&amp;lt;/properties&amp;gt;
+&amp;lt;dependencyManagement&amp;gt;
+  	&amp;lt;dependencies&amp;gt;
+      	&amp;lt;dependency&amp;gt;
+        	&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        	&amp;lt;artifactId&amp;gt;spring-boot&amp;lt;/artifactId&amp;gt;
+        	&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      	&amp;lt;/dependency&amp;gt;
+      	&amp;lt;dependency&amp;gt;
+        	&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        	&amp;lt;artifactId&amp;gt;spring-boot-test&amp;lt;/artifactId&amp;gt;
+        	&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      	&amp;lt;/dependency&amp;gt;
+      	... ... ...
+	&amp;lt;/dependencies&amp;gt;
+&amp;lt;/dependencyManagement&amp;gt;
+&amp;lt;build&amp;gt;
+  	&amp;lt;pluginManagement&amp;gt;
+    	&amp;lt;plugins&amp;gt;
+      		&amp;lt;plugin&amp;gt;
+        		&amp;lt;groupId&amp;gt;org.jetbrains.kotlin&amp;lt;/groupId&amp;gt;
+        		&amp;lt;artifactId&amp;gt;kotlin-maven-plugin&amp;lt;/artifactId&amp;gt;
+        		&amp;lt;version&amp;gt;${kotlin.version}&amp;lt;/version&amp;gt;
+      		&amp;lt;/plugin&amp;gt;
+      		&amp;lt;plugin&amp;gt;
+        		&amp;lt;groupId&amp;gt;org.jooq&amp;lt;/groupId&amp;gt;
+        		&amp;lt;artifactId&amp;gt;jooq-codegen-maven&amp;lt;/artifactId&amp;gt;
+        		&amp;lt;version&amp;gt;${jooq.version}&amp;lt;/version&amp;gt;
+      		&amp;lt;/plugin&amp;gt;
+      		&amp;lt;plugin&amp;gt;
+        		&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+        		&amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt;
+        		&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;/plugin&amp;gt;
+          	... ... ...
+    	&amp;lt;/plugins&amp;gt;
+  	&amp;lt;/pluginManagement&amp;gt;
+&amp;lt;/build&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从上面的spring-boot-starter-dependencies的pom.xml中我们可以发现，一部分坐标的版本、依赖管理、插件管理已经定义好，所以我们的SpringBoot工程继承spring-boot-starter-parent后已经具备版本锁定等配置了。所以起步依赖的作用就是进行依赖的传递。&lt;/p&gt;
+&lt;h3 id=&#34;312-分析spring-boot-starter-web&#34;&gt;3.1.2 分析spring-boot-starter-web&lt;/h3&gt;
+&lt;p&gt;按住Ctrl点击pom.xml中的spring-boot-starter-web，跳转到了spring-boot-starter-web的pom.xml，xml配置如下（只摘抄了部分重点配置）：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;project xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot; xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;
+    xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;
+  	&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;
+  	&amp;lt;parent&amp;gt;
+    	&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    	&amp;lt;artifactId&amp;gt;spring-boot-starters&amp;lt;/artifactId&amp;gt;
+    	&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+  	&amp;lt;/parent&amp;gt;
+  	&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+  	&amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt;
+  	&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+  	&amp;lt;name&amp;gt;Spring Boot Web Starter&amp;lt;/name&amp;gt;
+  
+  	&amp;lt;dependencies&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;spring-boot-starter&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;spring-boot-starter-json&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;spring-boot-starter-tomcat&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;2.0.1.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.hibernate.validator&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;hibernate-validator&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;6.0.9.Final&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;spring-web&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;5.0.5.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+    	&amp;lt;dependency&amp;gt;
+      		&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;
+      		&amp;lt;artifactId&amp;gt;spring-webmvc&amp;lt;/artifactId&amp;gt;
+      		&amp;lt;version&amp;gt;5.0.5.RELEASE&amp;lt;/version&amp;gt;
+      		&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;
+    	&amp;lt;/dependency&amp;gt;
+  	&amp;lt;/dependencies&amp;gt;
+&amp;lt;/project&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从上面的spring-boot-starter-web的pom.xml中我们可以发现，spring-boot-starter-web就是将web开发要使用的spring-web、spring-webmvc等坐标进行了“打包”，这样我们的工程只要引入spring-boot-starter-web起步依赖的坐标就可以进行web开发了，同样体现了依赖传递的作用。&lt;/p&gt;
+&lt;h2 id=&#34;32-自动配置原理解析&#34;&gt;3.2 自动配置原理解析&lt;/h2&gt;
+&lt;p&gt;按住Ctrl点击查看启动类MySpringBootApplication上的注解@SpringBootApplication&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@SpringBootApplication
+public class MySpringBootApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(MySpringBootApplication.class);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注解@SpringBootApplication的源码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = {
+		@Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+
+	/**
+	 * Exclude specific auto-configuration classes such that they will never be applied.
+	 * @return the classes to exclude
+	 */
+	@AliasFor(annotation = EnableAutoConfiguration.class)
+	Class&amp;lt;?&amp;gt;[] exclude() default {};
+
+	... ... ...
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，&lt;/p&gt;
+&lt;p&gt;@SpringBootConfiguration：等同与@Configuration，既标注该类是Spring的一个配置类&lt;/p&gt;
+&lt;p&gt;@EnableAutoConfiguration：SpringBoot自动配置功能开启&lt;/p&gt;
+&lt;p&gt;按住Ctrl点击查看注解@EnableAutoConfiguration&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@AutoConfigurationPackage
+@Import(AutoConfigurationImportSelector.class)
+public @interface EnableAutoConfiguration {
+	... ... ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，@Import(AutoConfigurationImportSelector.class) 导入了AutoConfigurationImportSelector类&lt;/p&gt;
+&lt;p&gt;按住Ctrl点击查看AutoConfigurationImportSelector源码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public String[] selectImports(AnnotationMetadata annotationMetadata) {
+        ... ... ...
+        List&amp;lt;String&amp;gt; configurations = getCandidateConfigurations(annotationMetadata,
+                                                                   attributes);
+        configurations = removeDuplicates(configurations);
+        Set&amp;lt;String&amp;gt; exclusions = getExclusions(annotationMetadata, attributes);
+        checkExcludedClasses(configurations, exclusions);
+        configurations.removeAll(exclusions);
+        configurations = filter(configurations, autoConfigurationMetadata);
+        fireAutoConfigurationImportEvents(configurations, exclusions);
+        return StringUtils.toStringArray(configurations);
+}
+
+
+protected List&amp;lt;String&amp;gt; getCandidateConfigurations(AnnotationMetadata metadata,
+			AnnotationAttributes attributes) {
+		List&amp;lt;String&amp;gt; configurations = SpringFactoriesLoader.loadFactoryNames(
+				getSpringFactoriesLoaderFactoryClass(), getBeanClassLoader());
+		
+		return configurations;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，SpringFactoriesLoader.loadFactoryNames 方法的作用就是从META-INF/spring.factories文件中读取指定类对应的类名称列表&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;img%5C11.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;spring.factories 文件中有关自动配置的配置信息如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;... ... ...
+
+org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientAutoConfiguration,\
+org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,\
+org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryAutoConfiguration,\
+org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration,\
+org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\
+org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration,\
+
+... ... ...
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面配置文件存在大量的以Configuration为结尾的类名称，这些类就是存有自动配置信息的类，而SpringApplication在获取这些类名后再加载&lt;/p&gt;
+&lt;p&gt;我们以ServletWebServerFactoryAutoConfiguration为例来分析源码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Configuration
+@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
+@ConditionalOnClass(ServletRequest.class)
+@ConditionalOnWebApplication(type = Type.SERVLET)
+@EnableConfigurationProperties(ServerProperties.class)
+@Import({ ServletWebServerFactoryAutoConfiguration.BeanPostProcessorsRegistrar.class,
+		ServletWebServerFactoryConfiguration.EmbeddedTomcat.class,
+		ServletWebServerFactoryConfiguration.EmbeddedJetty.class,
+		ServletWebServerFactoryConfiguration.EmbeddedUndertow.class })
+public class ServletWebServerFactoryAutoConfiguration {
+	... ... ...
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，&lt;/p&gt;
+&lt;p&gt;@EnableConfigurationProperties(ServerProperties.class) 代表加载ServerProperties服务器配置属性类&lt;/p&gt;
+&lt;p&gt;进入ServerProperties.class源码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@ConfigurationProperties(prefix = &amp;quot;server&amp;quot;, ignoreUnknownFields = true)
+public class ServerProperties {
+
+	/**
+	 * Server HTTP port.
+	 */
+	private Integer port;
+
+	/**
+	 * Network address to which the server should bind.
+	 */
+	private InetAddress address;
+  
+  	... ... ...
+  
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，&lt;/p&gt;
+&lt;p&gt;prefix = &amp;quot;server&amp;quot; 表示SpringBoot配置文件中的前缀，SpringBoot会将配置文件中以server开始的属性映射到该类的字段中。映射关系如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;14&#34;&gt;&lt;img src=&#34;img%5C12.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h1 id=&#34;四-springboot的配置文件&#34;&gt;四、SpringBoot的配置文件&lt;/h1&gt;
+&lt;h2 id=&#34;41-springboot配置文件类型&#34;&gt;4.1 SpringBoot配置文件类型&lt;/h2&gt;
+&lt;h3 id=&#34;411-springboot配置文件类型和作用&#34;&gt;4.1.1 SpringBoot配置文件类型和作用&lt;/h3&gt;
+&lt;p&gt;SpringBoot是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认配置的话，就可以使用application.properties或者application.yml（application.yaml）进行配置。&lt;/p&gt;
+&lt;p&gt;SpringBoot默认会从Resources目录下加载application.properties或application.yml（application.yaml）文件&lt;/p&gt;
+&lt;p&gt;其中，application.properties文件是键值对类型的文件，之前一直在使用，所以此处不在对properties文件的格式进行阐述。除了properties文件外，SpringBoot还可以使用yml文件进行配置，下面对yml文件进行讲解。&lt;/p&gt;
+&lt;h3 id=&#34;412-applicationyml配置文件&#34;&gt;4.1.2 application.yml配置文件&lt;/h3&gt;
+&lt;h4 id=&#34;4121-yml配置文件简介&#34;&gt;4.1.2.1 yml配置文件简介&lt;/h4&gt;
+&lt;p&gt;YML文件格式是YAML (YAML Aint Markup Language)编写的文件格式，YAML是一种直观的能够被电脑识别的的数据数据序列化格式，并且容易被人类阅读，容易和脚本语言交互的，可以被支持YAML库的不同的编程语言程序导入，比如： C/C++, Ruby, Python, Java, Perl, C#, PHP等。YML文件是以数据为核心的，比传统的xml方式更加简洁。&lt;/p&gt;
+&lt;p&gt;YML文件的扩展名可以使用.yml或者.yaml。&lt;/p&gt;
+&lt;h4 id=&#34;4122-yml配置文件的语法&#34;&gt;4.1.2.2 yml配置文件的语法&lt;/h4&gt;
+&lt;h5 id=&#34;41221-配置普通数据&#34;&gt;4.1.2.2.1 配置普通数据&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;语法： key: value&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例代码：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;name: haohao
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意：value之前有一个空格&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;41222-配置对象数据&#34;&gt;4.1.2.2.2 配置对象数据&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;p&gt;​	key:&lt;/p&gt;
+&lt;p&gt;​		key1: value1&lt;/p&gt;
+&lt;p&gt;​		key2: value2&lt;/p&gt;
+&lt;p&gt;​	或者：&lt;/p&gt;
+&lt;p&gt;​	key: {key1: value1,key2: value2}&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例代码：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;person:
+  name: haohao
+  age: 31
+  addr: beijing
+
+#或者
+
+person: {name: haohao,age: 31,addr: beijing}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意：key1前面的空格个数不限定，在yml语法中，相同缩进代表同一个级别&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;41222-配置map数据&#34;&gt;4.1.2.2.2 配置Map数据&lt;/h5&gt;
+&lt;p&gt;同上面的对象写法&lt;/p&gt;
+&lt;h5 id=&#34;41223-配置数组list-set数据&#34;&gt;4.1.2.2.3 配置数组（List、Set）数据&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;p&gt;​	key:&lt;/p&gt;
+&lt;p&gt;​		- value1&lt;/p&gt;
+&lt;p&gt;​		- value2&lt;/p&gt;
+&lt;p&gt;或者：&lt;/p&gt;
+&lt;p&gt;​	key: [value1,value2]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;示例代码：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;city:
+  - beijing
+  - tianjin
+  - shanghai
+  - chongqing
+  
+#或者
+
+city: [beijing,tianjin,shanghai,chongqing]
+
+#集合中的元素是对象形式
+student:
+  - name: zhangsan
+    age: 18
+    score: 100
+  - name: lisi
+    age: 28
+    score: 88
+  - name: wangwu
+    age: 38
+    score: 90
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意：value1与之间的 - 之间存在一个空格&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;413-springboot配置信息的查询&#34;&gt;4.1.3 SpringBoot配置信息的查询&lt;/h3&gt;
+&lt;p&gt;上面提及过，SpringBoot的配置文件，主要的目的就是对配置信息进行修改的，但在配置时的key从哪里去查询呢？我们可以查阅SpringBoot的官方文档&lt;/p&gt;
+&lt;p&gt;文档URL：https://docs.spring.io/spring-boot/docs/2.0.1.RELEASE/reference/htmlsingle/#common-application-properties&lt;/p&gt;
+&lt;p&gt;常用的配置摘抄如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;# QUARTZ SCHEDULER (QuartzProperties)
+spring.quartz.jdbc.initialize-schema=embedded # Database schema initialization mode.
+spring.quartz.jdbc.schema=classpath:org/quartz/impl/jdbcjobstore/tables_@@platform@@.sql # Path to the SQL file to use to initialize the database schema.
+spring.quartz.job-store-type=memory # Quartz job store type.
+spring.quartz.properties.*= # Additional Quartz Scheduler properties.
+
+# ----------------------------------------
+# WEB PROPERTIES
+# ----------------------------------------
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server.port=8080 # Server HTTP port.
+server.servlet.context-path= # Context path of the application.
+server.servlet.path=/ # Path of the main dispatcher servlet.
+
+# HTTP encoding (HttpEncodingProperties)
+spring.http.encoding.charset=UTF-8 # Charset of HTTP requests and responses. Added to the &amp;quot;Content-Type&amp;quot; header if not set explicitly.
+
+# JACKSON (JacksonProperties)
+spring.jackson.date-format= # Date format string or a fully-qualified date format class name. For instance, `yyyy-MM-dd HH:mm:ss`.
+
+# SPRING MVC (WebMvcProperties)
+spring.mvc.servlet.load-on-startup=-1 # Load on startup priority of the dispatcher servlet.
+spring.mvc.static-path-pattern=/** # Path pattern used for static resources.
+spring.mvc.view.prefix= # Spring MVC view prefix.
+spring.mvc.view.suffix= # Spring MVC view suffix.
+
+# DATASOURCE (DataSourceAutoConfiguration &amp;amp; DataSourceProperties)
+spring.datasource.driver-class-name= # Fully qualified name of the JDBC driver. Auto-detected based on the URL by default.
+spring.datasource.password= # Login password of the database.
+spring.datasource.url= # JDBC URL of the database.
+spring.datasource.username= # Login username of the database.
+
+# JEST (Elasticsearch HTTP client) (JestProperties)
+spring.elasticsearch.jest.password= # Login password.
+spring.elasticsearch.jest.proxy.host= # Proxy host the HTTP client should use.
+spring.elasticsearch.jest.proxy.port= # Proxy port the HTTP client should use.
+spring.elasticsearch.jest.read-timeout=3s # Read timeout.
+spring.elasticsearch.jest.username= # Login username.
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;我们可以通过配置application.poperties 或者 application.yml 来修改SpringBoot的默认配置&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;p&gt;application.properties文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;server.port=8888
+server.servlet.context-path=demo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;application.yml文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;server:
+  port: 8888
+  servlet:
+    context-path: /demo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;42-配置文件与配置类的属性映射方式&#34;&gt;4.2 配置文件与配置类的属性映射方式&lt;/h2&gt;
+&lt;h3 id=&#34;421-使用注解value映射&#34;&gt;4.2.1 使用注解@Value映射&lt;/h3&gt;
+&lt;p&gt;我们可以通过@Value注解将配置文件中的值映射到一个Spring管理的Bean的字段上&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;p&gt;application.properties配置如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;person:
+  name: zhangsan
+  age: 18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或者，application.yml配置如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;person:
+  name: zhangsan
+  age: 18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;实体Bean代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Controller
+public class QuickStartController {
+
+    @Value(&amp;quot;${person.name}&amp;quot;)
+    private String name;
+    @Value(&amp;quot;${person.age}&amp;quot;)
+    private Integer age;
+
+
+    @RequestMapping(&amp;quot;/quick&amp;quot;)
+    @ResponseBody
+    public String quick(){
+        return &amp;quot;springboot 访问成功! name=&amp;quot;+name+&amp;quot;,age=&amp;quot;+age;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;浏览器访问地址：http://localhost:8080/quick 结果如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;15&#34;&gt;&lt;img src=&#34;img%5C13.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;422-使用注解configurationproperties映射&#34;&gt;4.2.2 使用注解@ConfigurationProperties映射&lt;/h3&gt;
+&lt;p&gt;通过注解@ConfigurationProperties(prefix=&amp;quot;配置文件中的key的前缀&amp;quot;)可以将配置文件中的配置自动与实体进行映射&lt;/p&gt;
+&lt;p&gt;application.properties配置如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;person:
+  name: zhangsan
+  age: 18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或者，application.yml配置如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;person:
+  name: zhangsan
+  age: 18
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;实体Bean代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Controller
+@ConfigurationProperties(prefix = &amp;quot;person&amp;quot;)
+public class QuickStartController {
+
+    private String name;
+    private Integer age;
+
+    @RequestMapping(&amp;quot;/quick&amp;quot;)
+    @ResponseBody
+    public String quick(){
+        return &amp;quot;springboot 访问成功! name=&amp;quot;+name+&amp;quot;,age=&amp;quot;+age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;浏览器访问地址：http://localhost:8080/quick 结果如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;16&#34;&gt;&lt;img src=&#34;img%5C13.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;注意：使用@ConfigurationProperties方式可以进行配置文件与实体字段的自动映射，但需要字段必须提供set方法才可以，而使用@Value注解修饰的字段不需要提供set方法&lt;/p&gt;
+&lt;h1 id=&#34;五-springboot与整合其他技术&#34;&gt;五、SpringBoot与整合其他技术&lt;/h1&gt;
+&lt;h2 id=&#34;51-springboot整合mybatis&#34;&gt;5.1 SpringBoot整合Mybatis&lt;/h2&gt;
+&lt;h3 id=&#34;511-添加mybatis的起步依赖&#34;&gt;5.1.1 添加Mybatis的起步依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!--mybatis起步依赖--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mybatis-spring-boot-starter&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;1.1.1&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;512-添加数据库驱动坐标&#34;&gt;5.1.2 添加数据库驱动坐标&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!-- MySQL连接驱动 --&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;513-添加数据库连接信息&#34;&gt;5.1.3 添加数据库连接信息&lt;/h3&gt;
+&lt;p&gt;在application.properties中添加数据量的连接信息&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;#DB Configuration:
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;amp;characterEncoding=utf8
+spring.datasource.username=root
+spring.datasource.password=root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;514-创建user表&#34;&gt;5.1.4 创建user表&lt;/h3&gt;
+&lt;p&gt;在test数据库中创建user表&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;-- ----------------------------
+-- Table structure for `user`
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (&#39;1&#39;, &#39;zhangsan&#39;, &#39;123&#39;, &#39;张三&#39;);
+INSERT INTO `user` VALUES (&#39;2&#39;, &#39;lisi&#39;, &#39;123&#39;, &#39;李四&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;515-创建实体bean&#34;&gt;5.1.5 创建实体Bean&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class User {
+    // 主键
+    private Long id;
+    // 用户名
+    private String username;
+    // 密码
+    private String password;
+    // 姓名
+    private String name;
+  
+    //此处省略getter和setter方法 .. ..
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;516-编写mapper&#34;&gt;5.1.6 编写Mapper&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Mapper
+public interface UserMapper {
+	public List&amp;lt;User&amp;gt; queryUserList();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;注意：@Mapper标记该类是一个mybatis的mapper接口，可以被spring boot自动扫描到spring上下文中&lt;/p&gt;
+&lt;h3 id=&#34;517-配置mapper映射文件&#34;&gt;5.1.7 配置Mapper映射文件&lt;/h3&gt;
+&lt;p&gt;在src\main\resources\mapper路径下加入UserMapper.xml配置文件&amp;quot;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
+&amp;lt;!DOCTYPE mapper PUBLIC &amp;quot;-//mybatis.org//DTD Mapper 3.0//EN&amp;quot; &amp;quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&amp;quot; &amp;gt;
+&amp;lt;mapper namespace=&amp;quot;com.itheima.mapper.UserMapper&amp;quot;&amp;gt;
+    &amp;lt;select id=&amp;quot;queryUserList&amp;quot; resultType=&amp;quot;user&amp;quot;&amp;gt;
+        select * from user
+    &amp;lt;/select&amp;gt;
+&amp;lt;/mapper&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;518-在applicationproperties中添加mybatis的信息&#34;&gt;5.1.8 在application.properties中添加mybatis的信息&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;#spring集成Mybatis环境
+#pojo别名扫描包
+mybatis.type-aliases-package=com.itheima.domain
+#加载Mybatis映射文件
+mybatis.mapper-locations=classpath:mapper/*Mapper.xml
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;519-编写测试controller&#34;&gt;5.1.9 编写测试Controller&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Controller
+public class MapperController {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @RequestMapping(&amp;quot;/queryUser&amp;quot;)
+    @ResponseBody
+    public List&amp;lt;User&amp;gt; queryUser(){
+        List&amp;lt;User&amp;gt; users = userMapper.queryUserList();
+        return users;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;5110-测试&#34;&gt;5.1.10 测试&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;17&#34;&gt;&lt;img src=&#34;img%5C14.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;52-springboot整合junit&#34;&gt;5.2 SpringBoot整合Junit&lt;/h2&gt;
+&lt;h3 id=&#34;521-添加junit的起步依赖&#34;&gt;5.2.1 添加Junit的起步依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!--测试的起步依赖--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;522-编写测试类&#34;&gt;5.2.2 编写测试类&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;package com.itheima.test;
+
+import com.itheima.MySpringBootApplication;
+import com.itheima.domain.User;
+import com.itheima.mapper.UserMapper;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = MySpringBootApplication.class)
+public class MapperTest {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Test
+    public void test() {
+        List&amp;lt;User&amp;gt; users = userMapper.queryUserList();
+        System.out.println(users);
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;其中，&lt;/p&gt;
+&lt;p&gt;SpringRunner继承自SpringJUnit4ClassRunner，使用哪一个Spring提供的测试测试引擎都可以&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public final class SpringRunner extends SpringJUnit4ClassRunner 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;@SpringBootTest的属性指定的是引导类的字节码对象&lt;/p&gt;
+&lt;h3 id=&#34;523-控制台打印信息&#34;&gt;5.2.3 控制台打印信息&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;18&#34;&gt;&lt;img src=&#34;img%5C15.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;53-springboot整合spring-data-jpa&#34;&gt;5.3 SpringBoot整合Spring Data JPA&lt;/h2&gt;
+&lt;h3 id=&#34;531-添加spring-data-jpa的起步依赖&#34;&gt;5.3.1 添加Spring Data JPA的起步依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!-- springBoot JPA的起步依赖 --&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-data-jpa&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;532-添加数据库驱动依赖&#34;&gt;5.3.2 添加数据库驱动依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!-- MySQL连接驱动 --&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;533-在applicationproperties中配置数据库和jpa的相关属性&#34;&gt;5.3.3 在application.properties中配置数据库和jpa的相关属性&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;#DB Configuration:
+spring.datasource.driverClassName=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;amp;characterEncoding=utf8
+spring.datasource.username=root
+spring.datasource.password=root
+
+#JPA Configuration:
+spring.jpa.database=MySQL
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.naming_strategy=org.hibernate.cfg.ImprovedNamingStrategy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;534-创建实体配置实体&#34;&gt;5.3.4 创建实体配置实体&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Entity
+public class User {
+    // 主键
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    // 用户名
+    private String username;
+    // 密码
+    private String password;
+    // 姓名
+    private String name;
+ 
+    //此处省略setter和getter方法... ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;535-编写userrepository&#34;&gt;5.3.5 编写UserRepository&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public interface UserRepository extends JpaRepository&amp;lt;User,Long&amp;gt;{
+    public List&amp;lt;User&amp;gt; findAll();
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;536-编写测试类&#34;&gt;5.3.6 编写测试类&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@RunWith(SpringRunner.class)
+@SpringBootTest(classes=MySpringBootApplication.class)
+public class JpaTest {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Test
+    public void test(){
+        List&amp;lt;User&amp;gt; users = userRepository.findAll();
+        System.out.println(users);
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;537-控制台打印信息&#34;&gt;5.3.7 控制台打印信息&lt;/h3&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;19&#34;&gt;&lt;img src=&#34;img%5C16.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;注意：如果是jdk9，执行报错如下：&lt;/p&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;20&#34;&gt;&lt;img src=&#34;img%5C17.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;p&gt;原因：jdk缺少相应的jar&lt;/p&gt;
+&lt;p&gt;解决方案：手动导入对应的maven坐标，如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!--jdk9需要导入如下坐标--&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;javax.xml.bind&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;jaxb-api&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;2.3.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;54-springboot整合redis&#34;&gt;5.4 SpringBoot整合Redis&lt;/h2&gt;
+&lt;h3 id=&#34;541-添加redis的起步依赖&#34;&gt;5.4.1 添加redis的起步依赖&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!-- 配置使用redis启动器 --&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;spring-boot-starter-data-redis&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;542-配置redis的连接信息&#34;&gt;5.4.2 配置redis的连接信息&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-properties&#34;&gt;#Redis
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;543-注入redistemplate测试redis操作&#34;&gt;5.4.3 注入RedisTemplate测试redis操作&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringbootJpaApplication.class)
+public class RedisTest {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RedisTemplate&amp;lt;String, String&amp;gt; redisTemplate;
+
+    @Test
+    public void test() throws JsonProcessingException {
+        //从redis缓存中获得指定的数据
+        String userListData = redisTemplate.boundValueOps(&amp;quot;user.findAll&amp;quot;).get();
+        //如果redis中没有数据的话
+        if(null==userListData){
+            //查询数据库获得数据
+            List&amp;lt;User&amp;gt; all = userRepository.findAll();
+            //转换成json格式字符串
+            ObjectMapper om = new ObjectMapper();
+            userListData = om.writeValueAsString(all);
+            //将数据存储到redis中，下次在查询直接从redis中获得数据，不用在查询数据库
+            redisTemplate.boundValueOps(&amp;quot;user.findAll&amp;quot;).set(userListData);
+            System.out.println(&amp;quot;===============从数据库获得数据===============&amp;quot;);
+        }else{
+            System.out.println(&amp;quot;===============从redis缓存中获得数据===============&amp;quot;);
+        }
+
+        System.out.println(userListData);
+
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+">SpringBoot基础</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/Yr2e4qfT2/"" data-c="
+          &lt;p&gt;这是翻译国外友人制作的Git Cheat Sheet&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h1 id=&#34;一-常见命令&#34;&gt;一、常见命令&lt;/h1&gt;
+&lt;h2 id=&#34;1-创建&#34;&gt;1. 创建&lt;/h2&gt;
+&lt;p&gt;克隆现有的存储库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone ssh://user@domain.com/repo.git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;创建新的本地存储库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git init    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;2-本地变化&#34;&gt;2. 本地变化&lt;/h2&gt;
+&lt;p&gt;更改工作目录中的文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git status  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;对跟踪文件的更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git diff    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将所有当前更改添加到下一次提交&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git add 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将&amp;lt; file &amp;gt;中的一些更改添加到下一次提交&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ git add -p &amp;lt;file&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;提交跟踪文件中的所有本地更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git commit -a   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;提交先前阶段的更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git commit  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;更改最后提交&lt;br&gt;
+不要修改发布的提交！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git commit --amend  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;3-提交历史&#34;&gt;3. 提交历史&lt;/h2&gt;
+&lt;p&gt;显示所有提交，从最新开始&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git log 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;显示特定文件随时间的变化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git log -p &amp;lt;file&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;谁在&amp;lt; file &amp;gt;中更改了内容和时间？&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ git blame &amp;lt;file&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;4-分支和标签&#34;&gt;4. 分支和标签&lt;/h2&gt;
+&lt;p&gt;列出所有现有分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git branch -av  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;切换分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git checkout &amp;lt;branch&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;根据当前的头部创建一个新分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git branch &amp;lt;new-branch&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;基于远程分支创建新的跟踪分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout --track &amp;lt;remote/bran- ch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除本地分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch -d &amp;lt;branch&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;提交标签&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git tag &amp;lt;tag-name&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;5-更新和发布&#34;&gt;5. 更新和发布&lt;/h2&gt;
+&lt;p&gt;列出所有当前配置的远程主机&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote -v   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;显示有关远程&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote show &amp;lt;remote&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;添加名为&amp;lt; Remote &amp;gt;的新远程存储库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git remote add &amp;lt;shortname&amp;gt; &amp;lt;url&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从&amp;lt; Remote &amp;gt;下载所有更改，但不要集成到Head中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git fetch &amp;lt;remote&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下载更改并直接合并/集成到头中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git pull &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在远程上发布本地更改&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push &amp;lt;remote&amp;gt; &amp;lt;branch&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;删除远程上的分支&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git branch -dr &amp;lt;remote/branch&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;发布标签&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git push --tags
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;6-合并和重基&#34;&gt;6. 合并和重基&lt;/h2&gt;
+&lt;p&gt;将&amp;lt;分支&amp;gt;合并到当前的头部&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git merge &amp;lt;branch&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将当前的头重新定位到&amp;lt;分支&amp;gt;&lt;br&gt;
+不要重新发布已发布的提交！&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git rebase &amp;lt;branch&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;中止重基&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; $ git rebase --abort 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;解决冲突后继续重基&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git rebase --continue   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用配置的合并工具解决冲突&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git mergetool   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用编辑器手动解决冲突，并(在解决后)将文件标记为“已解决”。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ git add &amp;lt;resolved-file&amp;gt;
+  
+  $ git rm &amp;lt;resolved-file&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;7-撤销&#34;&gt;7. 撤销&lt;/h2&gt;
+&lt;p&gt;放弃工作目录中的所有本地更改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset --hard HEAD    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;放弃特定文件中的本地更改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git checkout HEAD &amp;lt;file&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;还原一个提交(通过产生一个新的具有相反更改的提交)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git revert &amp;lt;commit&amp;gt;  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;将头指针重置为上一次提交&lt;br&gt;
+…并放弃自那以后的所有变化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset --hard &amp;lt;commit&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…并将所有更改保留为未分阶段的更改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset &amp;lt;commit&amp;gt;   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;…并保存未提交的本地更改。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git reset --keep &amp;lt;commit&amp;gt;    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;二-最佳做法&#34;&gt;二、最佳做法&lt;/h1&gt;
+&lt;h2 id=&#34;1-提交相关修改&#34;&gt;1. 提交相关修改&lt;/h2&gt;
+&lt;p&gt;提交应该是相关更改的包装。例如，修复两个不同的bug应该产生两个单独的提交。消息使其他开发者更容易理解禅宗。 如果出了什么问题就把它们退回去。&lt;/p&gt;
+&lt;p&gt;有了诸如分阶段区域和ABI特性这样的工具，只对文件的部分进行分级，Git使创建非常细粒度的提交变得非常容易。&lt;/p&gt;
+&lt;h2 id=&#34;2-经常提交&#34;&gt;2. 经常提交&lt;/h2&gt;
+&lt;p&gt;提交经常使您的承诺保持较小，并且再次帮助您仅提交相关的更改。&lt;br&gt;
+  此外，它允许您更频繁地与其他人共享代码。&lt;br&gt;
+这样对每个人来说都比较容易 定期集成更改，避免合并冲突。&lt;/p&gt;
+&lt;p&gt;相反，很少有大量的提交，并且很少分享它们，这使得解决冲突变得困难。&lt;/p&gt;
+&lt;h2 id=&#34;3-不要半途而废&#34;&gt;3. 不要半途而废&lt;/h2&gt;
+&lt;p&gt;您应该只在代码完成时提交代码。这并不意味着您必须在提交之前完成一个完整的大型功能。完全相反：分裂&lt;/p&gt;
+&lt;p&gt;特性的实现分为逻辑块，并记住要尽早提交。&lt;/p&gt;
+&lt;p&gt;但是，不要只承诺在一天结束前离开办公室之前就在存储库中有一些东西。如果仅仅因为需要一个干净的工作副本(检查分支)而想提交 在变化，拉等）考虑使用Git的«stash»特征相反。&lt;/p&gt;
+&lt;h2 id=&#34;4-在提交之前测试代码&#34;&gt;4. 在提交之前测试代码&lt;/h2&gt;
+&lt;p&gt;抵制诱惑，去做一些你认为已经完成的事情。彻底测试它，以确保它真的完成了。&lt;/p&gt;
+&lt;p&gt;而且没有副作用(据我们所知)。虽然在本地存储库中提交半生不熟的东西只需要您原谅自己，但是在以下情况下进行代码测试就更重要了。 这涉及到推送/与他人共享代码。&lt;/p&gt;
+&lt;h2 id=&#34;5-编写良好的提交消息&#34;&gt;5. 编写良好的提交消息&lt;/h2&gt;
+&lt;p&gt;开始您的消息，以一个简短的总结，您的变化(多达50个字符作为一个Gui-deline)。将它与下面的正文分隔开，方法是包含一个空行。您的消息正文应该提供如以下问题的邮件式解答：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;改变的动机是什么？
+
+它与以前的实施方式有何不同？
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用祈使句、现在时态（省去变化、不改变或改变）与来自Git合并的命令生成的消息一致。&lt;/p&gt;
+&lt;h2 id=&#34;6-版本控制不是备份系统&#34;&gt;6. 版本控制不是备份系统。&lt;/h2&gt;
+&lt;p&gt;在远程服务器上备份文件是拥有版本控制系统的一个很好的副作用。但是你不应该像使用备份系统一样使用你的VCS。在执行版本控制时，您将应该注意语义上的（见相关的Chan-Ges）-你不应该只是在文件中填塞。&lt;/p&gt;
+&lt;h2 id=&#34;7-使用分支&#34;&gt;7. 使用分支&lt;/h2&gt;
+&lt;p&gt;分支是Git最强大的特性之一，这不是偶然的：快速和容易的分支是第一天的中心要求。分支是帮助你避免混淆不同发展方向的完美工具. 您应该在开发工作流程中广泛使用分支：用于新特性、bug修复、想法……&lt;/p&gt;
+&lt;h2 id=&#34;8-就工作流达成一致&#34;&gt;8. 就工作流达成一致&lt;/h2&gt;
+&lt;p&gt;git允许您从许多不同的工作流中选择：长时间运行的分支、主题bran-ch、合并或重基、git-flow…。您选择哪一个取决于以下几个因素：你的项目，你的整体开发和部署工作流程，（也许最重要的）是你和你的队友的个人喜好。无论你选择工作，只要确保达成一个共同的工作流程，每个人都遵循这个工作流程。&lt;/p&gt;
+&lt;h2 id=&#34;9-使用帮助和文档&#34;&gt;9. 使用帮助和文档&lt;/h2&gt;
+&lt;p&gt;获取命令行的帮助&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  $ git help &amp;lt;command&amp;gt; &lt;/code&gt;&lt;/pre&gt;
+">Git常用命令</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://jokerzhang98.github.io/post/b-mpNTsOz/"" data-c="
           &lt;h2 id=&#34;分支管理&#34;&gt;分支管理&lt;/h2&gt;
 &lt;p&gt;​	分支概念简化版理解：有两个平行宇宙，一个宇宙的你在学Java，另一个你在学习Python。有一天，两个宇宙合并了，于是你回了Java又会了Python。&lt;/p&gt;
@@ -975,7 +2084,7 @@ Deleted branch dev (was d370436).
 &lt;li&gt;合并某分支到当前分支：&lt;code&gt;git merge &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;删除分支：&lt;code&gt;git branch -d &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;42解决冲突&#34;&gt;4.2解决冲突&lt;/h3&gt;
+&lt;h3 id=&#34;解决冲突&#34;&gt;解决冲突&lt;/h3&gt;
 &lt;p&gt;​	冲突：假如你创建了一个新的feature1分支，在feature1分支上修改了readme文件的最后一行并且进行了提交，切换到master分支，进行了同样的操作。这种情况下，git无法执行快速合并，只能试图把各自的修改的合并，但这种就会发生冲突。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -1081,7 +2190,7 @@ creating a new branch is quick &amp;amp; simple
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;43分支管理策略&#34;&gt;4.3分支管理策略&lt;/h3&gt;
+&lt;h3 id=&#34;分支管理策略&#34;&gt;分支管理策略&lt;/h3&gt;
 &lt;p&gt;​	通常，合并分支时，如果可能，Git会用&lt;code&gt;Fast forward&lt;/code&gt;模式，但这种模式下，删除分支后，会丢掉分支信息。&lt;/p&gt;
 &lt;p&gt;​	如果要强制禁用&lt;code&gt;Fast forward&lt;/code&gt;模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。&lt;/p&gt;
 &lt;p&gt;准备合并&lt;code&gt;dev&lt;/code&gt;分支，请注意&lt;code&gt;--no-ff&lt;/code&gt;参数，表示禁用&lt;code&gt;Fast forward&lt;/code&gt;：&lt;/p&gt;
@@ -1101,7 +2210,7 @@ $ git log --graph --pretty=oneline --abbrev-commit
 &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;C:%5CUsers%5CJoker%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201217161245339.png&#34; alt=&#34;image-20201217161245339&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;h4 id=&#34;小结-3&#34;&gt;小结：&lt;/h4&gt;
 &lt;p&gt;​	合并分支时，加上&lt;code&gt;--no-ff&lt;/code&gt;参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而&lt;code&gt;fast forward&lt;/code&gt;合并就看不出来曾经做过合并。&lt;/p&gt;
-&lt;h3 id=&#34;44bug分支&#34;&gt;4.4Bug分支&lt;/h3&gt;
+&lt;h3 id=&#34;bug分支&#34;&gt;Bug分支&lt;/h3&gt;
 &lt;p&gt;​	开发当中，bug就像家常便饭一样。有了bug就需要修复，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。&lt;/p&gt;
 &lt;p&gt;当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支&lt;code&gt;issue-101&lt;/code&gt;来修复它，但是你在dev上进行的工作还没有提交，由于工作还没做完，所以没法提交。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git status
@@ -1200,7 +2309,7 @@ $ git cherry-pick 4c805e2
 &lt;li&gt;当手头工作没有完成时，先把工作现场&lt;code&gt;git stash&lt;/code&gt;一下，然后去修复bug，修复后，再&lt;code&gt;git stash pop&lt;/code&gt;，回到工作现场；&lt;/li&gt;
 &lt;li&gt;在master分支上修复的bug，想要合并到当前dev分支，可以用&lt;code&gt;git cherry-pick &amp;lt;commit&amp;gt;&lt;/code&gt;命令，把bug提交的修改“复制”到当前分支，避免重复劳动。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;45feature分支&#34;&gt;4.5Feature分支&lt;/h3&gt;
+&lt;h3 id=&#34;feature分支&#34;&gt;Feature分支&lt;/h3&gt;
 &lt;p&gt;​	添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。&lt;/p&gt;
 &lt;p&gt;​	于是你去创建了这个分支并且开发完毕提交了。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (dev)
@@ -1382,8 +2491,8 @@ To github.com:michaelliao/learngit.git
 &lt;li&gt;建立本地分支和远程分支的关联，使用&lt;code&gt;git branch --set-upstream branch-name origin/branch-name&lt;/code&gt;；&lt;/li&gt;
 &lt;li&gt;从远程抓取分支，使用&lt;code&gt;git pull&lt;/code&gt;，如果有冲突，要先处理冲突。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;5-标签管理&#34;&gt;5、标签管理&lt;/h2&gt;
-&lt;h3 id=&#34;51创建标签&#34;&gt;5.1创建标签&lt;/h3&gt;
+&lt;h2 id=&#34;标签管理&#34;&gt;标签管理&lt;/h2&gt;
+&lt;h3 id=&#34;创建标签&#34;&gt;创建标签&lt;/h3&gt;
 &lt;p&gt;切换到需要打标签的分支上，然后敲命令&lt;code&gt;git tag &amp;lt;name&amp;gt;&lt;/code&gt;就可以打一个新标签：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ git tag v1.0
 &lt;/code&gt;&lt;/pre&gt;
@@ -1453,7 +2562,7 @@ diff --git a/readme.txt b/readme.txt
 &lt;li&gt;命令&lt;code&gt;git tag -a &amp;lt;tagname&amp;gt; -m &amp;quot;blablabla...&amp;quot;&lt;/code&gt;可以指定标签信息；&lt;/li&gt;
 &lt;li&gt;命令&lt;code&gt;git tag&lt;/code&gt;可以查看所有标签。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;52操作标签&#34;&gt;5.2操作标签&lt;/h3&gt;
+&lt;h3 id=&#34;操作标签&#34;&gt;操作标签&lt;/h3&gt;
 &lt;h4 id=&#34;删除标签&#34;&gt;删除标签&lt;/h4&gt;
 &lt;p&gt;如果标签打错了，也可以删除标签&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-git&#34;&gt;Joker@DESKTOP-CTFOVRN MINGW64 /e/learngit (master)

@@ -8,7 +8,7 @@
 <meta name="keywords" content="Jerryのblog">
 <meta name="description" content="不积小流，无以成江海">
 <meta name="theme-color" content="#000">
-<title>Jerryのblog</title>
+<title>Git常用命令 | Jerryのblog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1608782503318">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,8 @@
 
 
 
-  <meta name="description" content="不积小流，无以成江海">
+  <meta name="description" content="Git常用命令" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -87,7 +88,7 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/archives/" target="_self">
@@ -171,10 +172,26 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -222,310 +239,544 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%80-%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4">一、常见命令</a>
+<ul>
+<li><a href="#1-%E5%88%9B%E5%BB%BA">1. 创建</a></li>
+<li><a href="#2-%E6%9C%AC%E5%9C%B0%E5%8F%98%E5%8C%96">2. 本地变化</a></li>
+<li><a href="#3-%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2">3. 提交历史</a></li>
+<li><a href="#4-%E5%88%86%E6%94%AF%E5%92%8C%E6%A0%87%E7%AD%BE">4. 分支和标签</a></li>
+<li><a href="#5-%E6%9B%B4%E6%96%B0%E5%92%8C%E5%8F%91%E5%B8%83">5. 更新和发布</a></li>
+<li><a href="#6-%E5%90%88%E5%B9%B6%E5%92%8C%E9%87%8D%E5%9F%BA">6. 合并和重基</a></li>
+<li><a href="#7-%E6%92%A4%E9%94%80">7. 撤销</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E6%9C%80%E4%BD%B3%E5%81%9A%E6%B3%95">二、最佳做法</a>
+<ul>
+<li><a href="#1-%E6%8F%90%E4%BA%A4%E7%9B%B8%E5%85%B3%E4%BF%AE%E6%94%B9">1. 提交相关修改</a></li>
+<li><a href="#2-%E7%BB%8F%E5%B8%B8%E6%8F%90%E4%BA%A4">2. 经常提交</a></li>
+<li><a href="#3-%E4%B8%8D%E8%A6%81%E5%8D%8A%E9%80%94%E8%80%8C%E5%BA%9F">3. 不要半途而废</a></li>
+<li><a href="#4-%E5%9C%A8%E6%8F%90%E4%BA%A4%E4%B9%8B%E5%89%8D%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81">4. 在提交之前测试代码</a></li>
+<li><a href="#5-%E7%BC%96%E5%86%99%E8%89%AF%E5%A5%BD%E7%9A%84%E6%8F%90%E4%BA%A4%E6%B6%88%E6%81%AF">5. 编写良好的提交消息</a></li>
+<li><a href="#6-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%B8%8D%E6%98%AF%E5%A4%87%E4%BB%BD%E7%B3%BB%E7%BB%9F">6. 版本控制不是备份系统。</a></li>
+<li><a href="#7-%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF">7. 使用分支</a></li>
+<li><a href="#8-%E5%B0%B1%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%BE%BE%E6%88%90%E4%B8%80%E8%87%B4">8. 就工作流达成一致</a></li>
+<li><a href="#9-%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9%E5%92%8C%E6%96%87%E6%A1%A3">9. 使用帮助和文档</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
 </div>
+
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
       }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
     });
   }
-  </script>
-        <div class="section-box box-shadow-wrapper">
-          <section class="section archives-section bg-color posts-expand">
-            
 
-<div class="bg-color">
-  <div class="archive-timeline-box">
-    <div class="archive-timeline-title">
-      
-        <h2 class="language" data-lan="archives" data-count="19">非常好！目前共计19篇日志，继续努力！</h2>
-      
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
+          
+        
+      </div>
     </div>
+  
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://jokerzhang98.github.io/post/Yr2e4qfT2/">
+      Git常用命令
+    </a>
+  </h1>
+  <div class="post-meta">
     
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2020</h2>
-        </div>    
-        
-      
-      <a href="https://jokerzhang98.github.io/post/MAZoZSKiX/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-22
-              <small>SpringBoot基础</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span>2020-12-18</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
     
-      
-      
-      <a href="https://jokerzhang98.github.io/post/Yr2e4qfT2/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-18
-              <small>Git常用命令</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>7<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1661<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
     
-      
-      
-      <a href="https://jokerzhang98.github.io/post/b-mpNTsOz/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-18
-              <small>Git学习（下）</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
     
-      
-      
-      <a href="https://jokerzhang98.github.io/post/ge17GYPqq/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-17
-              <small>Git学习笔记（上）</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
     
-      
-      
-      <a href="https://jokerzhang98.github.io/post/3K60XO6kZ/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              11-25
-              <small>关于SpringBoot的小彩蛋</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/MldJz-3Au/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              11-25
-              <small>maven添加阿里云镜像</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/PcQHtN4Z2/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              09-07
-              <small>java.lang.IllegalArgumentException: Property &#39;dataSource&#39; is required</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/9q-3HGZWd/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              08-24
-              <small>解决80端口被占用问题</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/XcY25M6zz/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              07-28
-              <small>微信小程序中关于&lt;button&gt;标签修改大小</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/PdW_gnNhk/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              03-27
-              <small>Mysql数据库的异常</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/MP0NovL9c/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-23
-              <small>[蓝桥杯刷题]：乘积尾零</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/SDdU2ASoH/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-23
-              <small>[蓝桥杯刷题]：明码</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/5kfvP6be7/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-21
-              <small>[蓝桥杯刷题]：分糖果</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/h2rTjN_kt/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-21
-              <small>[蓝桥杯刷题]：IP判断</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/WzGhKHxwQ/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-21
-              <small>[蓝桥杯刷题]： 蛇行矩阵</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/QD7nWTzkN/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-01
-              <small>[蓝桥杯刷题]：3N+1问题</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/MBTH2K9UZ/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              01-01
-              <small>写在2020年初的话</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2019</h2>
-        </div>    
-        
-      
-      <a href="https://jokerzhang98.github.io/post/about/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-26
-              <small>关于</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
-      
-      <a href="https://jokerzhang98.github.io/post/hello-gridea/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              12-26
-              <small>Hello World!</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span id="/post/Yr2e4qfT2/" data-flag-title="Git常用命令" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
     
   </div>
+</header>
+            <div class="post-body next-md-body" id="post_body">
+              <p>这是翻译国外友人制作的Git Cheat Sheet</p>
+<!-- more -->
+<h1 id="一-常见命令">一、常见命令</h1>
+<h2 id="1-创建">1. 创建</h2>
+<p>克隆现有的存储库</p>
+<pre><code>$ git clone ssh://user@domain.com/repo.git
+</code></pre>
+<p>创建新的本地存储库</p>
+<pre><code>$ git init    
+</code></pre>
+<h2 id="2-本地变化">2. 本地变化</h2>
+<p>更改工作目录中的文件</p>
+<pre><code> $ git status  
+</code></pre>
+<p>对跟踪文件的更改</p>
+<pre><code> $ git diff    
+</code></pre>
+<p>将所有当前更改添加到下一次提交</p>
+<pre><code> $ git add 
+</code></pre>
+<p>将&lt; file &gt;中的一些更改添加到下一次提交</p>
+<pre><code>  $ git add -p &lt;file&gt;  
+</code></pre>
+<p>提交跟踪文件中的所有本地更改</p>
+<pre><code> $ git commit -a   
+</code></pre>
+<p>提交先前阶段的更改</p>
+<pre><code> $ git commit  
+</code></pre>
+<p>更改最后提交<br>
+不要修改发布的提交！</p>
+<pre><code> $ git commit --amend  
+</code></pre>
+<h2 id="3-提交历史">3. 提交历史</h2>
+<p>显示所有提交，从最新开始</p>
+<pre><code> $ git log 
+</code></pre>
+<p>显示特定文件随时间的变化</p>
+<pre><code> $ git log -p &lt;file&gt;  
+</code></pre>
+<p>谁在&lt; file &gt;中更改了内容和时间？</p>
+<pre><code>  $ git blame &lt;file&gt;   
+</code></pre>
+<h2 id="4-分支和标签">4. 分支和标签</h2>
+<p>列出所有现有分支</p>
+<pre><code> $ git branch -av  
+</code></pre>
+<p>切换分支</p>
+<pre><code> $ git checkout &lt;branch&gt;   
+</code></pre>
+<p>根据当前的头部创建一个新分支</p>
+<pre><code> $ git branch &lt;new-branch&gt; 
+</code></pre>
+<p>基于远程分支创建新的跟踪分支</p>
+<pre><code>$ git checkout --track &lt;remote/bran- ch&gt;
+</code></pre>
+<p>删除本地分支</p>
+<pre><code>$ git branch -d &lt;branch&gt; 
+</code></pre>
+<p>提交标签</p>
+<pre><code>$ git tag &lt;tag-name&gt; 
+</code></pre>
+<h2 id="5-更新和发布">5. 更新和发布</h2>
+<p>列出所有当前配置的远程主机</p>
+<pre><code>$ git remote -v   
+</code></pre>
+<p>显示有关远程</p>
+<pre><code>$ git remote show &lt;remote&gt;    
+</code></pre>
+<p>添加名为&lt; Remote &gt;的新远程存储库</p>
+<pre><code>$ git remote add &lt;shortname&gt; &lt;url&gt; 
+</code></pre>
+<p>从&lt; Remote &gt;下载所有更改，但不要集成到Head中</p>
+<pre><code>$ git fetch &lt;remote&gt;   
+</code></pre>
+<p>下载更改并直接合并/集成到头中</p>
+<pre><code>$ git pull &lt;remote&gt; &lt;branch&gt;   
+</code></pre>
+<p>在远程上发布本地更改</p>
+<pre><code>$ git push &lt;remote&gt; &lt;branch&gt;   
+</code></pre>
+<p>删除远程上的分支</p>
+<pre><code>$ git branch -dr &lt;remote/branch&gt;   
+</code></pre>
+<p>发布标签</p>
+<pre><code>$ git push --tags
+</code></pre>
+<h2 id="6-合并和重基">6. 合并和重基</h2>
+<p>将&lt;分支&gt;合并到当前的头部</p>
+<pre><code> $ git merge &lt;branch&gt; 
+</code></pre>
+<p>将当前的头重新定位到&lt;分支&gt;<br>
+不要重新发布已发布的提交！</p>
+<pre><code> $ git rebase &lt;branch&gt;    
+</code></pre>
+<p>中止重基</p>
+<pre><code> $ git rebase --abort 
+</code></pre>
+<p>解决冲突后继续重基</p>
+<pre><code>$ git rebase --continue   
+</code></pre>
+<p>使用配置的合并工具解决冲突</p>
+<pre><code>$ git mergetool   
+</code></pre>
+<p>使用编辑器手动解决冲突，并(在解决后)将文件标记为“已解决”。</p>
+<pre><code>  $ git add &lt;resolved-file&gt;
   
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-</div>
+  $ git rm &lt;resolved-file&gt; 
+</code></pre>
+<h2 id="7-撤销">7. 撤销</h2>
+<p>放弃工作目录中的所有本地更改。</p>
+<pre><code>$ git reset --hard HEAD    
+</code></pre>
+<p>放弃特定文件中的本地更改。</p>
+<pre><code>$ git checkout HEAD &lt;file&gt; 
+</code></pre>
+<p>还原一个提交(通过产生一个新的具有相反更改的提交)</p>
+<pre><code>$ git revert &lt;commit&gt;  
+</code></pre>
+<p>将头指针重置为上一次提交<br>
+…并放弃自那以后的所有变化</p>
+<pre><code>$ git reset --hard &lt;commit&gt;    
+</code></pre>
+<p>…并将所有更改保留为未分阶段的更改。</p>
+<pre><code>$ git reset &lt;commit&gt;   
+</code></pre>
+<p>…并保存未提交的本地更改。</p>
+<pre><code>$ git reset --keep &lt;commit&gt;    
+</code></pre>
+<h1 id="二-最佳做法">二、最佳做法</h1>
+<h2 id="1-提交相关修改">1. 提交相关修改</h2>
+<p>提交应该是相关更改的包装。例如，修复两个不同的bug应该产生两个单独的提交。消息使其他开发者更容易理解禅宗。 如果出了什么问题就把它们退回去。</p>
+<p>有了诸如分阶段区域和ABI特性这样的工具，只对文件的部分进行分级，Git使创建非常细粒度的提交变得非常容易。</p>
+<h2 id="2-经常提交">2. 经常提交</h2>
+<p>提交经常使您的承诺保持较小，并且再次帮助您仅提交相关的更改。<br>
+  此外，它允许您更频繁地与其他人共享代码。<br>
+这样对每个人来说都比较容易 定期集成更改，避免合并冲突。</p>
+<p>相反，很少有大量的提交，并且很少分享它们，这使得解决冲突变得困难。</p>
+<h2 id="3-不要半途而废">3. 不要半途而废</h2>
+<p>您应该只在代码完成时提交代码。这并不意味着您必须在提交之前完成一个完整的大型功能。完全相反：分裂</p>
+<p>特性的实现分为逻辑块，并记住要尽早提交。</p>
+<p>但是，不要只承诺在一天结束前离开办公室之前就在存储库中有一些东西。如果仅仅因为需要一个干净的工作副本(检查分支)而想提交 在变化，拉等）考虑使用Git的«stash»特征相反。</p>
+<h2 id="4-在提交之前测试代码">4. 在提交之前测试代码</h2>
+<p>抵制诱惑，去做一些你认为已经完成的事情。彻底测试它，以确保它真的完成了。</p>
+<p>而且没有副作用(据我们所知)。虽然在本地存储库中提交半生不熟的东西只需要您原谅自己，但是在以下情况下进行代码测试就更重要了。 这涉及到推送/与他人共享代码。</p>
+<h2 id="5-编写良好的提交消息">5. 编写良好的提交消息</h2>
+<p>开始您的消息，以一个简短的总结，您的变化(多达50个字符作为一个Gui-deline)。将它与下面的正文分隔开，方法是包含一个空行。您的消息正文应该提供如以下问题的邮件式解答：</p>
+<pre><code>改变的动机是什么？
 
-          </section>
+它与以前的实施方式有何不同？
+</code></pre>
+<p>使用祈使句、现在时态（省去变化、不改变或改变）与来自Git合并的命令生成的消息一致。</p>
+<h2 id="6-版本控制不是备份系统">6. 版本控制不是备份系统。</h2>
+<p>在远程服务器上备份文件是拥有版本控制系统的一个很好的副作用。但是你不应该像使用备份系统一样使用你的VCS。在执行版本控制时，您将应该注意语义上的（见相关的Chan-Ges）-你不应该只是在文件中填塞。</p>
+<h2 id="7-使用分支">7. 使用分支</h2>
+<p>分支是Git最强大的特性之一，这不是偶然的：快速和容易的分支是第一天的中心要求。分支是帮助你避免混淆不同发展方向的完美工具. 您应该在开发工作流程中广泛使用分支：用于新特性、bug修复、想法……</p>
+<h2 id="8-就工作流达成一致">8. 就工作流达成一致</h2>
+<p>git允许您从许多不同的工作流中选择：长时间运行的分支、主题bran-ch、合并或重基、git-flow…。您选择哪一个取决于以下几个因素：你的项目，你的整体开发和部署工作流程，（也许最重要的）是你和你的队友的个人喜好。无论你选择工作，只要确保达成一个共同的工作流程，每个人都遵循这个工作流程。</p>
+<h2 id="9-使用帮助和文档">9. 使用帮助和文档</h2>
+<p>获取命令行的帮助</p>
+<pre><code>  $ git help &lt;command&gt; </code></pre>
+
+            </div>
+            
+              <div class="reward-btn">
+                <div class="reward-btn-text">赞赏</div>
+              </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Jerry
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://jokerzhang98.github.io/post/Yr2e4qfT2/" title="Git常用命令">https://jokerzhang98.github.io/post/Yr2e4qfT2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="SpringBoot基础" href="https://jokerzhang98.github.io/post/MAZoZSKiX/">SpringBoot基础</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="SpringBoot基础" href="https://jokerzhang98.github.io/post/MAZoZSKiX/">上一篇</a>
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Git学习（下）" href="https://jokerzhang98.github.io/post/b-mpNTsOz/">Git学习（下）</a>
+        <a class="nav-mobile-next" title="Git学习（下）" href="https://jokerzhang98.github.io/post/b-mpNTsOz/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+            
+            
+  
+
+          </div>
         </div>
       </div>
     </div>
@@ -718,6 +969,252 @@
     });
   }
 
+</script>
+    <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick = () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function (e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function () {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        window.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        window.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        window.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        window.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      window.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
 </script>
   </div>
 </body>
@@ -3517,6 +4014,5 @@ int main(){
 
 
 <script src="/media/js/cool.js"></script>
-
 
 </html>
