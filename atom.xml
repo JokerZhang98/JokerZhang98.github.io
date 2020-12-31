@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jokerzhang98.github.io/</id>
     <title>Jerryのblog</title>
-    <updated>2020-12-31T07:46:31.846Z</updated>
+    <updated>2020-12-31T09:28:23.162Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jokerzhang98.github.io/"/>
     <link rel="self" href="https://jokerzhang98.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://jokerzhang98.github.io/images/avatar.png</logo>
     <icon>https://jokerzhang98.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jerryのblog</rights>
+    <entry>
+        <title type="html"><![CDATA[2021-历经千帆，归来仍是少年]]></title>
+        <id>https://jokerzhang98.github.io/post/Cei20We4J/</id>
+        <link href="https://jokerzhang98.github.io/post/Cei20We4J/">
+        </link>
+        <updated>2020-12-31T09:27:30.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SpringBoot基础]]></title>
         <id>https://jokerzhang98.github.io/post/MAZoZSKiX/</id>
@@ -48,12 +55,5 @@
         <link href="https://jokerzhang98.github.io/post/3K60XO6kZ/">
         </link>
         <updated>2020-11-25T10:10:38.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[maven添加阿里云镜像]]></title>
-        <id>https://jokerzhang98.github.io/post/MldJz-3Au/</id>
-        <link href="https://jokerzhang98.github.io/post/MldJz-3Au/">
-        </link>
-        <updated>2020-11-25T09:22:50.000Z</updated>
     </entry>
 </feed>
